@@ -1,0 +1,4142 @@
+[
+ {
+  "id": "aws_ecs_fargate",
+  "name": "AWS ECS on Fargate + ALB",
+  "layer": "hosting",
+  "sub_layer": "container",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "autoscale",
+   "load_balancer",
+   "private_networking"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "fintech",
+   "marketplace",
+   "healthtech"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog"
+  ],
+  "strengths": [
+   "Runs any container without managing servers",
+   "Integrates with RDS, ALB, WAF and IAM"
+  ],
+  "limits": [
+   "More moving parts than a PaaS",
+   "AWS lock-in at the networking layer"
+  ],
+  "offerings": [
+   {
+    "id": "ecs_fargate",
+    "name": "Amazon ECS on AWS Fargate with ALB",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      40,
+      80
+     ],
+     [
+      10000,
+      60,
+      130
+     ],
+     [
+      100000,
+      150,
+      400
+     ],
+     [
+      1000000,
+      700,
+      2500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "AWS Fargate pricing",
+      "url": "https://aws.amazon.com/fargate/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "AWS ECS on Fargate + ALB documentation",
+    "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "aws_lambda_host",
+  "name": "AWS Lambda + API Gateway",
+  "layer": "hosting",
+  "sub_layer": "serverless",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "faas",
+   "autoscale_to_zero",
+   "event_driven"
+  ],
+  "runs_on": [
+   "faas",
+   "aws_lambda"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "iot",
+   "saas_b2b",
+   "data_analytics",
+   "content_site"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab"
+  ],
+  "strengths": [
+   "No servers to run and scales to zero",
+   "Pay per request"
+  ],
+  "limits": [
+   "Cold starts; execution time limits",
+   "Poor fit for long-lived websockets"
+  ],
+  "offerings": [
+   {
+    "id": "lambda_apigw_host",
+    "name": "AWS Lambda + Amazon API Gateway",
+    "provider": "aws",
+    "kind": "faas",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "1M Lambda requests per month always free"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      2
+     ],
+     [
+      10000,
+      1,
+      10
+     ],
+     [
+      100000,
+      10,
+      80
+     ],
+     [
+      1000000,
+      80,
+      600
+     ]
+    ],
+    "sources": [
+     {
+      "title": "AWS Lambda pricing",
+      "url": "https://aws.amazon.com/lambda/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "AWS Lambda + API Gateway documentation",
+    "url": "https://docs.aws.amazon.com/lambda/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "aws_amplify",
+  "name": "AWS Amplify Hosting",
+  "layer": "hosting",
+  "sub_layer": "static",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "ssr_hosting",
+   "cdn_included",
+   "git_deploy",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "static",
+   "node"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "fintech"
+  ],
+  "strengths": [
+   "Git-driven deploys for static and SSR sites with CloudFront included",
+   "Stays inside AWS for IAM and billing"
+  ],
+  "limits": [
+   "SSR support lags Vercel; fewer controls",
+   "AWS lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "amplify_hosting",
+    "name": "AWS Amplify Hosting",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.9,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "12 months free tier for new accounts: 1000 build minutes, 5 GB storage, 15 GB served"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      15
+     ],
+     [
+      10000,
+      5,
+      40
+     ],
+     [
+      100000,
+      30,
+      150
+     ],
+     [
+      1000000,
+      200,
+      900
+     ]
+    ],
+    "sources": [
+     {
+      "title": "AWS Amplify pricing",
+      "url": "https://aws.amazon.com/amplify/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "AWS Amplify Hosting documentation",
+    "url": "https://docs.aws.amazon.com/amplify/latest/userguide/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "aws_lightsail",
+  "name": "Amazon Lightsail",
+  "layer": "hosting",
+  "sub_layer": "vm",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "vm",
+   "container",
+   "load_balancer",
+   "fixed_price"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 2,
+   "scalability": 2,
+   "ops_burden": 3,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "internal_tools",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "fintech"
+  ],
+  "strengths": [
+   "Fixed monthly price VMs and containers",
+   "Simple console for small teams"
+  ],
+  "limits": [
+   "Limited autoscale; ceiling around 10k users per instance",
+   "Fewer attestations scoped than core AWS services"
+  ],
+  "offerings": [
+   {
+    "id": "lightsail_vm",
+    "name": "Amazon Lightsail",
+    "provider": "aws",
+    "kind": "vm",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "3-month free tier on selected bundles for new accounts"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      10,
+      40
+     ],
+     [
+      100000,
+      40,
+      120
+     ],
+     [
+      1000000,
+      200,
+      700
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Amazon Lightsail pricing",
+      "url": "https://aws.amazon.com/lightsail/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Amazon Lightsail documentation",
+    "url": "https://docs.aws.amazon.com/lightsail/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "aws_ec2",
+  "name": "Amazon EC2 (VM)",
+  "layer": "hosting",
+  "sub_layer": "vm",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "vm",
+   "container",
+   "autoscale",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "fintech",
+   "saas_b2b",
+   "healthtech",
+   "gaming"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Full control over the OS and software",
+   "Every compliance programme covered"
+  ],
+  "limits": [
+   "You patch and operate the servers",
+   "Higher ops burden than managed options"
+  ],
+  "offerings": [
+   {
+    "id": "ec2_vm",
+    "name": "Amazon EC2",
+    "provider": "aws",
+    "kind": "vm",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month t3.micro for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      10,
+      40
+     ],
+     [
+      10000,
+      25,
+      80
+     ],
+     [
+      100000,
+      100,
+      300
+     ],
+     [
+      1000000,
+      500,
+      2000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Amazon EC2 pricing",
+      "url": "https://aws.amazon.com/ec2/pricing/on-demand/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Amazon EC2 (VM) documentation",
+    "url": "https://docs.aws.amazon.com/ec2/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "aws_eks",
+  "name": "Amazon EKS",
+  "layer": "hosting",
+  "sub_layer": "kubernetes",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "k8s",
+   "container",
+   "autoscale",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 1,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 5,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "saas_b2b",
+   "fintech",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog",
+   "content_site"
+  ],
+  "strengths": [
+   "Managed Kubernetes control plane for large multi-service systems"
+  ],
+  "limits": [
+   "Control plane plus node costs from day one",
+   "Needs platform engineering skill"
+  ],
+  "offerings": [
+   {
+    "id": "eks_cluster",
+    "name": "Amazon EKS",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      100,
+      200
+     ],
+     [
+      10000,
+      150,
+      300
+     ],
+     [
+      100000,
+      300,
+      900
+     ],
+     [
+      1000000,
+      1000,
+      4000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Amazon EKS pricing",
+      "url": "https://aws.amazon.com/eks/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Amazon EKS documentation",
+    "url": "https://docs.aws.amazon.com/eks/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "gcp_cloud_run",
+  "name": "Google Cloud Run",
+  "layer": "hosting",
+  "sub_layer": "container",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "autoscale_to_zero",
+   "load_balancer",
+   "git_deploy"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "content_site",
+   "healthtech",
+   "data_analytics"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Any container, scales to zero, and bills per request",
+   "Simple and cheap for small teams",
+   "Container portability keeps lock-in low"
+  ],
+  "limits": [
+   "Websocket sessions are time limited",
+   "Cold starts on idle services"
+  ],
+  "offerings": [
+   {
+    "id": "cloud_run_svc",
+    "name": "Google Cloud Run",
+    "provider": "gcp",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Always free: 2M requests, 360,000 GB-seconds and 180,000 vCPU-seconds per month"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      3,
+      20
+     ],
+     [
+      100000,
+      25,
+      120
+     ],
+     [
+      1000000,
+      200,
+      800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Cloud Run pricing",
+      "url": "https://cloud.google.com/run/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Google Cloud Run documentation",
+    "url": "https://cloud.google.com/run/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "firebase_hosting",
+  "name": "Firebase Hosting",
+  "layer": "hosting",
+  "sub_layer": "static",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "cdn_included",
+   "git_deploy",
+   "ssr_hosting_via_functions"
+  ],
+  "runs_on": [
+   "static",
+   "node",
+   "faas"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 5,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "content_site",
+   "social",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "fintech"
+  ],
+  "strengths": [
+   "Global CDN with one-command deploys",
+   "Pairs with Firebase backend and Cloud Run"
+  ],
+  "limits": [
+   "Static/CDN only; dynamic code goes to Cloud Functions or Cloud Run",
+   "Edge delivery is not region pinned"
+  ],
+  "offerings": [
+   {
+    "id": "firebase_hosting_svc",
+    "name": "Firebase Hosting",
+    "provider": "firebase",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Spark plan: 10 GB storage and 360 MB/day transfer free"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      0
+     ],
+     [
+      10000,
+      0,
+      0
+     ],
+     [
+      100000,
+      5,
+      40
+     ],
+     [
+      1000000,
+      40,
+      250
+     ]
+    ],
+    "edge_not_regional": true,
+    "sources": [
+     {
+      "title": "Firebase pricing",
+      "url": "https://firebase.google.com/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Firebase Hosting documentation",
+    "url": "https://firebase.google.com/docs/hosting"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "gcp_gke",
+  "name": "Google Kubernetes Engine",
+  "layer": "hosting",
+  "sub_layer": "kubernetes",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "k8s",
+   "container",
+   "autoscale",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 1,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "saas_b2b",
+   "fintech",
+   "data_analytics"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog",
+   "content_site"
+  ],
+  "strengths": [
+   "Mature managed Kubernetes with Autopilot mode"
+  ],
+  "limits": [
+   "Cluster fee and baseline node cost from day one",
+   "Needs platform engineering skill"
+  ],
+  "offerings": [
+   {
+    "id": "gke_cluster",
+    "name": "Google Kubernetes Engine (Autopilot)",
+    "provider": "gcp",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "One free zonal or Autopilot cluster per billing account (management fee credit)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      75,
+      150
+     ],
+     [
+      10000,
+      120,
+      250
+     ],
+     [
+      100000,
+      300,
+      900
+     ],
+     [
+      1000000,
+      1000,
+      4000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "GKE pricing",
+      "url": "https://cloud.google.com/kubernetes-engine/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Google Kubernetes Engine documentation",
+    "url": "https://cloud.google.com/kubernetes-engine/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "gcp_compute_engine",
+  "name": "Google Compute Engine",
+  "layer": "hosting",
+  "sub_layer": "vm",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "vm",
+   "container",
+   "autoscale",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "gaming",
+   "data_analytics"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Full OS control",
+   "Per-second billing and sustained-use discounts"
+  ],
+  "limits": [
+   "You patch and operate the servers"
+  ],
+  "offerings": [
+   {
+    "id": "gce_vm",
+    "name": "Google Compute Engine",
+    "provider": "gcp",
+    "kind": "vm",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Always free e2-micro in selected US regions"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      8,
+      30
+     ],
+     [
+      10000,
+      20,
+      70
+     ],
+     [
+      100000,
+      90,
+      280
+     ],
+     [
+      1000000,
+      450,
+      1800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Compute Engine pricing",
+      "url": "https://cloud.google.com/compute/all-pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Google Compute Engine documentation",
+    "url": "https://cloud.google.com/compute/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_app_service",
+  "name": "Azure App Service",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "autoscale",
+   "git_deploy",
+   "load_balancer",
+   "enterprise_auth"
+  ],
+  "runs_on": [
+   "dotnet",
+   "node",
+   "python",
+   "jvm",
+   "php",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "internal_tools",
+   "fintech",
+   "government",
+   "healthtech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Fully managed web app hosting with Entra ID integration",
+   "Natural home for ASP.NET Core"
+  ],
+  "limits": [
+   "Plans bill continuously; no scale to zero",
+   "Azure lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "app_service",
+    "name": "Azure App Service",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "F1 free tier is for development and testing, 60 CPU minutes per day"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      13,
+      60
+     ],
+     [
+      10000,
+      55,
+      100
+     ],
+     [
+      100000,
+      110,
+      350
+     ],
+     [
+      1000000,
+      500,
+      2000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Azure App Service pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/app-service/linux/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure App Service documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/app-service/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_container_apps",
+  "name": "Azure Container Apps",
+  "layer": "hosting",
+  "sub_layer": "container",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "autoscale_to_zero",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Serverless containers with scale to zero and KEDA scaling",
+   "No Kubernetes to run"
+  ],
+  "limits": [
+   "Fewer controls than AKS",
+   "Azure lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "container_apps",
+    "name": "Azure Container Apps",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Monthly free grant: 180,000 vCPU-seconds, 360,000 GiB-seconds, 2M requests"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      15
+     ],
+     [
+      10000,
+      5,
+      40
+     ],
+     [
+      100000,
+      30,
+      150
+     ],
+     [
+      1000000,
+      250,
+      900
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Azure Container Apps pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/container-apps/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Container Apps documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/container-apps/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_static_web_apps",
+  "name": "Azure Static Web Apps",
+  "layer": "hosting",
+  "sub_layer": "static",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "cdn_included",
+   "git_deploy",
+   "ssr_hosting",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "static",
+   "node",
+   "faas"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "content_site",
+   "internal_tools",
+   "saas_b2b"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Static front end with built-in Entra ID and GitHub auth and managed Functions"
+  ],
+  "limits": [
+   "Free plan is for personal projects",
+   "Edge delivery is global"
+  ],
+  "offerings": [
+   {
+    "id": "static_web_apps",
+    "name": "Azure Static Web Apps",
+    "provider": "azure",
+    "kind": "static",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "Free plan is for hobby and personal projects"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      9
+     ],
+     [
+      10000,
+      9,
+      20
+     ],
+     [
+      100000,
+      9,
+      60
+     ],
+     [
+      1000000,
+      50,
+      300
+     ]
+    ],
+    "edge_not_regional": true,
+    "sources": [
+     {
+      "title": "Azure Static Web Apps pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/app-service/static/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Static Web Apps documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/static-web-apps/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_functions_host",
+  "name": "Azure Functions",
+  "layer": "hosting",
+  "sub_layer": "serverless",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "faas",
+   "autoscale_to_zero",
+   "event_driven"
+  ],
+  "runs_on": [
+   "faas",
+   "azure_functions"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "saas_b2b",
+   "iot",
+   "internal_tools"
+  ],
+  "avoid_for": [
+   "gaming"
+  ],
+  "strengths": [
+   "Event-driven compute with native .NET support"
+  ],
+  "limits": [
+   "Cold starts on Consumption",
+   "Azure lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "azure_functions_plan",
+    "name": "Azure Functions (Flex Consumption)",
+    "provider": "azure",
+    "kind": "faas",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Monthly free grant of executions"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      2
+     ],
+     [
+      10000,
+      1,
+      10
+     ],
+     [
+      100000,
+      10,
+      90
+     ],
+     [
+      1000000,
+      90,
+      650
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Azure Functions pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/functions/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Functions documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/azure-functions/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_aks",
+  "name": "Azure Kubernetes Service",
+  "layer": "hosting",
+  "sub_layer": "kubernetes",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "k8s",
+   "container",
+   "autoscale",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 1,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "saas_b2b",
+   "fintech",
+   "government"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog",
+   "content_site"
+  ],
+  "strengths": [
+   "Free control plane tier and Entra ID integration"
+  ],
+  "limits": [
+   "Node costs from day one",
+   "Needs platform engineering skill"
+  ],
+  "offerings": [
+   {
+    "id": "aks_cluster",
+    "name": "Azure Kubernetes Service",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free tier control plane; you pay for nodes"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      70,
+      140
+     ],
+     [
+      10000,
+      100,
+      220
+     ],
+     [
+      100000,
+      280,
+      850
+     ],
+     [
+      1000000,
+      950,
+      3800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "AKS pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/kubernetes-service/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Kubernetes Service documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/aks/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_vms",
+  "name": "Azure Virtual Machines",
+  "layer": "hosting",
+  "sub_layer": "vm",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "vm",
+   "container",
+   "autoscale",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "government",
+   "fintech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Full OS control incl. Windows Server and SQL Server images"
+  ],
+  "limits": [
+   "You patch and operate the servers"
+  ],
+  "offerings": [
+   {
+    "id": "azure_vm",
+    "name": "Azure Virtual Machines",
+    "provider": "azure",
+    "kind": "vm",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month B1s for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      10,
+      40
+     ],
+     [
+      10000,
+      25,
+      80
+     ],
+     [
+      100000,
+      100,
+      300
+     ],
+     [
+      1000000,
+      500,
+      2000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Azure Virtual Machines pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Virtual Machines documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "vercel_host",
+  "name": "Vercel",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "ssr_hosting",
+   "cdn_included",
+   "git_deploy",
+   "edge",
+   "autoscale_to_zero",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "node",
+   "static",
+   "edge",
+   "python",
+   "go",
+   "ruby"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 5,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "marketplace",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "fintech",
+   "gaming"
+  ],
+  "strengths": [
+   "Best developer experience for Next.js, previews on every push",
+   "Global CDN included",
+   "Functions can run in Mumbai (bom1)"
+  ],
+  "limits": [
+   "Hobby plan is non-commercial only",
+   "No long-lived websockets; data stores are not in India",
+   "Costs rise sharply at high traffic"
+  ],
+  "offerings": [
+   {
+    "id": "vercel_pro",
+    "name": "Vercel (Pro)",
+    "provider": "vercel",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "bom1"
+     ],
+     "eu": [
+      "fra1",
+      "cdg1",
+      "dub1"
+     ],
+     "us": [
+      "iad1",
+      "sfo1"
+     ],
+     "apac": [
+      "sin1",
+      "syd1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "Hobby plan is free but non-commercial use only"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      20
+     ],
+     [
+      10000,
+      20,
+      60
+     ],
+     [
+      100000,
+      40,
+      300
+     ],
+     [
+      1000000,
+      300,
+      2500
+     ]
+    ],
+    "edge_not_regional": true,
+    "hipaa_note": "BAA add-on on Pro",
+    "sources": [
+     {
+      "title": "Vercel pricing",
+      "url": "https://vercel.com/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Vercel documentation",
+    "url": "https://vercel.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "netlify_host",
+  "name": "Netlify",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "ssr_hosting",
+   "cdn_included",
+   "git_deploy",
+   "faas",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "static",
+   "node",
+   "edge",
+   "faas"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 5,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "portfolio",
+   "saas_b2b",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech"
+  ],
+  "strengths": [
+   "Git-based deploys and global CDN included",
+   "Generous free plan for sites"
+  ],
+  "limits": [
+   "No India region",
+   "Serverless functions have time limits"
+  ],
+  "offerings": [
+   {
+    "id": "netlify_site",
+    "name": "Netlify",
+    "provider": "netlify",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "eu-central-1"
+     ],
+     "us": [
+      "us-east-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan: credit-based limits; check the current terms for commercial use"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      19
+     ],
+     [
+      10000,
+      0,
+      40
+     ],
+     [
+      100000,
+      19,
+      150
+     ],
+     [
+      1000000,
+      150,
+      900
+     ]
+    ],
+    "edge_not_regional": true,
+    "sources": [
+     {
+      "title": "Netlify pricing",
+      "url": "https://www.netlify.com/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Netlify documentation",
+    "url": "https://docs.netlify.com/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "cloudflare_pages",
+  "name": "Cloudflare Pages and Workers",
+  "layer": "hosting",
+  "sub_layer": "static",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "ssr_hosting",
+   "cdn_included",
+   "edge",
+   "git_deploy",
+   "faas",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "static",
+   "edge",
+   "faas",
+   "cf_workers"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "content_site",
+   "portfolio",
+   "saas_b2b",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech",
+   "government"
+  ],
+  "strengths": [
+   "Global edge with a very generous free plan",
+   "Static assets served free of bandwidth charges"
+  ],
+  "limits": [
+   "No India or EU data pinning on standard plans",
+   "Workers runtime differs from Node"
+  ],
+  "offerings": [
+   {
+    "id": "cloudflare_pages_svc",
+    "name": "Cloudflare Pages and Workers",
+    "provider": "cloudflare",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "eu"
+     ],
+     "us": [
+      "us"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan: unlimited static requests; Workers 100,000 requests per day"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      0,
+      10
+     ],
+     [
+      100000,
+      0,
+      10
+     ],
+     [
+      1000000,
+      0,
+      25
+     ]
+    ],
+    "edge_not_regional": true,
+    "sources": [
+     {
+      "title": "Cloudflare Developer Platform pricing",
+      "url": "https://www.cloudflare.com/plans/developer-platform/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Cloudflare Pages and Workers documentation",
+    "url": "https://developers.cloudflare.com/pages/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "github_pages",
+  "name": "GitHub Pages",
+  "layer": "hosting",
+  "sub_layer": "static",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "static_hosting",
+   "cdn_included",
+   "git_deploy",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "static"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 5,
+   "performance": 4,
+   "scalability": 3,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 3,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "portfolio",
+   "blog",
+   "documentation",
+   "content_site"
+  ],
+  "avoid_for": [
+   "ecommerce",
+   "saas_b2b",
+   "fintech",
+   "marketplace"
+  ],
+  "strengths": [
+   "Free static hosting from a repository",
+   "Zero operations"
+  ],
+  "limits": [
+   "Static files only; no server code",
+   "Terms forbid running an online business or SaaS from Pages",
+   "Soft limit of 100 GB of bandwidth a month, which a site with more than about 50,000 monthly users exceeds"
+  ],
+  "offerings": [
+   {
+    "id": "github_pages_svc",
+    "name": "GitHub Pages",
+    "provider": "github",
+    "kind": "static",
+    "regions": {},
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "Free for public repos; not allowed for e-commerce, SaaS or other commercial transactions"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      0
+     ],
+     [
+      10000,
+      0,
+      0
+     ],
+     [
+      100000,
+      0,
+      0
+     ],
+     [
+      1000000,
+      0,
+      0
+     ]
+    ],
+    "soft_limit_users": 50000,
+    "edge_not_regional": true,
+    "sources": [
+     {
+      "title": "GitHub Pages limits",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "GitHub Pages documentation",
+    "url": "https://docs.github.com/en/pages"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "render_host",
+  "name": "Render",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "static_hosting",
+   "autoscale",
+   "git_deploy",
+   "managed_postgres",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "ruby",
+   "go",
+   "jvm",
+   "php",
+   "elixir",
+   "dotnet",
+   "container",
+   "static"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "internal_tools"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech"
+  ],
+  "strengths": [
+   "Heroku-style git deploy with managed Postgres and Redis",
+   "Fixed monthly instance prices"
+  ],
+  "limits": [
+   "No India region; Singapore is nearest",
+   "Free instances sleep and are not for production"
+  ],
+  "offerings": [
+   {
+    "id": "render_web",
+    "name": "Render Web Services",
+    "provider": "render",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "frankfurt"
+     ],
+     "us": [
+      "oregon",
+      "ohio",
+      "virginia"
+     ],
+     "apac": [
+      "singapore"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "Free instances spin down after inactivity and are for testing"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      7,
+      25
+     ],
+     [
+      10000,
+      25,
+      60
+     ],
+     [
+      100000,
+      85,
+      300
+     ],
+     [
+      1000000,
+      400,
+      1800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Render pricing",
+      "url": "https://render.com/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Render documentation",
+    "url": "https://render.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "flyio_host",
+  "name": "Fly.io",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "autoscale",
+   "multi_region",
+   "private_networking"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "saas_b2b",
+   "realtime_collab",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech"
+  ],
+  "strengths": [
+   "Runs containers close to users in many regions",
+   "Good fit for Phoenix and websockets"
+  ],
+  "limits": [
+   "No Mumbai region",
+   "Usage-based bills need monitoring"
+  ],
+  "offerings": [
+   {
+    "id": "fly_machines",
+    "name": "Fly.io Machines",
+    "provider": "flyio",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "fra",
+      "ams",
+      "lhr"
+     ],
+     "us": [
+      "iad",
+      "ord",
+      "sjc"
+     ],
+     "apac": [
+      "sin",
+      "syd"
+     ]
+    },
+    "attestations": [
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      15,
+      50
+     ],
+     [
+      100000,
+      60,
+      250
+     ],
+     [
+      1000000,
+      350,
+      1500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Fly.io pricing",
+      "url": "https://fly.io/docs/about/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Fly.io documentation",
+    "url": "https://fly.io/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "railway_host",
+  "name": "Railway",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "autoscale",
+   "git_deploy",
+   "managed_postgres",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 5,
+   "performance": 3,
+   "scalability": 3,
+   "ops_burden": 1,
+   "maturity": 3,
+   "ecosystem": 3,
+   "security": 3,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "internal_tools",
+   "saas_b2b",
+   "portfolio"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech"
+  ],
+  "strengths": [
+   "Fast deploys from git with databases next to the app"
+  ],
+  "limits": [
+   "No India region",
+   "Fewer compliance attestations and SLAs"
+  ],
+  "offerings": [
+   {
+    "id": "railway_svc",
+    "name": "Railway",
+    "provider": "railway",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "europe-west4"
+     ],
+     "us": [
+      "us-east4",
+      "us-west2"
+     ],
+     "apac": [
+      "asia-southeast1"
+     ]
+    },
+    "attestations": [
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": false,
+     "commercial_use": false,
+     "limits": "One-time trial credits only"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      10,
+      50
+     ],
+     [
+      100000,
+      50,
+      250
+     ],
+     [
+      1000000,
+      300,
+      1500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Railway pricing",
+      "url": "https://railway.com/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Railway documentation",
+    "url": "https://docs.railway.com/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "do_app_platform",
+  "name": "DigitalOcean App Platform",
+  "layer": "hosting",
+  "sub_layer": "paas",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "static_hosting",
+   "autoscale",
+   "git_deploy",
+   "native_git_ci"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "ruby",
+   "go",
+   "php",
+   "jvm",
+   "container",
+   "static"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "content_site",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Simple PaaS with a Bengaluru region",
+   "Predictable pricing; static sites free"
+  ],
+  "limits": [
+   "Fewer attestations than hyperscalers",
+   "Limited advanced networking"
+  ],
+  "offerings": [
+   {
+    "id": "do_app",
+    "name": "DigitalOcean App Platform",
+    "provider": "digitalocean",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "blr1"
+     ],
+     "eu": [
+      "fra1",
+      "ams3",
+      "lon1"
+     ],
+     "us": [
+      "nyc3",
+      "sfo3"
+     ],
+     "apac": [
+      "sgp1",
+      "syd1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Up to 3 static sites free"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      15
+     ],
+     [
+      10000,
+      12,
+      40
+     ],
+     [
+      100000,
+      50,
+      200
+     ],
+     [
+      1000000,
+      300,
+      1200
+     ]
+    ],
+    "sources": [
+     {
+      "title": "DigitalOcean App Platform pricing",
+      "url": "https://www.digitalocean.com/pricing/app-platform"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "DigitalOcean App Platform documentation",
+    "url": "https://docs.digitalocean.com/products/app-platform/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "do_droplets",
+  "name": "DigitalOcean Droplets",
+  "layer": "hosting",
+  "sub_layer": "vm",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "vm",
+   "container",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 3,
+   "ops_burden": 4,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "internal_tools",
+   "saas_b2b"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Cheap, simple VMs with a Bengaluru region"
+  ],
+  "limits": [
+   "You patch and operate the servers",
+   "Fewer attestations than hyperscalers"
+  ],
+  "offerings": [
+   {
+    "id": "do_droplet",
+    "name": "DigitalOcean Droplets",
+    "provider": "digitalocean",
+    "kind": "vm",
+    "regions": {
+     "india": [
+      "blr1"
+     ],
+     "eu": [
+      "fra1",
+      "ams3",
+      "lon1"
+     ],
+     "us": [
+      "nyc3",
+      "sfo3"
+     ],
+     "apac": [
+      "sgp1",
+      "syd1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      6,
+      20
+     ],
+     [
+      10000,
+      12,
+      40
+     ],
+     [
+      100000,
+      50,
+      160
+     ],
+     [
+      1000000,
+      250,
+      900
+     ]
+    ],
+    "sources": [
+     {
+      "title": "DigitalOcean Droplets pricing",
+      "url": "https://www.digitalocean.com/pricing/droplets"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "DigitalOcean Droplets documentation",
+    "url": "https://docs.digitalocean.com/products/droplets/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "hetzner_cloud",
+  "name": "Hetzner Cloud",
+  "layer": "hosting",
+  "sub_layer": "vm",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "vm",
+   "container",
+   "load_balancer"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 3,
+   "ops_burden": 4,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "marketplace",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Best price per core in the EU",
+   "Plain VMs avoid lock-in"
+  ],
+  "limits": [
+   "No India region",
+   "You patch and operate the servers"
+  ],
+  "offerings": [
+   {
+    "id": "hetzner_vm",
+    "name": "Hetzner Cloud servers",
+    "provider": "hetzner",
+    "kind": "vm",
+    "regions": {
+     "eu": [
+      "fsn1",
+      "nbg1",
+      "hel1"
+     ],
+     "us": [
+      "ash",
+      "hil"
+     ],
+     "apac": [
+      "sin"
+     ]
+    },
+    "attestations": [
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      4,
+      15
+     ],
+     [
+      10000,
+      8,
+      30
+     ],
+     [
+      100000,
+      30,
+      120
+     ],
+     [
+      1000000,
+      150,
+      600
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Hetzner Cloud pricing",
+      "url": "https://www.hetzner.com/cloud/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Hetzner Cloud documentation",
+    "url": "https://docs.hetzner.com/cloud/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "supabase_platform",
+  "name": "Supabase platform (BaaS hosting)",
+  "layer": "hosting",
+  "sub_layer": "baas_platform",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "baas_platform",
+   "edge_functions",
+   "managed_postgres"
+  ],
+  "runs_on": [
+   "baas",
+   "edge"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "n/a",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "social",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Hosts the Supabase backend; pair with a web host for the front end"
+  ],
+  "limits": [
+   "Does not host arbitrary backend frameworks"
+  ],
+  "offerings": [
+   {
+    "id": "supabase_host",
+    "name": "Supabase platform",
+    "provider": "supabase",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-1"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan with paused projects"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      25
+     ],
+     [
+      10000,
+      25,
+      40
+     ],
+     [
+      100000,
+      25,
+      150
+     ],
+     [
+      1000000,
+      300,
+      1500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Supabase pricing",
+      "url": "https://supabase.com/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Supabase platform (BaaS hosting) documentation",
+    "url": "https://supabase.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "onprem_compose",
+  "name": "On-premise Docker Compose on Linux servers",
+  "layer": "hosting",
+  "sub_layer": "self",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "vm",
+   "on_premise",
+   "self_hosted"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "various",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 2,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 3,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "internal_tools",
+   "government",
+   "healthtech",
+   "fintech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "No cloud dependency; data stays on your premises",
+   "Simple to reason about and back up"
+  ],
+  "limits": [
+   "Single-host availability unless you add replicas",
+   "You own patching, backups and monitoring"
+  ],
+  "offerings": [
+   {
+    "id": "onprem_compose_svc",
+    "name": "Docker Compose on own servers",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      20,
+      80
+     ],
+     [
+      10000,
+      40,
+      150
+     ],
+     [
+      100000,
+      150,
+      600
+     ],
+     [
+      1000000,
+      600,
+      2500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Docker Compose documentation",
+      "url": "https://docs.docker.com/compose/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "On-premise Docker Compose on Linux servers documentation",
+    "url": "https://docs.docker.com/compose/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "onprem_k8s",
+  "name": "On-premise Kubernetes (k3s / RKE2)",
+  "layer": "hosting",
+  "sub_layer": "self",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "k8s",
+   "container",
+   "on_premise",
+   "self_hosted",
+   "autoscale"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "various",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 1,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 5,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "saas_b2b",
+   "government",
+   "fintech"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog",
+   "content_site"
+  ],
+  "strengths": [
+   "Scales horizontally on your own hardware",
+   "k3s is a light distribution; RKE2 is hardened"
+  ],
+  "limits": [
+   "Needs a dedicated platform team",
+   "Heavy for small workloads"
+  ],
+  "offerings": [
+   {
+    "id": "onprem_k8s_svc",
+    "name": "k3s or RKE2 on own servers",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      100,
+      300
+     ],
+     [
+      10000,
+      150,
+      500
+     ],
+     [
+      100000,
+      400,
+      1200
+     ],
+     [
+      1000000,
+      1200,
+      4000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "RKE2 documentation",
+      "url": "https://docs.rke2.io/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "On-premise Kubernetes (k3s / RKE2) documentation",
+    "url": "https://docs.k3s.io/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "airgap_compose",
+  "name": "Air-gapped Docker Compose (Harbor registry + package mirror)",
+  "layer": "hosting",
+  "sub_layer": "self",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "container",
+   "vm",
+   "on_premise",
+   "air_gapped",
+   "self_hosted"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "various",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 2,
+   "ops_burden": 5,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "government",
+   "healthtech",
+   "fintech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Runs with no internet; images come from a local Harbor registry and package mirror"
+  ],
+  "limits": [
+   "Updates and CVE fixes need an offline transfer process",
+   "Heavier operations than connected sites"
+  ],
+  "offerings": [
+   {
+    "id": "airgap_compose_svc",
+    "name": "Docker Compose in an air-gapped network",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      30,
+      100
+     ],
+     [
+      10000,
+      50,
+      180
+     ],
+     [
+      100000,
+      170,
+      650
+     ],
+     [
+      1000000,
+      650,
+      2700
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Harbor documentation",
+      "url": "https://goharbor.io/docs/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Air-gapped Docker Compose (Harbor registry + package mirror) documentation",
+    "url": "https://goharbor.io/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "airgap_k8s",
+  "name": "Air-gapped Kubernetes (RKE2 + Harbor)",
+  "layer": "hosting",
+  "sub_layer": "self",
+  "status": "active",
+  "languages": [],
+  "platforms": [
+   "web",
+   "api"
+  ],
+  "capabilities": [
+   "k8s",
+   "container",
+   "on_premise",
+   "air_gapped",
+   "self_hosted",
+   "autoscale"
+  ],
+  "runs_on": [
+   "node",
+   "python",
+   "jvm",
+   "dotnet",
+   "go",
+   "php",
+   "ruby",
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "various",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 1,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 5,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "government",
+   "saas_b2b"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog",
+   "content_site"
+  ],
+  "strengths": [
+   "Hardened RKE2 supports air-gapped installs"
+  ],
+  "limits": [
+   "Needs a dedicated platform team",
+   "Offline update process for every component"
+  ],
+  "offerings": [
+   {
+    "id": "airgap_k8s_svc",
+    "name": "RKE2 in an air-gapped network",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      120,
+      350
+     ],
+     [
+      10000,
+      180,
+      600
+     ],
+     [
+      100000,
+      450,
+      1400
+     ],
+     [
+      1000000,
+      1400,
+      4500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "RKE2 air-gap install",
+      "url": "https://docs.rke2.io/install/airgap"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Air-gapped Kubernetes (RKE2 + Harbor) documentation",
+    "url": "https://docs.rke2.io/install/airgap"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ }
+]

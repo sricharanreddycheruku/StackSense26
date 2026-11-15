@@ -1,0 +1,62 @@
+{
+  "project": {
+    "name": "Lunch Orders",
+    "type": "internal_tool",
+    "description": "Office lunch order sheet for a 25-person team.",
+    "platforms": [
+      "web"
+    ]
+  },
+  "scale": {
+    "traffic_pattern": "steady",
+    "workload": "balanced",
+    "users_at_launch": 25,
+    "users_12_months": 30,
+    "peak_concurrent_users": 10,
+    "data_volume_gb_12_months": 0.1
+  },
+  "team": {
+    "has_devops": false,
+    "size": 1,
+    "experience": "intermediate",
+    "languages": [
+      "typescript",
+      "python"
+    ]
+  },
+  "budget": {
+    "monthly_infra_usd": 20
+  },
+  "timeline": {
+    "mvp_weeks": 1
+  },
+  "infrastructure": {
+    "cloud_preference": "any",
+    "deployment_model": "managed_cloud",
+    "data_residency": "none",
+    "existing_systems": []
+  },
+  "requirements": {
+    "realtime": false,
+    "offline_support": false,
+    "full_text_search": false,
+    "file_media_storage": false,
+    "payments": false,
+    "auth": "email_password",
+    "multi_tenant": false,
+    "ml_features": "none",
+    "seo_critical": false,
+    "availability": "99.9",
+    "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+    "cost": 5,
+    "time_to_market": 5,
+    "scalability": 1,
+    "performance": 1,
+    "maintainability": 3,
+    "security": 2
+  },
+  "scenario_id": "E09"
+}

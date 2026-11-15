@@ -1,0 +1,2042 @@
+[
+ {
+  "id": "nestjs",
+  "name": "NestJS",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "languages": [
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid_orm",
+   "sso_libs",
+   "websocket_native",
+   "background_jobs",
+   "admin_ui_via_libs"
+  ],
+  "runs_on": [
+   "node",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "fintech",
+   "marketplace",
+   "ecommerce",
+   "realtime_collab"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Structured modules and dependency injection suit growing teams",
+   "Shares TypeScript types with the front end",
+   "Built-in websocket gateways and queue integrations"
+  ],
+  "limits": [
+   "Heavier than Fastify or Go on idle memory",
+   "Decorator-heavy style takes time to learn"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "NestJS documentation",
+    "url": "https://docs.nestjs.com/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "fastify",
+  "name": "Fastify (Node.js)",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": "Fastify 5",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "websocket_native",
+   "background_jobs",
+   "sso_libs"
+  ],
+  "runs_on": [
+   "node",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "marketplace",
+   "realtime_collab",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Among the fastest Node frameworks with low overhead",
+   "JSON schema validation built in",
+   "Small learning curve for JavaScript teams"
+  ],
+  "limits": [
+   "You assemble ORM, auth and jobs yourself",
+   "Single-threaded CPU-bound work needs workers"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Fastify (Node.js) documentation",
+    "url": "https://fastify.dev/docs/latest/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "fastapi",
+  "name": "FastAPI",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "languages": [
+   "python"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "websocket_native",
+   "background_jobs",
+   "ml_friendly",
+   "sso_libs"
+  ],
+  "runs_on": [
+   "python",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "data_analytics",
+   "healthtech",
+   "marketplace",
+   "iot",
+   "fintech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Type-hint driven API with generated OpenAPI docs",
+   "Natural fit for ML and data work in Python",
+   "Async I/O for websockets and many connections"
+  ],
+  "limits": [
+   "No built-in admin or ORM",
+   "Raw CPU throughput is below Go or Java"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "FastAPI documentation",
+    "url": "https://fastapi.tiangolo.com/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "django",
+  "name": "Django + Django REST Framework",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": "Django 5.2 LTS",
+  "languages": [
+   "python"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid_orm",
+   "admin_ui",
+   "sso_libs",
+   "background_jobs",
+   "websocket_via_channels"
+  ],
+  "runs_on": [
+   "python",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "BSD-3-Clause",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 2,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "ecommerce",
+   "marketplace",
+   "saas_b2b",
+   "healthtech",
+   "fintech",
+   "internal_tools",
+   "government"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Admin UI, ORM, auth and migrations included",
+   "Secure defaults and a long record in regulated systems",
+   "Huge package ecosystem"
+  ],
+  "limits": [
+   "Synchronous by default; realtime needs Channels",
+   "Slower raw throughput than Go or ASP.NET Core"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Django + Django REST Framework documentation",
+    "url": "https://docs.djangoproject.com/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "springboot",
+  "name": "Spring Boot",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": "Spring Boot 3.5 / 4.x (supported OSS line)",
+  "languages": [
+   "java",
+   "kotlin"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid_orm",
+   "sso_libs",
+   "background_jobs",
+   "websocket_native",
+   "enterprise"
+  ],
+  "runs_on": [
+   "jvm",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 3,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "fintech",
+   "saas_b2b",
+   "government",
+   "healthtech",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog"
+  ],
+  "strengths": [
+   "Enterprise standard with deep libraries for security, batch and messaging",
+   "Scales well and hires well"
+  ],
+  "limits": [
+   "Verbose and slower to start; heavy memory use",
+   "Longer ramp-up for small teams"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Spring Boot documentation",
+    "url": "https://spring.io/projects/spring-boot"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "aspnet",
+  "name": "ASP.NET Core",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": ".NET 10 LTS",
+  "languages": [
+   "csharp"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid_orm",
+   "sso_libs",
+   "background_jobs",
+   "websocket_native",
+   "signalr",
+   "enterprise"
+  ],
+  "runs_on": [
+   "dotnet",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "fintech",
+   "saas_b2b",
+   "government",
+   "healthtech",
+   "internal_tools",
+   "realtime_collab"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Top-tier TechEmpower throughput",
+   "Built-in Identity, SignalR and Entra ID integration",
+   "Excellent tooling"
+  ],
+  "limits": [
+   "Smaller start-up and open-source community than Node or Python",
+   "Azure-first documentation bias"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "ASP.NET Core documentation",
+    "url": "https://learn.microsoft.com/en-us/aspnet/core/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "go_chi",
+  "name": "Go net/http with chi",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "languages": [
+   "go"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "websocket_native",
+   "background_jobs",
+   "small_bundle"
+  ],
+  "runs_on": [
+   "go",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 3,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "iot",
+   "fintech",
+   "gaming",
+   "data_analytics",
+   "marketplace"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Compiled single binary with tiny memory footprint",
+   "Excellent concurrency for many connections"
+  ],
+  "limits": [
+   "You build auth, ORM and admin yourself",
+   "Fewer batteries than Django or Rails"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Go net/http with chi documentation",
+    "url": "https://go-chi.io/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "laravel",
+  "name": "Laravel",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": "Laravel 12",
+  "languages": [
+   "php"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid_orm",
+   "admin_ui_via_libs",
+   "background_jobs",
+   "octane",
+   "sso_libs",
+   "websocket_via_reverb"
+  ],
+  "runs_on": [
+   "php",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "ecommerce",
+   "marketplace",
+   "saas_b2b",
+   "content_site",
+   "internal_tools"
+  ],
+  "avoid_for": [
+   "iot"
+  ],
+  "strengths": [
+   "Queues, auth, billing helpers and Reverb websockets included",
+   "Octane keeps the app in memory on Swoole or RoadRunner for low request latency",
+   "Very fast to build CRUD products",
+   "Cheap PHP hosting"
+  ],
+  "limits": [
+   "Raw performance trails Go and the JVM even with Octane",
+   "Scaling websockets needs Reverb or a managed service"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Laravel documentation",
+    "url": "https://laravel.com/docs"
+   },
+   {
+    "title": "Laravel Octane documentation",
+    "url": "https://laravel.com/docs/octane"
+   },
+   {
+    "title": "Laravel Reverb documentation",
+    "url": "https://laravel.com/docs/reverb"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "rails",
+  "name": "Ruby on Rails",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": "Rails 8",
+  "languages": [
+   "ruby"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid_orm",
+   "admin_ui_via_libs",
+   "background_jobs",
+   "websocket_native",
+   "sso_libs"
+  ],
+  "runs_on": [
+   "ruby",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 2,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "marketplace",
+   "ecommerce",
+   "saas_b2b",
+   "content_site"
+  ],
+  "avoid_for": [
+   "iot",
+   "gaming"
+  ],
+  "strengths": [
+   "Convention over configuration gives the fastest MVP for CRUD products",
+   "Solid Queue, Solid Cache and Action Cable in the box"
+  ],
+  "limits": [
+   "Smaller talent pool than Node or Python",
+   "Lower per-process throughput"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Ruby on Rails documentation",
+    "url": "https://guides.rubyonrails.org/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "phoenix",
+  "name": "Elixir Phoenix",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "languages": [
+   "elixir"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "websocket_native",
+   "channels",
+   "background_jobs",
+   "acid_orm"
+  ],
+  "runs_on": [
+   "elixir",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 2,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "realtime_collab",
+   "gaming",
+   "social",
+   "iot"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Channels and LiveView handle huge numbers of concurrent connections",
+   "BEAM fault tolerance"
+  ],
+  "limits": [
+   "Few Elixir developers",
+   "Hiring and ramp-up cost for new teams"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Elixir Phoenix documentation",
+    "url": "https://hexdocs.pm/phoenix/overview.html"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "nextjs_routes",
+  "name": "Next.js route handlers",
+  "layer": "backend",
+  "sub_layer": "framework",
+  "status": "active",
+  "recommended_version": "Next.js 16",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "ssr",
+   "route_handlers",
+   "same_app_as_web"
+  ],
+  "runs_on": [
+   "node",
+   "container",
+   "edge"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 5,
+   "security": 3,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "ecommerce",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "iot",
+   "gaming",
+   "realtime_collab"
+  ],
+  "strengths": [
+   "API lives in the same app as the web front end, so no second service",
+   "Deploys with the front end on one platform"
+  ],
+  "limits": [
+   "No built-in websockets, queues or long-running jobs",
+   "Business logic couples to the web framework"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Next.js route handlers documentation",
+    "url": "https://nextjs.org/docs/app/building-your-application/routing/route-handlers"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "supabase",
+  "name": "Supabase",
+  "layer": "backend",
+  "sub_layer": "baas",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript",
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "bundled_db",
+   "bundled_auth",
+   "bundled_storage",
+   "bundled_realtime",
+   "edge_functions",
+   "websocket_native",
+   "acid_orm_postgres",
+   "row_level_security",
+   "pgvector"
+  ],
+  "runs_on": [
+   "managed",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "social",
+   "realtime_collab",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Postgres, Auth, Storage, Realtime and Edge Functions behind one dashboard",
+   "Open source and self-hostable with Docker",
+   "Row-level security for multi-tenant rules"
+  ],
+  "limits": [
+   "Hosted free projects pause after inactivity",
+   "Complex server logic ends up in edge functions or database functions",
+   "Self-hosting is heavier than the hosted product"
+  ],
+  "offerings": [
+   {
+    "id": "supabase_cloud",
+    "name": "Supabase Cloud",
+    "provider": "supabase",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-1"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.9,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan: 2 active projects, 500 MB database, paused after 1 week of inactivity; commercial use allowed"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      25
+     ],
+     [
+      10000,
+      25,
+      40
+     ],
+     [
+      100000,
+      25,
+      150
+     ],
+     [
+      1000000,
+      300,
+      1500
+     ]
+    ],
+    "hipaa_note": "BAA needs Team plan plus the HIPAA add-on; PITR is a paid add-on on Pro",
+    "sources": [
+     {
+      "title": "Supabase pricing",
+      "url": "https://supabase.com/pricing"
+     }
+    ]
+   },
+   {
+    "id": "supabase_self",
+    "name": "Supabase self-hosted (Docker)",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      20,
+      60
+     ],
+     [
+      10000,
+      40,
+      120
+     ],
+     [
+      100000,
+      150,
+      500
+     ],
+     [
+      1000000,
+      800,
+      3000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Supabase self-hosting with Docker",
+      "url": "https://supabase.com/docs/guides/self-hosting/docker"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Supabase documentation",
+    "url": "https://supabase.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ],
+  "bundled": {
+   "db": "postgres",
+   "auth": true,
+   "storage": true,
+   "realtime": true
+  }
+ },
+ {
+  "id": "firebase",
+  "name": "Firebase",
+  "layer": "backend",
+  "sub_layer": "baas",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "bundled_db",
+   "bundled_auth",
+   "bundled_storage",
+   "bundled_realtime",
+   "offline_persistence",
+   "push_fcm",
+   "cloud_functions"
+  ],
+  "runs_on": [
+   "managed"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary",
+  "lock_in": 5,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "social",
+   "marketplace",
+   "logistics",
+   "gaming",
+   "content_site"
+  ],
+  "avoid_for": [
+   "fintech",
+   "government"
+  ],
+  "strengths": [
+   "Fastest path to auth, offline-capable database, push and hosting for mobile apps",
+   "Scales without servers to manage"
+  ],
+  "limits": [
+   "Not self-hostable; hard exit from proprietary APIs",
+   "Firebase Authentication processes user data in the US",
+   "Document model complicates relational and ACID-heavy domains"
+  ],
+  "offerings": [
+   {
+    "id": "firebase_cloud",
+    "name": "Firebase (Blaze plan)",
+    "provider": "firebase",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Spark plan: free quotas, no billing account; Blaze pay-as-you-go required for Cloud Functions"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      0,
+      40
+     ],
+     [
+      100000,
+      40,
+      300
+     ],
+     [
+      1000000,
+      400,
+      3000
+     ]
+    ],
+    "auth_processing_zone": "us",
+    "note": "Firestore and Storage can be regional; Firebase Authentication data is processed in the US",
+    "sources": [
+     {
+      "title": "Firebase pricing",
+      "url": "https://firebase.google.com/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Firebase documentation",
+    "url": "https://firebase.google.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ],
+  "bundled": {
+   "db": "firestore",
+   "auth": true,
+   "storage": true,
+   "realtime": true
+  }
+ },
+ {
+  "id": "appwrite",
+  "name": "Appwrite",
+  "layer": "backend",
+  "sub_layer": "baas",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript",
+   "python",
+   "php",
+   "dart",
+   "swift",
+   "kotlin"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "bundled_db",
+   "bundled_auth",
+   "bundled_storage",
+   "bundled_realtime",
+   "functions"
+  ],
+  "runs_on": [
+   "managed",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "BSD-3-Clause",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 3,
+   "ops_burden": 2,
+   "maturity": 3,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "internal_tools",
+   "social",
+   "marketplace",
+   "saas_b2b"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Self-hostable BaaS with auth, database, storage and functions",
+   "Many client SDKs"
+  ],
+  "limits": [
+   "Younger than Supabase or Firebase",
+   "Cloud has no India region"
+  ],
+  "offerings": [
+   {
+    "id": "appwrite_cloud",
+    "name": "Appwrite Cloud",
+    "provider": "appwrite",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "fra"
+     ],
+     "us": [
+      "nyc"
+     ],
+     "apac": [
+      "sgp"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan with project and bandwidth limits"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      25
+     ],
+     [
+      10000,
+      25,
+      60
+     ],
+     [
+      100000,
+      60,
+      250
+     ],
+     [
+      1000000,
+      300,
+      1500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Appwrite pricing",
+      "url": "https://appwrite.io/pricing"
+     }
+    ]
+   },
+   {
+    "id": "appwrite_self",
+    "name": "Appwrite self-hosted (Docker)",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      15,
+      40
+     ],
+     [
+      10000,
+      30,
+      100
+     ],
+     [
+      100000,
+      120,
+      400
+     ],
+     [
+      1000000,
+      700,
+      2500
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Appwrite self-hosting",
+      "url": "https://appwrite.io/docs/advanced/self-hosting"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Appwrite documentation",
+    "url": "https://appwrite.io/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ],
+  "bundled": {
+   "db": "appwrite_db",
+   "auth": true,
+   "storage": true,
+   "realtime": true
+  }
+ },
+ {
+  "id": "pocketbase",
+  "name": "PocketBase",
+  "layer": "backend",
+  "sub_layer": "baas",
+  "status": "active",
+  "languages": [
+   "go",
+   "javascript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "bundled_db",
+   "bundled_auth",
+   "bundled_storage",
+   "bundled_realtime",
+   "admin_ui",
+   "single_binary"
+  ],
+  "runs_on": [
+   "container",
+   "vm"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 5,
+   "performance": 3,
+   "scalability": 1,
+   "ops_burden": 2,
+   "maturity": 2,
+   "ecosystem": 2,
+   "security": 3,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "internal_tools",
+   "portfolio",
+   "content_site"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech",
+   "marketplace"
+  ],
+  "strengths": [
+   "Single binary with SQLite, auth, files and realtime",
+   "Minimal hosting cost"
+  ],
+  "limits": [
+   "Pre-1.0, so API changes are expected",
+   "Single node, SQLite: limited scale and HA"
+  ],
+  "offerings": [
+   {
+    "id": "pocketbase_self",
+    "name": "PocketBase self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      4,
+      10
+     ],
+     [
+      10000,
+      6,
+      25
+     ],
+     [
+      100000,
+      25,
+      80
+     ],
+     [
+      1000000,
+      100,
+      400
+     ]
+    ],
+    "sources": [
+     {
+      "title": "PocketBase documentation",
+      "url": "https://pocketbase.io/docs/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "PocketBase documentation",
+    "url": "https://pocketbase.io/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ],
+  "bundled": {
+   "db": "sqlite",
+   "auth": true,
+   "storage": true,
+   "realtime": true
+  }
+ },
+ {
+  "id": "aws_lambda",
+  "name": "AWS Lambda + API Gateway",
+  "layer": "backend",
+  "sub_layer": "faas",
+  "status": "active",
+  "languages": [
+   "python",
+   "typescript",
+   "javascript",
+   "java",
+   "go",
+   "csharp"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "cold_start",
+   "autoscale_to_zero",
+   "event_driven"
+  ],
+  "runs_on": [
+   "faas",
+   "aws_lambda"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "iot",
+   "data_analytics",
+   "saas_b2b",
+   "content_site"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab"
+  ],
+  "strengths": [
+   "Pay per request and scale to zero",
+   "No servers to patch",
+   "Native fit with SQS, DynamoDB and S3"
+  ],
+  "limits": [
+   "Cold starts hurt very tight latency targets",
+   "Local development and debugging are harder",
+   "AWS lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "lambda_apigw",
+    "name": "AWS Lambda + Amazon API Gateway",
+    "provider": "aws",
+    "kind": "faas",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Lambda: 1M requests and 400,000 GB-seconds per month always free; API Gateway free tier for 12 months"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      2
+     ],
+     [
+      10000,
+      1,
+      10
+     ],
+     [
+      100000,
+      10,
+      80
+     ],
+     [
+      1000000,
+      80,
+      600
+     ]
+    ],
+    "sources": [
+     {
+      "title": "AWS Lambda pricing",
+      "url": "https://aws.amazon.com/lambda/pricing/"
+     },
+     {
+      "title": "Amazon API Gateway pricing",
+      "url": "https://aws.amazon.com/api-gateway/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "AWS Lambda + API Gateway documentation",
+    "url": "https://docs.aws.amazon.com/lambda/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "azure_functions",
+  "name": "Azure Functions",
+  "layer": "backend",
+  "sub_layer": "faas",
+  "status": "active",
+  "languages": [
+   "csharp",
+   "typescript",
+   "javascript",
+   "python",
+   "java"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "cold_start",
+   "autoscale_to_zero",
+   "event_driven",
+   "durable_functions"
+  ],
+  "runs_on": [
+   "faas",
+   "azure_functions"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "saas_b2b",
+   "internal_tools",
+   "iot"
+  ],
+  "avoid_for": [
+   "gaming"
+  ],
+  "strengths": [
+   "Native C# and Entra ID integration",
+   "Durable Functions for workflows"
+  ],
+  "limits": [
+   "Cold starts on the Consumption plan",
+   "Azure lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "azure_functions_svc",
+    "name": "Azure Functions (Flex Consumption)",
+    "provider": "azure",
+    "kind": "faas",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Monthly free grant of executions and GB-seconds"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      2
+     ],
+     [
+      10000,
+      1,
+      10
+     ],
+     [
+      100000,
+      10,
+      90
+     ],
+     [
+      1000000,
+      90,
+      650
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Azure Functions pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/functions/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Functions documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/azure-functions/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "cf_workers",
+  "name": "Cloudflare Workers",
+  "layer": "backend",
+  "sub_layer": "faas",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript",
+   "python",
+   "rust"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "edge",
+   "autoscale_to_zero",
+   "durable_objects",
+   "no_cold_start"
+  ],
+  "runs_on": [
+   "faas",
+   "edge",
+   "cf_workers"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary (workerd is open source)",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "realtime_collab",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "fintech",
+   "healthtech",
+   "government"
+  ],
+  "strengths": [
+   "Near-zero cold start at the edge",
+   "Durable Objects for realtime coordination",
+   "Generous free tier"
+  ],
+  "limits": [
+   "No India or EU data pinning on standard plans",
+   "Runtime limits and Node API gaps"
+  ],
+  "offerings": [
+   {
+    "id": "cf_workers_svc",
+    "name": "Cloudflare Workers",
+    "provider": "cloudflare",
+    "kind": "faas",
+    "regions": {
+     "eu": [
+      "eu"
+     ],
+     "us": [
+      "us"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free: 100,000 requests per day; commercial use allowed"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      0,
+      10
+     ],
+     [
+      100000,
+      5,
+      40
+     ],
+     [
+      1000000,
+      30,
+      200
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Cloudflare Workers pricing",
+      "url": "https://developers.cloudflare.com/workers/platform/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Cloudflare Workers documentation",
+    "url": "https://developers.cloudflare.com/workers/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "nakama",
+  "name": "Nakama",
+  "layer": "backend",
+  "sub_layer": "game_server",
+  "status": "active",
+  "languages": [
+   "go",
+   "typescript",
+   "lua"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "game_state",
+   "websocket_native",
+   "matchmaking",
+   "leaderboards",
+   "bundled_auth"
+  ],
+  "runs_on": [
+   "container",
+   "vm"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 3,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "gaming",
+   "social",
+   "realtime_collab"
+  ],
+  "avoid_for": [
+   "fintech",
+   "content_site"
+  ],
+  "strengths": [
+   "Open-source game server with accounts, matchmaking and realtime",
+   "Self-hostable"
+  ],
+  "limits": [
+   "Narrow focus on games",
+   "You run Postgres/CockroachDB yourself"
+  ],
+  "offerings": [
+   {
+    "id": "nakama_self",
+    "name": "Nakama self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      20,
+      60
+     ],
+     [
+      10000,
+      60,
+      200
+     ],
+     [
+      100000,
+      250,
+      900
+     ],
+     [
+      1000000,
+      1500,
+      6000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Nakama documentation",
+      "url": "https://heroiclabs.com/docs/nakama/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Nakama documentation",
+    "url": "https://heroiclabs.com/docs/nakama/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "colyseus",
+  "name": "Colyseus",
+  "layer": "backend",
+  "sub_layer": "game_server",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "game_state",
+   "websocket_native",
+   "matchmaking"
+  ],
+  "runs_on": [
+   "node",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 3,
+   "ops_burden": 3,
+   "maturity": 3,
+   "ecosystem": 2,
+   "security": 3,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "gaming",
+   "realtime_collab"
+  ],
+  "avoid_for": [
+   "fintech",
+   "content_site"
+  ],
+  "strengths": [
+   "TypeScript multiplayer rooms with state synchronisation",
+   "Easy for web game teams"
+  ],
+  "limits": [
+   "Scaling beyond a few thousand concurrent needs careful design",
+   "Small ecosystem"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Colyseus documentation",
+    "url": "https://docs.colyseus.io/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ }
+]

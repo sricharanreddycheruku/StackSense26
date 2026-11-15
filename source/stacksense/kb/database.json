@@ -1,0 +1,2982 @@
+[
+ {
+  "id": "postgresql",
+  "name": "PostgreSQL",
+  "layer": "database",
+  "sub_layer": "relational",
+  "status": "active",
+  "recommended_version": "PostgreSQL 17 or 18",
+  "languages": [
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid",
+   "fts",
+   "jsonb",
+   "pgvector",
+   "postgis",
+   "row_level_security"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "PostgreSQL License",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "fintech",
+   "saas_b2b",
+   "marketplace",
+   "ecommerce",
+   "healthtech",
+   "social",
+   "iot",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "ACID transactions, JSONB, full-text search, PostGIS and pgvector in one engine",
+   "Portable across every cloud",
+   "Top-rated database in the Stack Overflow survey"
+  ],
+  "limits": [
+   "Vertical scaling first; sharding needs extra tooling",
+   "Self-managed HA and backups take skill"
+  ],
+  "offerings": [
+   {
+    "id": "rds_postgres",
+    "name": "Amazon RDS for PostgreSQL",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month db.t4g.micro for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      15,
+      30
+     ],
+     [
+      10000,
+      30,
+      70
+     ],
+     [
+      100000,
+      120,
+      350
+     ],
+     [
+      1000000,
+      600,
+      2000
+     ]
+    ],
+    "per_gb_month": 0.13,
+    "sources": [
+     {
+      "title": "Amazon RDS for PostgreSQL pricing",
+      "url": "https://aws.amazon.com/rds/postgresql/pricing/"
+     }
+    ]
+   },
+   {
+    "id": "aurora_postgres",
+    "name": "Amazon Aurora PostgreSQL",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      45,
+      90
+     ],
+     [
+      10000,
+      60,
+      150
+     ],
+     [
+      100000,
+      200,
+      600
+     ],
+     [
+      1000000,
+      800,
+      3000
+     ]
+    ],
+    "per_gb_month": 0.1,
+    "sources": [
+     {
+      "title": "Amazon Aurora pricing",
+      "url": "https://aws.amazon.com/rds/aurora/pricing/"
+     }
+    ]
+   },
+   {
+    "id": "cloudsql_postgres",
+    "name": "Cloud SQL for PostgreSQL",
+    "provider": "gcp",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      10,
+      30
+     ],
+     [
+      10000,
+      30,
+      70
+     ],
+     [
+      100000,
+      110,
+      350
+     ],
+     [
+      1000000,
+      550,
+      1900
+     ]
+    ],
+    "per_gb_month": 0.17,
+    "sources": [
+     {
+      "title": "Cloud SQL pricing",
+      "url": "https://cloud.google.com/sql/pricing"
+     }
+    ]
+   },
+   {
+    "id": "alloydb",
+    "name": "AlloyDB for PostgreSQL",
+    "provider": "gcp",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      100,
+      250
+     ],
+     [
+      10000,
+      150,
+      350
+     ],
+     [
+      100000,
+      300,
+      800
+     ],
+     [
+      1000000,
+      1000,
+      3000
+     ]
+    ],
+    "per_gb_month": 0.3,
+    "sources": [
+     {
+      "title": "AlloyDB pricing",
+      "url": "https://cloud.google.com/alloydb/pricing"
+     }
+    ]
+   },
+   {
+    "id": "azure_pg_flex",
+    "name": "Azure Database for PostgreSQL Flexible Server",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month B1ms plus 32 GB storage for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      13,
+      30
+     ],
+     [
+      10000,
+      30,
+      70
+     ],
+     [
+      100000,
+      110,
+      330
+     ],
+     [
+      1000000,
+      550,
+      1900
+     ]
+    ],
+    "per_gb_month": 0.12,
+    "sources": [
+     {
+      "title": "Azure Database for PostgreSQL pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/postgresql/flexible-server/"
+     }
+    ]
+   },
+   {
+    "id": "supabase_pg",
+    "name": "Supabase Postgres",
+    "provider": "supabase",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-1"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": false,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan: 500 MB, paused after 1 week of inactivity"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      25
+     ],
+     [
+      10000,
+      25,
+      40
+     ],
+     [
+      100000,
+      25,
+      110
+     ],
+     [
+      1000000,
+      200,
+      1200
+     ]
+    ],
+    "per_gb_month": 0.125,
+    "hipaa_note": "BAA needs Team plan plus HIPAA add-on; PITR is a paid add-on",
+    "sources": [
+     {
+      "title": "Supabase pricing",
+      "url": "https://supabase.com/pricing"
+     }
+    ]
+   },
+   {
+    "id": "neon_pg",
+    "name": "Neon Serverless Postgres",
+    "provider": "neon",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "aws-eu-central-1",
+      "aws-eu-west-2"
+     ],
+     "us": [
+      "aws-us-east-1",
+      "aws-us-east-2",
+      "aws-us-west-2"
+     ],
+     "apac": [
+      "aws-ap-southeast-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan: 0.5 GB storage per project with autosuspend; commercial use allowed"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      19
+     ],
+     [
+      10000,
+      5,
+      40
+     ],
+     [
+      100000,
+      19,
+      120
+     ],
+     [
+      1000000,
+      150,
+      800
+     ]
+    ],
+    "per_gb_month": 0.35,
+    "sources": [
+     {
+      "title": "Neon pricing",
+      "url": "https://neon.com/pricing"
+     }
+    ]
+   },
+   {
+    "id": "do_pg",
+    "name": "DigitalOcean Managed PostgreSQL",
+    "provider": "digitalocean",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "blr1"
+     ],
+     "eu": [
+      "fra1",
+      "ams3",
+      "lon1"
+     ],
+     "us": [
+      "nyc3",
+      "sfo3"
+     ],
+     "apac": [
+      "sgp1",
+      "syd1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      15,
+      30
+     ],
+     [
+      10000,
+      30,
+      60
+     ],
+     [
+      100000,
+      60,
+      200
+     ],
+     [
+      1000000,
+      300,
+      1200
+     ]
+    ],
+    "sources": [
+     {
+      "title": "DigitalOcean Managed Databases pricing",
+      "url": "https://www.digitalocean.com/pricing/managed-databases"
+     }
+    ],
+    "per_gb_month": 0.215
+   },
+   {
+    "id": "postgres_self",
+    "name": "PostgreSQL self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      10,
+      40
+     ],
+     [
+      100000,
+      40,
+      150
+     ],
+     [
+      1000000,
+      200,
+      800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "PostgreSQL downloads and docs",
+      "url": "https://www.postgresql.org/download/"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "PostgreSQL documentation",
+    "url": "https://www.postgresql.org/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "mysql",
+  "name": "MySQL",
+  "layer": "database",
+  "sub_layer": "relational",
+  "status": "active",
+  "recommended_version": "MySQL 8.4 LTS or 9.x",
+  "languages": [
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid",
+   "jsonb_like",
+   "fts"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "GPL-2.0",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "ecommerce",
+   "content_site",
+   "marketplace",
+   "saas_b2b",
+   "internal_tools"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Very widely hosted; PHP, Laravel and WordPress default",
+   "Mature replication"
+  ],
+  "limits": [
+   "Fewer advanced types than PostgreSQL",
+   "Oracle-controlled; MySQL 8.0 reached end of life in April 2026"
+  ],
+  "offerings": [
+   {
+    "id": "rds_mysql",
+    "name": "Amazon RDS for MySQL",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month db.t4g.micro for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      15,
+      30
+     ],
+     [
+      10000,
+      30,
+      70
+     ],
+     [
+      100000,
+      120,
+      350
+     ],
+     [
+      1000000,
+      600,
+      2000
+     ]
+    ],
+    "per_gb_month": 0.13,
+    "sources": [
+     {
+      "title": "Amazon RDS for MySQL pricing",
+      "url": "https://aws.amazon.com/rds/mysql/pricing/"
+     }
+    ]
+   },
+   {
+    "id": "cloudsql_mysql",
+    "name": "Cloud SQL for MySQL",
+    "provider": "gcp",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      10,
+      30
+     ],
+     [
+      10000,
+      30,
+      70
+     ],
+     [
+      100000,
+      110,
+      350
+     ],
+     [
+      1000000,
+      550,
+      1900
+     ]
+    ],
+    "per_gb_month": 0.17,
+    "sources": [
+     {
+      "title": "Cloud SQL pricing",
+      "url": "https://cloud.google.com/sql/pricing"
+     }
+    ]
+   },
+   {
+    "id": "azure_mysql_flex",
+    "name": "Azure Database for MySQL Flexible Server",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month B1ms for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      13,
+      30
+     ],
+     [
+      10000,
+      30,
+      70
+     ],
+     [
+      100000,
+      110,
+      330
+     ],
+     [
+      1000000,
+      550,
+      1900
+     ]
+    ],
+    "per_gb_month": 0.12,
+    "sources": [
+     {
+      "title": "Azure Database for MySQL pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/mysql/"
+     }
+    ]
+   },
+   {
+    "id": "planetscale_mysql",
+    "name": "PlanetScale",
+    "provider": "planetscale",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      39,
+      60
+     ],
+     [
+      10000,
+      39,
+      100
+     ],
+     [
+      100000,
+      100,
+      400
+     ],
+     [
+      1000000,
+      500,
+      2000
+     ]
+    ],
+    "note": "Paid plans only since the Hobby plan was removed in April 2024",
+    "sources": [
+     {
+      "title": "PlanetScale pricing",
+      "url": "https://planetscale.com/pricing"
+     },
+     {
+      "title": "PlanetScale plans (network-attached storage $1.50/GB for an HA production branch)",
+      "url": "https://planetscale.com/docs/planetscale-plans"
+     }
+    ],
+    "per_gb_month": 1.5
+   },
+   {
+    "id": "mysql_self",
+    "name": "MySQL self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      10,
+      40
+     ],
+     [
+      100000,
+      40,
+      150
+     ],
+     [
+      1000000,
+      200,
+      800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "MySQL downloads",
+      "url": "https://dev.mysql.com/downloads/mysql/"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "MySQL documentation",
+    "url": "https://dev.mysql.com/doc/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "sqlserver",
+  "name": "Microsoft SQL Server",
+  "layer": "database",
+  "sub_layer": "relational",
+  "status": "active",
+  "recommended_version": "SQL Server 2022 or 2025",
+  "languages": [
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid",
+   "fts",
+   "jsonb_like",
+   "enterprise",
+   "licence_cost"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "Commercial",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "fintech",
+   "saas_b2b",
+   "government",
+   "internal_tools",
+   "healthtech"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog"
+  ],
+  "strengths": [
+   "Strong tooling, Entra ID integration and reporting",
+   "Reuse of an existing SQL Server estate and licences"
+  ],
+  "limits": [
+   "Licence cost on self-managed servers",
+   "Linux and cloud options cost more than PostgreSQL"
+  ],
+  "offerings": [
+   {
+    "id": "azure_sql_db",
+    "name": "Azure SQL Database",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free offer: 100,000 vCore-seconds and 32 GB per month per database (lifetime)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      15,
+      60
+     ],
+     [
+      100000,
+      100,
+      400
+     ],
+     [
+      1000000,
+      600,
+      2500
+     ]
+    ],
+    "per_gb_month": 0.12,
+    "sources": [
+     {
+      "title": "Azure SQL Database pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/"
+     }
+    ]
+   },
+   {
+    "id": "azure_sql_mi",
+    "name": "Azure SQL Managed Instance",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      650,
+      1000
+     ],
+     [
+      10000,
+      700,
+      1100
+     ],
+     [
+      100000,
+      900,
+      1800
+     ],
+     [
+      1000000,
+      1800,
+      5000
+     ]
+    ],
+    "per_gb_month": 0.12,
+    "sources": [
+     {
+      "title": "Azure SQL Managed Instance pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/azure-sql-managed-instance/single/"
+     }
+    ]
+   },
+   {
+    "id": "rds_sqlserver",
+    "name": "Amazon RDS for SQL Server",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "750 h/month db.t3.micro Express edition for 12 months (new accounts)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      30,
+      60
+     ],
+     [
+      10000,
+      60,
+      150
+     ],
+     [
+      100000,
+      250,
+      800
+     ],
+     [
+      1000000,
+      1200,
+      4500
+     ]
+    ],
+    "per_gb_month": 0.13,
+    "licence_included": true,
+    "sources": [
+     {
+      "title": "Amazon RDS for SQL Server pricing",
+      "url": "https://aws.amazon.com/rds/sqlserver/pricing/"
+     }
+    ]
+   },
+   {
+    "id": "sqlserver_self",
+    "name": "SQL Server existing self-managed",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      0
+     ],
+     [
+      10000,
+      0,
+      0
+     ],
+     [
+      100000,
+      0,
+      0
+     ],
+     [
+      1000000,
+      0,
+      0
+     ]
+    ],
+    "licence_note": "Zero marginal cost only when licences and servers already exist (existing_licences)",
+    "sources": [
+     {
+      "title": "SQL Server licensing",
+      "url": "https://www.microsoft.com/en-us/sql-server/sql-server-2022-pricing"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "Microsoft SQL Server documentation",
+    "url": "https://learn.microsoft.com/en-us/sql/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "mongodb",
+  "name": "MongoDB",
+  "layer": "database",
+  "sub_layer": "document",
+  "status": "active",
+  "recommended_version": "MongoDB 8.0",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "jsonb_like",
+   "fts",
+   "geo"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "SSPL (Community)",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "iot",
+   "social",
+   "ecommerce",
+   "data_analytics"
+  ],
+  "avoid_for": [
+   "fintech"
+  ],
+  "strengths": [
+   "Flexible schema suits changing documents",
+   "Atlas runs in the region you pick across three clouds",
+   "Native sharding"
+  ],
+  "limits": [
+   "Weaker cross-document transactions than PostgreSQL",
+   "SSPL licence limits offering as a service"
+  ],
+  "offerings": [
+   {
+    "id": "atlas",
+    "name": "MongoDB Atlas",
+    "provider": "mongodb_atlas",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "aws/ap-south-1",
+      "aws/ap-south-2",
+      "gcp/asia-south1",
+      "azure/centralindia"
+     ],
+     "eu": [
+      "aws/eu-central-1",
+      "gcp/europe-west1",
+      "azure/westeurope"
+     ],
+     "us": [
+      "aws/us-east-1",
+      "gcp/us-central1",
+      "azure/eastus"
+     ],
+     "apac": [
+      "aws/ap-southeast-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.995,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "M0 free cluster: 512 MB; shared and not for production"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      60
+     ],
+     [
+      10000,
+      57,
+      120
+     ],
+     [
+      100000,
+      150,
+      500
+     ],
+     [
+      1000000,
+      700,
+      2500
+     ]
+    ],
+    "per_gb_month": 0.25,
+    "sources": [
+     {
+      "title": "MongoDB Atlas pricing",
+      "url": "https://www.mongodb.com/pricing"
+     }
+    ]
+   },
+   {
+    "id": "mongodb_self",
+    "name": "MongoDB Community self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      15,
+      50
+     ],
+     [
+      100000,
+      60,
+      200
+     ],
+     [
+      1000000,
+      300,
+      1000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "MongoDB Community Edition",
+      "url": "https://www.mongodb.com/products/self-managed/community-edition"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "MongoDB documentation",
+    "url": "https://www.mongodb.com/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "firestore",
+  "name": "Cloud Firestore",
+  "layer": "database",
+  "sub_layer": "document",
+  "status": "active",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "offline_persistence",
+   "realtime_listeners",
+   "jsonb_like",
+   "serverless"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary",
+  "lock_in": 5,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "social",
+   "marketplace",
+   "logistics",
+   "gaming"
+  ],
+  "avoid_for": [
+   "fintech",
+   "data_analytics"
+  ],
+  "strengths": [
+   "Built-in offline persistence and realtime listeners on mobile",
+   "Scales without capacity planning"
+  ],
+  "limits": [
+   "Not relational; joins and aggregation are limited",
+   "Proprietary API with a hard exit",
+   "Cost grows with reads"
+  ],
+  "offerings": [
+   {
+    "id": "firestore_gcp",
+    "name": "Cloud Firestore",
+    "provider": "gcp",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "asia-south1",
+      "asia-south2"
+     ],
+     "eu": [
+      "europe-west1",
+      "europe-west3"
+     ],
+     "us": [
+      "us-central1",
+      "us-east1"
+     ],
+     "apac": [
+      "asia-southeast1",
+      "australia-southeast1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free quota: 1 GiB storage, 50,000 reads and 20,000 writes per day"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      0,
+      40
+     ],
+     [
+      100000,
+      40,
+      300
+     ],
+     [
+      1000000,
+      400,
+      3000
+     ]
+    ],
+    "per_gb_month": 0.15,
+    "sources": [
+     {
+      "title": "Firestore pricing",
+      "url": "https://cloud.google.com/firestore/pricing"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Cloud Firestore documentation",
+    "url": "https://firebase.google.com/docs/firestore"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "dynamodb",
+  "name": "Amazon DynamoDB",
+  "layer": "database",
+  "sub_layer": "keyvalue",
+  "status": "active",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "serverless",
+   "global_tables",
+   "single_digit_ms"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary",
+  "lock_in": 5,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "iot",
+   "gaming",
+   "ecommerce",
+   "social",
+   "data_analytics"
+  ],
+  "avoid_for": [
+   "fintech",
+   "internal_tools"
+  ],
+  "strengths": [
+   "Single-digit millisecond reads at any scale",
+   "Pay per request and no servers"
+  ],
+  "limits": [
+   "Access patterns must be designed up front; no ad hoc joins",
+   "AWS lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "dynamodb_aws",
+    "name": "Amazon DynamoDB",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Always free: 25 GB storage and 25 provisioned RCU/WCU"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      1,
+      15
+     ],
+     [
+      100000,
+      15,
+      100
+     ],
+     [
+      1000000,
+      100,
+      800
+     ]
+    ],
+    "per_gb_month": 0.25,
+    "sources": [
+     {
+      "title": "Amazon DynamoDB pricing",
+      "url": "https://aws.amazon.com/dynamodb/pricing/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Amazon DynamoDB documentation",
+    "url": "https://docs.aws.amazon.com/amazondynamodb/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "cosmosdb",
+  "name": "Azure Cosmos DB",
+  "layer": "database",
+  "sub_layer": "document",
+  "status": "active",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "serverless",
+   "multi_region",
+   "jsonb_like",
+   "mongodb_api"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": false,
+  "open_source": false,
+  "license": "Proprietary",
+  "lock_in": 4,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "iot",
+   "gaming",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "internal_tools"
+  ],
+  "strengths": [
+   "Multi-region writes with SLA-backed latency",
+   "Several APIs including MongoDB-compatible"
+  ],
+  "limits": [
+   "Request-unit pricing is hard to predict",
+   "Azure lock-in"
+  ],
+  "offerings": [
+   {
+    "id": "cosmosdb_azure",
+    "name": "Azure Cosmos DB for NoSQL",
+    "provider": "azure",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "centralindia",
+      "southindia"
+     ],
+     "eu": [
+      "westeurope",
+      "northeurope"
+     ],
+     "us": [
+      "eastus",
+      "westus2"
+     ],
+     "apac": [
+      "southeastasia",
+      "australiaeast"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.999,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free tier: 1000 RU/s and 25 GB (one account per subscription)"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      25
+     ],
+     [
+      10000,
+      10,
+      60
+     ],
+     [
+      100000,
+      60,
+      300
+     ],
+     [
+      1000000,
+      400,
+      2000
+     ]
+    ],
+    "per_gb_month": 0.25,
+    "sources": [
+     {
+      "title": "Azure Cosmos DB pricing",
+      "url": "https://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/"
+     }
+    ]
+   }
+  ],
+  "sources": [
+   {
+    "title": "Azure Cosmos DB documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/cosmos-db/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "sqlite",
+  "name": "SQLite / libSQL",
+  "layer": "database",
+  "sub_layer": "embedded",
+  "status": "active",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid",
+   "fts",
+   "jsonb",
+   "offline_persistence",
+   "single_node",
+   "small_bundle"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Public domain (SQLite); MIT (libSQL)",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 5,
+   "performance": 4,
+   "scalability": 1,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "content_site",
+   "internal_tools",
+   "portfolio"
+  ],
+  "avoid_for": [
+   "fintech",
+   "marketplace",
+   "social"
+  ],
+  "strengths": [
+   "Zero-ops embedded database, one file per site or device",
+   "Ideal on-device store for mobile and edge",
+   "Very fast reads"
+  ],
+  "limits": [
+   "Single writer; no horizontal scale",
+   "Needs replication tooling for HA"
+  ],
+  "offerings": [
+   {
+    "id": "sqlite_embedded",
+    "name": "SQLite embedded",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      0
+     ],
+     [
+      10000,
+      0,
+      5
+     ],
+     [
+      100000,
+      5,
+      20
+     ],
+     [
+      1000000,
+      30,
+      120
+     ]
+    ],
+    "sources": [
+     {
+      "title": "SQLite documentation",
+      "url": "https://www.sqlite.org/docs.html"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   },
+   {
+    "id": "turso_cloud",
+    "name": "Turso (libSQL)",
+    "provider": "turso",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "aws-eu-west-1"
+     ],
+     "us": [
+      "aws-us-east-1",
+      "aws-us-west-2"
+     ],
+     "apac": [
+      "aws-ap-northeast-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": null,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Free plan: 5 GB storage, 500 databases"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      5
+     ],
+     [
+      10000,
+      0,
+      30
+     ],
+     [
+      100000,
+      30,
+      100
+     ],
+     [
+      1000000,
+      200,
+      800
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Turso pricing",
+      "url": "https://turso.tech/pricing"
+     }
+    ],
+    "per_gb_month": 0.5
+   }
+  ],
+  "sources": [
+   {
+    "title": "SQLite / libSQL documentation",
+    "url": "https://www.sqlite.org/docs.html"
+   },
+   {
+    "title": "SQLite: appropriate uses (client/server for many concurrent writers)",
+    "url": "https://www.sqlite.org/whentouse.html"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "cassandra",
+  "name": "Apache Cassandra / ScyllaDB",
+  "layer": "database",
+  "sub_layer": "widecolumn",
+  "status": "active",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "write_heavy",
+   "multi_region",
+   "linear_scale"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0 (Cassandra); source-available (ScyllaDB)",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 2,
+   "learning_curve": 1,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 4,
+   "maturity": 5,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "iot",
+   "data_analytics",
+   "social",
+   "gaming"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "internal_tools",
+   "ecommerce"
+  ],
+  "strengths": [
+   "Linear write scaling across nodes and regions",
+   "No single point of failure"
+  ],
+  "limits": [
+   "Query-first modelling; no joins or ad hoc analytics",
+   "Operationally heavy when self-managed"
+  ],
+  "offerings": [
+   {
+    "id": "keyspaces",
+    "name": "Amazon Keyspaces",
+    "provider": "aws",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "ap-south-1",
+      "ap-south-2"
+     ],
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1",
+      "ap-southeast-2"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      40
+     ],
+     [
+      10000,
+      20,
+      100
+     ],
+     [
+      100000,
+      100,
+      600
+     ],
+     [
+      1000000,
+      800,
+      4000
+     ]
+    ],
+    "per_gb_month": 0.3,
+    "sources": [
+     {
+      "title": "Amazon Keyspaces pricing",
+      "url": "https://aws.amazon.com/keyspaces/pricing/"
+     }
+    ]
+   },
+   {
+    "id": "scylla_cloud",
+    "name": "ScyllaDB Cloud",
+    "provider": "scylladb",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "aws/ap-south-1"
+     ],
+     "eu": [
+      "aws/eu-central-1"
+     ],
+     "us": [
+      "aws/us-east-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": false,
+     "commercial_use": true,
+     "limits": "No free tier"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      150,
+      400
+     ],
+     [
+      10000,
+      200,
+      500
+     ],
+     [
+      100000,
+      400,
+      1200
+     ],
+     [
+      1000000,
+      1500,
+      5000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "ScyllaDB Cloud pricing",
+      "url": "https://www.scylladb.com/product/scylladb-cloud/"
+     }
+    ]
+   },
+   {
+    "id": "cassandra_self",
+    "name": "Apache Cassandra self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      100,
+      300
+     ],
+     [
+      10000,
+      150,
+      400
+     ],
+     [
+      100000,
+      300,
+      900
+     ],
+     [
+      1000000,
+      1200,
+      4000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Apache Cassandra downloads",
+      "url": "https://cassandra.apache.org/_/download.html"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "Apache Cassandra / ScyllaDB documentation",
+    "url": "https://cassandra.apache.org/doc/latest/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "cockroachdb",
+  "name": "CockroachDB",
+  "layer": "database",
+  "sub_layer": "newsql",
+  "status": "active",
+  "languages": [
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid",
+   "multi_region",
+   "distributed_sql",
+   "jsonb"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "CockroachDB Software License (source-available, enterprise licence since Nov 2024)",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 3,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "fintech",
+   "saas_b2b",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog"
+  ],
+  "strengths": [
+   "Distributed ACID SQL with survivability across zones and regions",
+   "Postgres wire compatible"
+  ],
+  "limits": [
+   "Licence changed in 2024 and now requires a paid or enterprise licence for most self-hosted use",
+   "Higher cost and latency than single-node PostgreSQL"
+  ],
+  "offerings": [
+   {
+    "id": "cockroach_cloud",
+    "name": "CockroachDB Cloud",
+    "provider": "cockroach",
+    "kind": "managed",
+    "regions": {
+     "india": [
+      "aws/ap-south-1",
+      "gcp/asia-south1"
+     ],
+     "eu": [
+      "aws/eu-central-1",
+      "gcp/europe-west1"
+     ],
+     "us": [
+      "aws/us-east-1",
+      "gcp/us-east1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "pci_dss",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.99,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Basic plan includes a monthly free usage allowance"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      0,
+      40
+     ],
+     [
+      10000,
+      20,
+      100
+     ],
+     [
+      100000,
+      100,
+      500
+     ],
+     [
+      1000000,
+      600,
+      3000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "CockroachDB Cloud pricing",
+      "url": "https://www.cockroachlabs.com/pricing/"
+     },
+     {
+      "title": "CockroachDB Cloud costs (storage billed per GiB, replicated across nodes)",
+      "url": "https://www.cockroachlabs.com/docs/cockroachcloud/costs"
+     }
+    ],
+    "per_gb_month": 0.7
+   }
+  ],
+  "sources": [
+   {
+    "title": "CockroachDB documentation",
+    "url": "https://www.cockroachlabs.com/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "timescaledb",
+  "name": "TimescaleDB",
+  "layer": "database",
+  "sub_layer": "timeseries",
+  "status": "active",
+  "languages": [
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "acid",
+   "timeseries",
+   "jsonb",
+   "pgvector",
+   "postgis"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0 core; Timescale License for advanced features",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "iot",
+   "data_analytics",
+   "fintech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Time-series on top of PostgreSQL: SQL, compression and continuous aggregates",
+   "Pairs with existing Postgres tooling"
+  ],
+  "limits": [
+   "Narrower than plain PostgreSQL for general workloads",
+   "Some features are under the Timescale License"
+  ],
+  "offerings": [
+   {
+    "id": "tiger_cloud",
+    "name": "Tiger Data Cloud (Timescale)",
+    "provider": "tigerdata",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "eu-central-1",
+      "eu-west-1"
+     ],
+     "us": [
+      "us-east-1",
+      "us-west-2"
+     ],
+     "apac": [
+      "ap-southeast-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": true,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "Trial credits only"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      30,
+      80
+     ],
+     [
+      10000,
+      50,
+      150
+     ],
+     [
+      100000,
+      200,
+      600
+     ],
+     [
+      1000000,
+      800,
+      3000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "Tiger Data pricing",
+      "url": "https://www.tigerdata.com/pricing"
+     }
+    ],
+    "per_gb_month": 0.177
+   },
+   {
+    "id": "timescale_self",
+    "name": "TimescaleDB self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      5,
+      20
+     ],
+     [
+      10000,
+      10,
+      50
+     ],
+     [
+      100000,
+      50,
+      200
+     ],
+     [
+      1000000,
+      250,
+      1000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "TimescaleDB installation",
+      "url": "https://docs.tigerdata.com/self-hosted/latest/install/"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "TimescaleDB documentation",
+    "url": "https://docs.tigerdata.com/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "clickhouse",
+  "name": "ClickHouse",
+  "layer": "database",
+  "sub_layer": "analytics",
+  "status": "active",
+  "languages": [
+   "sql"
+  ],
+  "platforms": [
+   "api"
+  ],
+  "capabilities": [
+   "olap",
+   "columnar",
+   "fts_limited"
+  ],
+  "runs_on": [
+   "any"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 3,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "data_analytics",
+   "iot"
+  ],
+  "avoid_for": [
+   "ecommerce",
+   "marketplace",
+   "fintech"
+  ],
+  "strengths": [
+   "Very fast analytical queries on huge event tables",
+   "Open source with managed cloud"
+  ],
+  "limits": [
+   "Not a transactional store; updates are expensive",
+   "Use alongside an OLTP database"
+  ],
+  "offerings": [
+   {
+    "id": "clickhouse_cloud",
+    "name": "ClickHouse Cloud",
+    "provider": "clickhouse",
+    "kind": "managed",
+    "regions": {
+     "eu": [
+      "aws/eu-central-1",
+      "gcp/europe-west4"
+     ],
+     "us": [
+      "aws/us-east-1",
+      "gcp/us-central1"
+     ],
+     "apac": [
+      "aws/ap-southeast-1"
+     ]
+    },
+    "attestations": [
+     "soc2",
+     "iso27001",
+     "hipaa_baa",
+     "gdpr_dpa"
+    ],
+    "sla": 99.95,
+    "ha": true,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": false,
+     "limits": "Trial credits only"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      50,
+      200
+     ],
+     [
+      10000,
+      100,
+      300
+     ],
+     [
+      100000,
+      250,
+      800
+     ],
+     [
+      1000000,
+      800,
+      3000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "ClickHouse Cloud pricing",
+      "url": "https://clickhouse.com/pricing"
+     }
+    ],
+    "per_gb_month": 0.0253
+   },
+   {
+    "id": "clickhouse_self",
+    "name": "ClickHouse self-hosted",
+    "provider": "self",
+    "kind": "self",
+    "regions": {
+     "india": [
+      "self-managed"
+     ],
+     "eu": [
+      "self-managed"
+     ],
+     "us": [
+      "self-managed"
+     ],
+     "apac": [
+      "self-managed"
+     ]
+    },
+    "attestations": [],
+    "sla": null,
+    "ha": false,
+    "pitr": false,
+    "free_tier": {
+     "available": true,
+     "commercial_use": true,
+     "limits": "Software is free; you pay for servers and operations"
+    },
+    "cost_anchors": [
+     [
+      1000,
+      20,
+      60
+     ],
+     [
+      10000,
+      30,
+      100
+     ],
+     [
+      100000,
+      100,
+      400
+     ],
+     [
+      1000000,
+      500,
+      2000
+     ]
+    ],
+    "sources": [
+     {
+      "title": "ClickHouse installation",
+      "url": "https://clickhouse.com/docs/install"
+     },
+     {
+      "title": "Amazon EBS pricing (gp3 block storage for a self-run database on a cloud VM)",
+      "url": "https://aws.amazon.com/ebs/pricing/"
+     }
+    ],
+    "per_gb_month": 0.08
+   }
+  ],
+  "sources": [
+   {
+    "title": "ClickHouse documentation",
+    "url": "https://clickhouse.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ }
+]

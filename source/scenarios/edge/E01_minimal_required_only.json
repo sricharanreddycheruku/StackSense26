@@ -1,0 +1,23 @@
+{
+  "project": {
+    "type": "web_app",
+    "platforms": [
+      "web"
+    ]
+  },
+  "scale": {
+    "users_at_launch": 500,
+    "users_12_months": 5000
+  },
+  "team": {
+    "size": 2,
+    "experience": "intermediate",
+    "languages": []
+  },
+  "budget": {
+    "monthly_infra_usd": 50
+  },
+  "timeline": {
+    "mvp_weeks": 6
+  }
+}

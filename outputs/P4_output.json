@@ -1,0 +1,949 @@
+{
+  "scenario_id": "P4",
+  "engine_version": "1.0.0",
+  "status": "ok_with_warnings",
+  "summary": "Modular monolith architecture: Next.js (web) + React Native with Expo (Android, iOS) with Spring Boot and Amazon RDS for PostgreSQL on Amazon ECS on AWS Fargate with ALB in ap-south-1. Driven mainly by project.type and team.languages; about $2,550-7,800/month.",
+  "architecture_style": "modular_monolith",
+  "architecture": {
+    "justification": "A team of 8 benefits from clear module boundaries inside one deployable unit, without the operating cost of separate services.",
+    "driven_by": [
+      "project.type",
+      "team.experience",
+      "team.size"
+    ],
+    "alternatives": [
+      {
+        "choice": "microservices",
+        "why_not": "Needs 12+ people, a devops engineer, 1,000,000+ users and scalability priority 4+; here team.size is 8, scale.users_12_months is 300,000."
+      },
+      {
+        "choice": "service_oriented",
+        "why_not": "No workload is heavy enough to need its own service (realtime under 2,000 concurrent users, no model training, no write-heavy iot, analytics or gaming)."
+      },
+      {
+        "choice": "serverless",
+        "why_not": "A team of 8 with devops=true can run long-lived servers, which cost less at steady load."
+      }
+    ]
+  },
+  "region": {
+    "zone": "india",
+    "primary": "ap-south-1",
+    "dr": "ap-south-2"
+  },
+  "stack": {
+    "frontend": {
+      "choice": "Next.js (web) + React Native with Expo (Android, iOS)",
+      "justification": "Next.js (web) + React Native with Expo (Android, iOS): one codebase covers both Android and iOS; suited to project.type fintech; web and mobile parts are both built on React, so component logic, state handling and the API client are written once; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak); strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001. Web app: Next.js (server rendering, static generation and route handlers in one framework). Android and iOS apps: React Native with Expo (one TypeScript codebase for Android and iOS).",
+      "driven_by": [
+        "priorities.scalability",
+        "priorities.security",
+        "project.platforms",
+        "project.type",
+        "team.languages",
+        "team.size_in_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Angular (web) + React Native with Expo (Android, iOS)",
+          "why_not": "Next.js (web) + React Native with Expo (Android, iOS) is preferred because web and mobile parts are both built on React, so component logic, state handling and the API client are written once."
+        },
+        {
+          "choice": "React Native with Expo (one codebase for web, Android and iOS)",
+          "why_not": "React Native with Expo (one codebase for web, Android and iOS): its browser build is a secondary target of a mobile toolkit, behind a web framework in routing, bundle size and accessibility."
+        }
+      ],
+      "tradeoffs": [
+        "Heavier runtime than static generators",
+        "Full features are easiest on Vercel; self-hosting needs Node or a container"
+      ],
+      "sources": [
+        "https://nextjs.org/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 113.82,
+      "margin": 1.2,
+      "confidence": "low"
+    },
+    "backend": {
+      "choice": "Spring Boot",
+      "justification": "Spring Boot: suited to project.type fintech; hiring pool matters with 8 people in 12 months; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Enterprise standard with deep libraries for security, batch and messaging.",
+      "driven_by": [
+        "infrastructure.cloud_preference",
+        "infrastructure.data_residency",
+        "priorities.scalability",
+        "priorities.security",
+        "project.type",
+        "team.size_in_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Next.js route handlers",
+          "why_not": "Next.js route handlers scores lower on security (3.0 against 5.0, priorities.security is 5), worth 9.5 weighted points, more than its 7.2-point overall deficit (it gains some back on time to market)."
+        },
+        {
+          "choice": "NestJS",
+          "why_not": "NestJS scores lower on security (4.0 against 5.0, priorities.security is 5), which accounts for 4.8 of the 8.7-point gap."
+        },
+        {
+          "choice": "Firebase",
+          "why_not": "Excluded: Firebase (Blaze plan) is offered by Firebase (Google Cloud), but infrastructure.cloud_preference is aws."
+        }
+      ],
+      "tradeoffs": [
+        "Verbose and slower to start; heavy memory use",
+        "Longer ramp-up for small teams"
+      ],
+      "sources": [
+        "https://spring.io/projects/spring-boot",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 97.37,
+      "margin": 7.2,
+      "confidence": "medium",
+      "sub_layer": "framework"
+    },
+    "database": {
+      "choice": "Amazon RDS for PostgreSQL",
+      "justification": "Amazon RDS for PostgreSQL: suited to project.type fintech; a relational database suits the data: requirements.consistency is strong; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). ACID transactions, JSONB, full-text search, PostGIS and pgvector in one engine. Deployed in ap-south-1.",
+      "driven_by": [
+        "infrastructure.cloud_preference",
+        "priorities.scalability",
+        "priorities.security",
+        "project.type",
+        "requirements.consistency",
+        "scale.peak_rps",
+        "scale.users_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Amazon RDS for SQL Server",
+          "why_not": "Amazon RDS for SQL Server scores lower on cost (1.2 against 3.2, priorities.cost is 2), which accounts for 3.7 of the 4.9-point gap."
+        },
+        {
+          "choice": "Amazon RDS for MySQL",
+          "why_not": "Amazon RDS for MySQL scores lower on security (4.0 against 5.0, priorities.security is 5), which accounts for 4.8 of the 10.6-point gap."
+        },
+        {
+          "choice": "SQLite / libSQL",
+          "why_not": "Excluded: a single-writer file database cannot take 3,000 requests per second (about 100 is its limit with writes queued behind one writer)."
+        }
+      ],
+      "tradeoffs": [
+        "Vertical scaling first; sharding needs extra tooling",
+        "Self-managed HA and backups take skill"
+      ],
+      "sources": [
+        "https://aws.amazon.com/rds/postgresql/pricing/",
+        "https://www.postgresql.org/docs/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 101.34,
+      "margin": 4.9,
+      "confidence": "medium",
+      "sub_layer": "relational"
+    },
+    "hosting": {
+      "choice": "Amazon ECS on AWS Fargate with ALB",
+      "justification": "Amazon ECS on AWS Fargate with ALB: suited to project.type fintech; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Runs any container without managing servers. Deployed in ap-south-1. The Next.js web server and the Spring Boot API run as separate services on it.",
+      "driven_by": [
+        "infrastructure.deployment_model",
+        "priorities.scalability",
+        "priorities.security",
+        "project.type",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Amazon EC2",
+          "why_not": "Amazon EC2 scores lower on maintainability (4.4 against 4.7, priorities.maintainability is 4), worth 1.1 weighted points, more than its 0.9-point overall deficit (it gains some back on cost)."
+        },
+        {
+          "choice": "AWS Amplify Hosting",
+          "why_not": "AWS Amplify Hosting: a poor fit for project.type fintech."
+        }
+      ],
+      "tradeoffs": [
+        "More moving parts than a PaaS",
+        "AWS lock-in at the networking layer"
+      ],
+      "sources": [
+        "https://aws.amazon.com/fargate/pricing/",
+        "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 96.02,
+      "margin": 0.9,
+      "confidence": "low",
+      "sub_layer": "container"
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Amazon Cognito + Amazon SNS SMS",
+        "justification": "Amazon Cognito + Amazon SNS SMS: registered for Indian DLT SMS rules; same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; suited to project.type fintech; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). User pools in your AWS region with phone OTP, social and SAML. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.data_residency",
+          "priorities.scalability",
+          "priorities.security",
+          "project.type",
+          "requirements.auth",
+          "scale.user_geography"
+        ],
+        "alternatives": [
+          {
+            "choice": "Spring Security",
+            "why_not": "Spring Security: the code sign-in flow, retry throttling and SMS-fraud limits are yours to build."
+          },
+          {
+            "choice": "Microsoft Entra ID (workforce SSO)",
+            "why_not": "Excluded: Microsoft Entra ID is offered by Microsoft Azure, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "Clunky developer experience",
+          "AWS lock-in"
+        ],
+        "sources": [
+          "https://aws.amazon.com/cognito/pricing/",
+          "https://docs.aws.amazon.com/cognito/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 85.09,
+        "sub_layer": "phone_otp"
+      },
+      {
+        "layer": "payments",
+        "choice": "Cashfree Payments",
+        "justification": "Cashfree Payments: supports UPI for Indian users; suited to project.type fintech; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak); strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001. Payment gateway with fast settlements and Payouts API. Deployed in india.",
+        "driven_by": [
+          "compliance",
+          "infrastructure.data_residency",
+          "priorities.scalability",
+          "priorities.security",
+          "project.type",
+          "scale.user_geography"
+        ],
+        "alternatives": [
+          {
+            "choice": "Razorpay",
+            "why_not": "Razorpay and Cashfree Payments are about equal on the weighted score; Cashfree Payments wins the fixed tie-break order (operations burden, maturity, then name)."
+          },
+          {
+            "choice": "PayU India",
+            "why_not": "PayU India scores lower on time to market (4.6 against 5.0, priorities.time_to_market is 3), which accounts for 1.1 of the 7.1-point gap."
+          },
+          {
+            "choice": "Paddle",
+            "why_not": "Excluded: Paddle does not store payment data in india, which rbi_localisation requires."
+          }
+        ],
+        "tradeoffs": [
+          "India focus"
+        ],
+        "sources": [
+          "https://docs.cashfree.com/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "india",
+        "score": 100.57,
+        "margin": 0.0,
+        "confidence": "low"
+      },
+      {
+        "layer": "storage",
+        "choice": "Amazon S3",
+        "justification": "Amazon S3: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Eleven nines durability, versioning and lifecycle rules in your region. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security"
+        ],
+        "alternatives": [
+          {
+            "choice": "SeaweedFS self-hosted",
+            "why_not": "SeaweedFS self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Ceph Object Gateway self-hosted",
+            "why_not": "Ceph Object Gateway self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Azure Blob Storage",
+            "why_not": "Excluded: Azure Blob Storage is offered by Microsoft Azure, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "Egress charges",
+          "AWS only"
+        ],
+        "sources": [
+          "https://aws.amazon.com/s3/pricing/",
+          "https://docs.aws.amazon.com/s3/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 96.08,
+        "margin": 29.0,
+        "confidence": "high"
+      },
+      {
+        "layer": "cache",
+        "choice": "Amazon ElastiCache",
+        "justification": "Amazon ElastiCache: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak); strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001. Managed Valkey in your AWS region with Multi-AZ failover. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security"
+        ],
+        "alternatives": [
+          {
+            "choice": "Redis Open Source self-hosted",
+            "why_not": "Redis Open Source self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Valkey self-hosted",
+            "why_not": "Valkey self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Azure Managed Redis",
+            "why_not": "Excluded: Azure Managed Redis is offered by Microsoft Azure, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "AWS only",
+          "Node cost from day one"
+        ],
+        "sources": [
+          "https://aws.amazon.com/elasticache/pricing/",
+          "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 84.29,
+        "margin": 11.7,
+        "confidence": "high"
+      },
+      {
+        "layer": "queue",
+        "choice": "Amazon SQS",
+        "justification": "Amazon SQS: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; suited to project.type fintech; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak); strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001. Fully managed queue with near-zero cost at low volume. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security",
+          "project.type",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Amazon MQ for RabbitMQ",
+            "why_not": "Amazon MQ for RabbitMQ scores lower on cost (2.1 against 5.0, priorities.cost is 2), which accounts for 5.5 of the 9.7-point gap."
+          },
+          {
+            "choice": "NATS JetStream self-hosted",
+            "why_not": "NATS JetStream self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Postgres-backed job queue (pg-boss / Procrastinate / Solid Queue)",
+            "why_not": "Excluded: needs a library for the chosen backend language."
+          }
+        ],
+        "tradeoffs": [
+          "AWS only",
+          "No fan-out without SNS"
+        ],
+        "sources": [
+          "https://aws.amazon.com/sqs/pricing/",
+          "https://docs.aws.amazon.com/sqs/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 94.87,
+        "margin": 9.7,
+        "confidence": "high"
+      },
+      {
+        "layer": "cdn",
+        "choice": "Amazon CloudFront",
+        "justification": "Amazon CloudFront: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Global edge with Mumbai and Delhi points of presence.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security"
+        ],
+        "alternatives": [
+          {
+            "choice": "Bunny CDN",
+            "why_not": "Amazon CloudFront is preferred because same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Amazon CloudFront is preferred because same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Azure Front Door",
+            "why_not": "Excluded: Azure Front Door is offered by Microsoft Azure, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "AWS only"
+        ],
+        "sources": [
+          "https://aws.amazon.com/cloudfront/pricing/",
+          "https://docs.aws.amazon.com/cloudfront/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 94.38,
+        "margin": 11.2,
+        "confidence": "high"
+      },
+      {
+        "layer": "ml",
+        "choice": "ONNX Runtime in-process",
+        "justification": "ONNX Runtime in-process: runs inside the backend without a Python service; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Runs exported models inside your backend or on-device with no extra service.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Amazon SageMaker AI",
+            "why_not": "Amazon SageMaker AI scores lower on cost (0.0 against 5.0, priorities.cost is 2), which accounts for 9.5 of the 28.3-point gap."
+          },
+          {
+            "choice": "Qdrant",
+            "why_not": "Excluded: Qdrant Cloud is offered by Qdrant Cloud, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "Model must export to ONNX",
+          "No training"
+        ],
+        "sources": [
+          "https://onnxruntime.ai/docs/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 96.2,
+        "margin": 28.3,
+        "confidence": "high",
+        "sub_layer": "inference_api"
+      },
+      {
+        "layer": "other",
+        "choice": "Amazon SES",
+        "justification": "Amazon SES: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak); strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001. Cheapest transactional email at volume. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security"
+        ],
+        "alternatives": [
+          {
+            "choice": "Twilio SendGrid",
+            "why_not": "Amazon SES is preferred because same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Firebase Cloud Messaging + APNs",
+            "why_not": "Excluded: Firebase Cloud Messaging is offered by Firebase (Google Cloud), but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "Reputation and templates are your job"
+        ],
+        "sources": [
+          "https://aws.amazon.com/ses/pricing/",
+          "https://docs.aws.amazon.com/ses/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 87.15,
+        "margin": 2.6,
+        "confidence": "medium",
+        "sub_layer": "notifications"
+      },
+      {
+        "layer": "other",
+        "choice": "AWS KMS, Secrets Manager, WAF and GuardDuty",
+        "justification": "AWS KMS, Secrets Manager, WAF and GuardDuty: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; suited to project.type fintech; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Encryption keys, secrets, web firewall and threat detection in your region. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Self-managed baseline (Vault, Coraza WAF, Trivy)",
+            "why_not": "Excluded: is for self-hosted platforms."
+          }
+        ],
+        "tradeoffs": [
+          "AWS only"
+        ],
+        "sources": [
+          "https://aws.amazon.com/security/",
+          "https://docs.aws.amazon.com/security/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 98.61,
+        "sub_layer": "security"
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "GitHub Actions + Expo Application Services",
+        "justification": "GitHub Actions + Expo Application Services: widely used, with free minutes for small teams; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak); strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001. Pipelines next to the code with a huge marketplace of actions. Deployed in us.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security",
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitLab.com",
+            "why_not": "GitLab.com scores lower on security (3.0 against 4.0, priorities.security is 5), which accounts for 4.8 of the 11.9-point gap."
+          },
+          {
+            "choice": "Jenkins self-hosted",
+            "why_not": "Jenkins self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Azure Pipelines",
+            "why_not": "Excluded: Azure DevOps Pipelines is offered by Microsoft Azure, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "Hosted runners are US based; self-hosted runners fix that"
+        ],
+        "sources": [
+          "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
+          "https://docs.github.com/en/actions",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "us",
+        "score": 86.98
+      },
+      {
+        "layer": "observability",
+        "choice": "Amazon CloudWatch and AWS X-Ray",
+        "justification": "Amazon CloudWatch and AWS X-Ray: same cloud (Amazon Web Services) as the core stack, so one account and no cross-vendor traffic; suited to project.type fintech; strong security defaults for rbi_localisation, pci_dss, dpdp, iso27001; handles the 300,000 users expected in 12 months (about 10,000 concurrent at peak). Native metrics, logs and tracing in your AWS region. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "GlitchTip self-hosted",
+            "why_not": "GlitchTip self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Sentry self-hosted",
+            "why_not": "Sentry self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Azure Monitor + Application Insights",
+            "why_not": "Excluded: Azure Monitor and Application Insights is offered by Microsoft Azure, but infrastructure.cloud_preference is aws."
+          }
+        ],
+        "tradeoffs": [
+          "Cost grows with log volume",
+          "AWS only"
+        ],
+        "sources": [
+          "https://aws.amazon.com/cloudwatch/pricing/",
+          "https://docs.aws.amazon.com/cloudwatch/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 94.64,
+        "margin": 20.8,
+        "confidence": "high"
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 2550.0,
+    "max": 7800.0,
+    "assumptions": [
+      "Priced for 300,000 monthly active users (the larger of users_at_launch and users_12_months), interpolated between list-price anchors in the knowledge base.",
+      "Prices are list prices of the cheapest region inside the chosen residency zone; taxes are excluded.",
+      "Database storage is priced for 500 GB (scale.data_volume_gb_12_months).",
+      "Hosting, database and cache are multiplied by 1.5 for the 99.95% availability target (standby capacity).",
+      "The upper bound includes a x1.25 allowance for spiky traffic (not stacked on the staging allowance).",
+      "A staging environment is added for a team of 3 or more (x1.1 to x1.3 on core services).",
+      "The upper bound is limited to 3 times the lower bound: the components do not all peak in the same month, so the band stays within one order of magnitude.",
+      "A security baseline of $50-300 is added for the compliance scope (key management, firewall, audit logs).",
+      "Payment gateway fees (about 2% per transaction), one-time costs, domain names and developer seats are not infrastructure and are excluded."
+    ],
+    "breakdown": [
+      {
+        "layer": "frontend",
+        "component": "Next.js",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "frontend",
+        "component": "React Native with Expo",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "backend",
+        "component": "Spring Boot",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "database",
+        "component": "Amazon RDS for PostgreSQL",
+        "min": 575.88,
+        "max": 2217.64
+      },
+      {
+        "layer": "database",
+        "component": "Amazon RDS for PostgreSQL (storage)",
+        "min": 107.25,
+        "max": 126.75
+      },
+      {
+        "layer": "hosting",
+        "component": "Amazon ECS on AWS Fargate with ALB",
+        "min": 680.49,
+        "max": 2733.8
+      },
+      {
+        "layer": "auth",
+        "component": "Amazon Cognito",
+        "min": 381.7,
+        "max": 2937.89
+      },
+      {
+        "layer": "auth",
+        "component": "Amazon SNS SMS",
+        "min": 322.87,
+        "max": 2408.49
+      },
+      {
+        "layer": "payments",
+        "component": "Cashfree Payments",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "storage",
+        "component": "Amazon S3",
+        "min": 21.7,
+        "max": 269.93
+      },
+      {
+        "layer": "cache",
+        "component": "Amazon ElastiCache",
+        "min": 100.29,
+        "max": 567.16
+      },
+      {
+        "layer": "queue",
+        "component": "Amazon SQS",
+        "min": 5.29,
+        "max": 55.56
+      },
+      {
+        "layer": "cdn",
+        "component": "Amazon CloudFront",
+        "min": 42.35,
+        "max": 375.82
+      },
+      {
+        "layer": "ml",
+        "component": "ONNX Runtime in-process",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "other",
+        "component": "Amazon SES",
+        "min": 52.94,
+        "max": 82.03
+      },
+      {
+        "layer": "other",
+        "component": "AWS KMS, Secrets Manager, WAF and GuardDuty",
+        "min": 63.4,
+        "max": 349.02
+      },
+      {
+        "layer": "ci_cd",
+        "component": "GitHub Actions",
+        "min": 12.16,
+        "max": 116.34
+      },
+      {
+        "layer": "ci_cd",
+        "component": "Expo Application Services",
+        "min": 57.17,
+        "max": 146.71
+      },
+      {
+        "layer": "observability",
+        "component": "Amazon CloudWatch and AWS X-Ray",
+        "min": 111.11,
+        "max": 820.26
+      },
+      {
+        "layer": "security",
+        "component": "security baseline (KMS, WAF, audit log)",
+        "min": 50.0,
+        "max": 300.0
+      }
+    ]
+  },
+  "capacity": {
+    "peak_users": 300000,
+    "peak_concurrent_users": 10000,
+    "peak_rps": 3000.0,
+    "api_instances_at_peak": 12,
+    "data_volume_gb_12_months": 500,
+    "basis": [
+      "peak_concurrent_users: given in scale.peak_concurrent_users",
+      "peak_rps: 0.2 requests per second per concurrent user, x1.5 for spiky traffic, derived",
+      "api_instances_at_peak: peak_rps / 250 requests per second per instance, rounded up",
+      "the cost band prices hosting by monthly users; per-instance sizing is added to it only when scale.peak_rps is given"
+    ]
+  },
+  "warnings": [
+    {
+      "code": "BUDGET_TIGHT",
+      "severity": "warning",
+      "message": "The estimate is $2,550-7,800 a month against a budget of $6,000, so a busy month could go over.",
+      "fields": [
+        "budget.monthly_infra_usd"
+      ]
+    },
+    {
+      "code": "AVAILABILITY_COST",
+      "severity": "info",
+      "message": "requirements.availability is 99.95, so hosting, database and cache are priced at x1.5 for standby capacity.",
+      "fields": [
+        "requirements.availability"
+      ]
+    },
+    {
+      "code": "CDN_STATIC_ONLY",
+      "severity": "info",
+      "message": "The CDN (Amazon CloudFront) is used for static assets only; personal data stays at the origin in india.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "CERTIFICATION_IS_PROCESS",
+      "severity": "info",
+      "message": "ISO 27001 certifies the organisation, not the stack: the chosen services' attestations cover their part, but the team still needs its own risk register, access reviews, change records and an external audit.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "CERT_IN_LOGS",
+      "severity": "info",
+      "message": "CERT-In Directions (28 April 2022) require system logs to be kept for 180 days within India and cyber incidents to be reported within 6 hours; set log retention in the India region accordingly.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_DPDP",
+      "severity": "info",
+      "message": "India DPDP Act 2023 and DPDP Rules 2025: Notice and consent for processing personal data; Data principal rights: access, correction, erasure, grievance redressal. The stack keeps data in ap-south-1.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_ISO27001",
+      "severity": "info",
+      "message": "ISO/IEC 27001:2022: Information security management system; Access control and logging. Managed services need attestations: iso27001, pci_dss.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_PCI_DSS",
+      "severity": "info",
+      "message": "PCI DSS v4.0.1: Use hosted checkout or tokenisation to keep scope near SAQ-A; Never store PAN, CVV or full track data. Managed services need attestations: iso27001, pci_dss.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_RBI",
+      "severity": "info",
+      "message": "RBI storage of payment system data: All payment system data stored only in systems in India (RBI circular 2018); Foreign processing allowed only if data is deleted abroad and returned to India within one business day. The stack keeps data in ap-south-1.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "PAYMENT_IDEMPOTENCY",
+      "severity": "info",
+      "message": "Make every Cashfree Payments charge and refund call idempotent (one idempotency key or order id per attempt) and store processed webhook event ids, so a retry or a repeated webhook never charges or refunds twice. Record money movements in an append-only double-entry ledger (each transfer as balanced debit and credit rows) rather than updating balances in place.",
+      "fields": [
+        "requirements.payments",
+        "project.type"
+      ]
+    },
+    {
+      "code": "SMS_DLT_REQUIRED",
+      "severity": "info",
+      "message": "SMS to Indian numbers must go through a DLT-registered sender and templates; register before launch.",
+      "fields": [
+        "requirements.auth",
+        "scale.user_geography"
+      ]
+    }
+  ],
+  "assumptions": [
+    "scale.peak_rps not provided; derived as 3000.0 (0.2 requests per second per concurrent user, x1.5 when spiky)",
+    "scale.user_geography not provided; derived as [india] (description mentions 'upi')",
+    "requirements.data_sensitivity not provided; derived as financial (compliance or project.type is payment related)",
+    "requirements.consistency not provided; derived as strong (payments or a transactional project type)",
+    "requirements.notifications not provided; derived as [email, sms] (email sign-in, SSO or payments; phone OTP sign-in)",
+    "requirements.background_jobs not provided; derived as true (payments, notifications, ML features, file uploads)",
+    "requirements.connectivity not provided; derived as reliable (no connectivity hint in the description)",
+    "requirements.min_device_ram_gb not provided; derived as null (no device hint; no memory penalty applied)",
+    "requirements.rpo_minutes not provided; derived as 15 (availability target 99.95)",
+    "team.size_in_12_months not provided; derived as 8 (same as team.size)",
+    "infrastructure.vendor_lock_in_tolerance not provided; derived as medium (neutral default)",
+    "infrastructure.existing_licences not provided; derived as [] (none declared)",
+    "SMS messages go through the same gateway as the one-time passwords, so no second SMS provider is added."
+  ],
+  "validation_errors": [],
+  "description_signals": [
+    {
+      "keyword": "double-entry",
+      "field": "requirements.consistency",
+      "value": "strong",
+      "applied": false,
+      "reason": "description mentions 'double-entry', which suggests records that must stay exact"
+    },
+    {
+      "keyword": "ledger",
+      "field": "requirements.consistency",
+      "value": "strong",
+      "applied": false,
+      "reason": "description mentions 'ledger', which suggests records that must stay exact"
+    },
+    {
+      "keyword": "loans",
+      "field": "requirements.consistency",
+      "value": "strong",
+      "applied": false,
+      "reason": "description mentions 'loans', which suggests records that must stay exact"
+    },
+    {
+      "keyword": "emi",
+      "field": "requirements.data_sensitivity",
+      "value": "financial",
+      "applied": false,
+      "reason": "description mentions 'emi', which suggests financial data"
+    },
+    {
+      "keyword": "kyc",
+      "field": "requirements.data_sensitivity",
+      "value": "financial",
+      "applied": false,
+      "reason": "description mentions 'kyc', which suggests financial data"
+    },
+    {
+      "keyword": "loans",
+      "field": "requirements.data_sensitivity",
+      "value": "financial",
+      "applied": false,
+      "reason": "description mentions 'loans', which suggests financial data"
+    },
+    {
+      "keyword": "upi",
+      "field": "requirements.data_sensitivity",
+      "value": "financial",
+      "applied": false,
+      "reason": "description mentions 'upi', which suggests financial data"
+    },
+    {
+      "keyword": "document",
+      "field": "requirements.file_media_storage",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'document', which suggests user files"
+    },
+    {
+      "keyword": "kyc",
+      "field": "requirements.file_media_storage",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'kyc', which suggests user files"
+    },
+    {
+      "keyword": "upload",
+      "field": "requirements.file_media_storage",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'upload', which suggests user files"
+    },
+    {
+      "keyword": "credit scoring",
+      "field": "requirements.ml_features",
+      "value": "inference_api",
+      "applied": false,
+      "reason": "description mentions 'credit scoring', which suggests a prediction model"
+    },
+    {
+      "keyword": "disbursal",
+      "field": "requirements.payments",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'disbursal', which suggests taking or sending money"
+    },
+    {
+      "keyword": "emi",
+      "field": "requirements.payments",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'emi', which suggests taking or sending money"
+    },
+    {
+      "keyword": "upi",
+      "field": "requirements.payments",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'upi', which suggests taking or sending money"
+    },
+    {
+      "keyword": "upi",
+      "field": "scale.user_geography",
+      "value": "india",
+      "applied": true,
+      "reason": "description mentions 'upi', which suggests users in India"
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "note": "No language model is used; the stack is chosen by deterministic rules and the knowledge base."
+  },
+  "kb_as_of": "2026-11-10"
+}

@@ -1,0 +1,666 @@
+{
+  "scenario_id": "P5",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "Monolith architecture: React + Vite SPA with ASP.NET Core and Azure SQL Database on Azure App Service in centralindia. Driven mainly by infrastructure.existing_systems and project.type; about $45-140/month.",
+  "architecture_style": "monolith",
+  "architecture": {
+    "justification": "A team of 2 ships fastest with one deployable application and one database; modules can be split later if needed.",
+    "driven_by": [
+      "team.size",
+      "timeline.mvp_weeks"
+    ],
+    "alternatives": [
+      {
+        "choice": "microservices",
+        "why_not": "Needs 12+ people, a devops engineer, 1,000,000+ users and scalability priority 4+; here team.size is 2, team.has_devops is false, scale.users_12_months is 1,500, priorities.scalability is 1, team.experience is intermediate."
+      },
+      {
+        "choice": "service_oriented",
+        "why_not": "No workload is heavy enough to need its own service (realtime under 2,000 concurrent users, no model training, no write-heavy iot, analytics or gaming)."
+      },
+      {
+        "choice": "serverless",
+        "why_not": "Traffic is steady, so always-on servers are cheaper than pay-per-request."
+      }
+    ]
+  },
+  "region": {
+    "zone": "india",
+    "primary": "centralindia",
+    "dr": null
+  },
+  "stack": {
+    "frontend": {
+      "choice": "React + Vite SPA",
+      "justification": "React + Vite SPA: the screens sit behind sign-in and need no search indexing, so a client-rendered app served as static files is enough and there is no rendering server to run; suited to project.type internal_tool; a 6-week MVP leans on a large library ecosystem; uses javascript, which the team already writes; low operations burden for a team of 2 with no devops engineer. Largest ecosystem and talent pool.",
+      "driven_by": [
+        "priorities.maintainability",
+        "priorities.time_to_market",
+        "project.type",
+        "requirements.auth",
+        "requirements.seo_critical",
+        "team.languages",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "Vue 3 + Vite SPA",
+          "why_not": "React + Vite SPA is preferred because a 6-week MVP leans on a large library ecosystem."
+        },
+        {
+          "choice": "Angular",
+          "why_not": "Angular scores lower on time to market (3.7 against 4.9, priorities.time_to_market is 5), which accounts for 5.8 of the 6.3-point gap."
+        }
+      ],
+      "tradeoffs": [
+        "Client-side rendering hurts SEO and first load",
+        "Routing and data fetching are your choice"
+      ],
+      "sources": [
+        "https://vite.dev/guide/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 103.9,
+      "margin": 4.0,
+      "confidence": "medium"
+    },
+    "backend": {
+      "choice": "ASP.NET Core",
+      "justification": "ASP.NET Core: suited to project.type internal_tool; uses csharp, which the team already writes, for the 6-week MVP; low operations burden for a team of 2 with no devops engineer. Top-tier TechEmpower throughput.",
+      "driven_by": [
+        "infrastructure.cloud_preference",
+        "priorities.maintainability",
+        "priorities.time_to_market",
+        "project.platforms",
+        "project.type"
+      ],
+      "alternatives": [
+        {
+          "choice": "Fastify (Node.js)",
+          "why_not": "Fastify (Node.js) scores about as high on its own, but the best full stack built around it totals 0.4 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "Azure Functions (Flex Consumption)",
+          "why_not": "Azure Functions (Flex Consumption) scores 0.2 points higher on its own, but the best full stack built around it totals 9.5 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "Firebase",
+          "why_not": "Excluded: Firebase (Blaze plan) is offered by Firebase (Google Cloud), but infrastructure.cloud_preference is azure."
+        }
+      ],
+      "tradeoffs": [
+        "Smaller start-up and open-source community than Node or Python",
+        "Azure-first documentation bias"
+      ],
+      "sources": [
+        "https://learn.microsoft.com/en-us/aspnet/core/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 92.55,
+      "margin": 0.4,
+      "confidence": "low",
+      "sub_layer": "framework"
+    },
+    "database": {
+      "choice": "Azure SQL Database",
+      "justification": "Azure SQL Database: migrates the existing system \"On-prem SQL Server 2019\" to Azure SQL Database, which keeps the same SQL Server engine and T-SQL; suited to project.type internal_tool; the existing licence microsoft_365 is usable with azure; uses sql, which the team already writes, for the 6-week MVP; low operations burden for a team of 2 with no devops engineer. Strong tooling, Entra ID integration and reporting. Deployed in centralindia.",
+      "driven_by": [
+        "infrastructure.cloud_preference",
+        "infrastructure.existing_licences",
+        "infrastructure.existing_systems",
+        "priorities.maintainability",
+        "priorities.time_to_market",
+        "project.type",
+        "requirements.consistency",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure Database for PostgreSQL Flexible Server",
+          "why_not": "Azure SQL Database is preferred because it migrates the existing system \"On-prem SQL Server 2019\" to Azure SQL Database, which keeps the same SQL Server engine and T-SQL."
+        },
+        {
+          "choice": "Azure Database for MySQL Flexible Server",
+          "why_not": "Azure SQL Database is preferred because it migrates the existing system \"On-prem SQL Server 2019\" to Azure SQL Database, which keeps the same SQL Server engine and T-SQL."
+        },
+        {
+          "choice": "Amazon DynamoDB",
+          "why_not": "Excluded: Amazon DynamoDB is offered by Amazon Web Services, but infrastructure.cloud_preference is azure."
+        }
+      ],
+      "tradeoffs": [
+        "Licence cost on self-managed servers",
+        "Linux and cloud options cost more than PostgreSQL"
+      ],
+      "sources": [
+        "https://azure.microsoft.com/en-us/pricing/details/azure-sql-database/single/",
+        "https://learn.microsoft.com/en-us/sql/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "centralindia",
+      "score": 128.55,
+      "margin": 21.4,
+      "confidence": "high",
+      "sub_layer": "relational"
+    },
+    "hosting": {
+      "choice": "Azure App Service",
+      "justification": "Azure App Service: integrates with the existing Azure tenant (\"Microsoft Entra ID (Azure AD)\"); App Service has built-in authentication for Microsoft Entra ID; suited to project.type internal_tool; the existing licence microsoft_365 is usable with azure; quick to build with for a 6-week MVP; low operations burden for a team of 2 with no devops engineer. Fully managed web app hosting with Entra ID integration. Deployed in centralindia. The built React + Vite SPA web app is served from the same host as the ASP.NET Core API, so there is one deployment target.",
+      "driven_by": [
+        "infrastructure.cloud_preference",
+        "infrastructure.existing_licences",
+        "infrastructure.existing_systems",
+        "priorities.maintainability",
+        "priorities.time_to_market",
+        "project.type",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure Static Web Apps",
+          "why_not": "Azure Static Web Apps scores lower on maintainability (3.7 against 4.4, priorities.maintainability is 5), which accounts for 3.5 of the 8.0-point gap."
+        },
+        {
+          "choice": "Azure Container Apps",
+          "why_not": "Azure Container Apps scores lower on maintainability (3.4 against 4.4, priorities.maintainability is 5), which accounts for 5.0 of the 12.9-point gap."
+        },
+        {
+          "choice": "Amazon EC2 (VM)",
+          "why_not": "Excluded: Amazon EC2 is not on AZURE (infrastructure.cloud_preference is azure)."
+        }
+      ],
+      "tradeoffs": [
+        "Plans bill continuously; no scale to zero",
+        "Azure lock-in"
+      ],
+      "sources": [
+        "https://azure.microsoft.com/en-us/pricing/details/app-service/linux/",
+        "https://learn.microsoft.com/en-us/azure/app-service/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "centralindia",
+      "score": 109.19,
+      "margin": 9.5,
+      "confidence": "high",
+      "sub_layer": "paas"
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Microsoft Entra ID",
+        "justification": "Microsoft Entra ID: reuses the existing system \"Microsoft Entra ID (Azure AD)\"; Microsoft 365 licence already includes Entra ID; reuses the existing system \"Microsoft 365\"; quick to build with for a 6-week MVP; strong security defaults for iso27001. Single sign-on for staff using existing Microsoft 365 accounts. Deployed in United States.",
+        "driven_by": [
+          "infrastructure.data_residency",
+          "infrastructure.existing_licences",
+          "infrastructure.existing_systems",
+          "priorities.security",
+          "priorities.time_to_market",
+          "project.type",
+          "requirements.auth",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Keycloak self-hosted",
+            "why_not": "Microsoft Entra ID is preferred because it reuses the existing system \"Microsoft Entra ID (Azure AD)\"."
+          },
+          {
+            "choice": "ZITADEL self-hosted",
+            "why_not": "Microsoft Entra ID is preferred because it reuses the existing system \"Microsoft Entra ID (Azure AD)\"."
+          },
+          {
+            "choice": "ASP.NET Core Identity",
+            "why_not": "Excluded: does not provide enterprise_sso sign-in."
+          }
+        ],
+        "tradeoffs": [
+          "For employees; use External ID for customers",
+          "Data location India not claimed",
+          "Free tier limits apply: Free tier includes SSO for unlimited apps and basic features.",
+          "Operations burden 5 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing",
+          "https://learn.microsoft.com/en-us/entra/identity/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "United States",
+        "score": 135.58,
+        "margin": 101.3,
+        "confidence": "high",
+        "sub_layer": "enterprise_sso"
+      },
+      {
+        "layer": "storage",
+        "choice": "Azure Blob Storage",
+        "justification": "Azure Blob Storage: same cloud (Microsoft Azure) as the core stack, so one account and no cross-vendor traffic; quick to build with for a 6-week MVP; strong security defaults for iso27001. Zone and geo redundancy with immutable storage options. Deployed in centralindia.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.security",
+          "priorities.time_to_market"
+        ],
+        "alternatives": [
+          {
+            "choice": "SeaweedFS self-hosted",
+            "why_not": "SeaweedFS self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "Ceph Object Gateway self-hosted",
+            "why_not": "Ceph Object Gateway self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "Cloudflare R2",
+            "why_not": "Excluded: Cloudflare R2 is offered by Cloudflare, but infrastructure.cloud_preference is azure."
+          }
+        ],
+        "tradeoffs": [
+          "Egress charges",
+          "Azure only",
+          "Operations burden 5 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://azure.microsoft.com/en-us/pricing/details/storage/blobs/",
+          "https://learn.microsoft.com/en-us/azure/storage/blobs/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "centralindia",
+        "score": 83.8,
+        "margin": 54.9,
+        "confidence": "high"
+      },
+      {
+        "layer": "queue",
+        "choice": "Azure Service Bus",
+        "justification": "Azure Service Bus: same cloud (Microsoft Azure) as the core stack, so one account and no cross-vendor traffic; quick to build with for a 6-week MVP; low operations burden for a team of 2 with no devops engineer. Topics, sessions and transactions for enterprise messaging. Deployed in centralindia.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.time_to_market",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "NATS JetStream self-hosted",
+            "why_not": "NATS JetStream self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "RabbitMQ self-hosted",
+            "why_not": "RabbitMQ self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "Postgres-backed job queue (pg-boss / Procrastinate / Solid Queue)",
+            "why_not": "Excluded: needs a library for the chosen backend language."
+          }
+        ],
+        "tradeoffs": [
+          "Azure only",
+          "Standard tier has a base monthly fee"
+        ],
+        "sources": [
+          "https://azure.microsoft.com/en-us/pricing/details/service-bus/",
+          "https://learn.microsoft.com/en-us/azure/service-bus-messaging/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "centralindia",
+        "score": 83.17,
+        "margin": 48.6,
+        "confidence": "high"
+      },
+      {
+        "layer": "other",
+        "choice": "Microsoft Graph (Exchange Online and Teams)",
+        "justification": "Microsoft Graph (Exchange Online and Teams): reuses the existing system \"Microsoft 365\"; suited to project.type internal_tool; Microsoft 365 licence includes mail sending; quick to build with for a 6-week MVP; strong security defaults for iso27001. Send mail and Teams messages as part of a Microsoft 365 tenant. Deployed in centralindia.",
+        "driven_by": [
+          "compliance",
+          "infrastructure.cloud_preference",
+          "infrastructure.existing_licences",
+          "infrastructure.existing_systems",
+          "priorities.security",
+          "priorities.time_to_market",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Azure Communication Services Email",
+            "why_not": "Microsoft Graph (Exchange Online and Teams) is preferred because it reuses the existing system \"Microsoft 365\"."
+          },
+          {
+            "choice": "Twilio SendGrid",
+            "why_not": "Microsoft Graph (Exchange Online and Teams) is preferred because it reuses the existing system \"Microsoft 365\"."
+          },
+          {
+            "choice": "Firebase Cloud Messaging + APNs",
+            "why_not": "Excluded: Firebase Cloud Messaging is offered by Firebase (Google Cloud), but infrastructure.cloud_preference is azure."
+          }
+        ],
+        "tradeoffs": [
+          "Needs Microsoft 365",
+          "Rate limited for bulk",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://learn.microsoft.com/en-us/graph/overview",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "centralindia",
+        "score": 96.15,
+        "margin": 16.1,
+        "confidence": "high",
+        "sub_layer": "notifications"
+      },
+      {
+        "layer": "other",
+        "choice": "Azure Key Vault, Defender for Cloud and WAF",
+        "justification": "Azure Key Vault, Defender for Cloud and WAF: same cloud (Microsoft Azure) as the core stack, so one account and no cross-vendor traffic; quick to build with for a 6-week MVP; strong security defaults for iso27001. Keys, secrets and threat protection with Entra ID integration. Deployed in centralindia.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.security",
+          "priorities.time_to_market"
+        ],
+        "alternatives": [
+          {
+            "choice": "Self-managed baseline (Vault, Coraza WAF, Trivy)",
+            "why_not": "Excluded: is for self-hosted platforms."
+          }
+        ],
+        "tradeoffs": [
+          "Azure only",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://azure.microsoft.com/en-us/products/key-vault",
+          "https://learn.microsoft.com/en-us/azure/security/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "centralindia",
+        "score": 75.48,
+        "sub_layer": "security"
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "GitHub Actions",
+        "justification": "GitHub Actions: suited to project.type internal_tool; widely used, with free minutes for small teams; quick to build with for a 6-week MVP; low operations burden for a team of 2 with no devops engineer. Pipelines next to the code with a huge marketplace of actions.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.time_to_market",
+          "project.type",
+          "team.languages",
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "Azure DevOps Pipelines",
+            "why_not": "Azure DevOps Pipelines: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "GitLab.com",
+            "why_not": "GitLab.com scores lower on security (3.0 against 4.0, priorities.security is 4), which accounts for 4.0 of the 9.3-point gap."
+          },
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "Excluded: Google Cloud Build is offered by Google Cloud, but infrastructure.cloud_preference is azure."
+          }
+        ],
+        "tradeoffs": [
+          "Hosted runners are US based; self-hosted runners fix that",
+          "Free tier limits apply: Free: 2,000 minutes per month on private repos; unlimited on public.",
+          "Operations burden 5 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
+          "https://docs.github.com/en/actions",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 83.5,
+        "margin": 3.8,
+        "confidence": "medium"
+      },
+      {
+        "layer": "observability",
+        "choice": "Azure Monitor and Application Insights",
+        "justification": "Azure Monitor and Application Insights: same cloud (Microsoft Azure) as the core stack, so one account and no cross-vendor traffic; quick to build with for a 6-week MVP; strong security defaults for iso27001. Native APM, logs and metrics in your Azure region. Deployed in centralindia.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.security",
+          "priorities.time_to_market"
+        ],
+        "alternatives": [
+          {
+            "choice": "GlitchTip self-hosted",
+            "why_not": "GlitchTip self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "Sentry self-hosted",
+            "why_not": "Sentry self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "Amazon CloudWatch + X-Ray",
+            "why_not": "Excluded: Amazon CloudWatch and AWS X-Ray is offered by Amazon Web Services, but infrastructure.cloud_preference is azure."
+          }
+        ],
+        "tradeoffs": [
+          "Azure only",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://azure.microsoft.com/en-us/pricing/details/monitor/",
+          "https://learn.microsoft.com/en-us/azure/azure-monitor/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "centralindia",
+        "score": 81.3,
+        "margin": 39.5,
+        "confidence": "high"
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 45.0,
+    "max": 140.0,
+    "assumptions": [
+      "Priced for 1,500 monthly active users (the larger of users_at_launch and users_12_months), interpolated between list-price anchors in the knowledge base.",
+      "Prices are list prices of the cheapest region inside the chosen residency zone; taxes are excluded.",
+      "Database storage is priced for 20 GB (scale.data_volume_gb_12_months).",
+      "The upper bound is limited to 3 times the lower bound: the components do not all peak in the same month, so the band stays within one order of magnitude.",
+      "Microsoft Entra ID: free tier used at the low end (Free tier includes SSO for unlimited apps and basic features)",
+      "GitHub Actions: free tier used at the low end (Free: 2,000 minutes per month on private repos; unlimited on public)",
+      "Payment gateway fees (about 2% per transaction), one-time costs, domain names and developer seats are not infrastructure and are excluded."
+    ],
+    "breakdown": [
+      {
+        "layer": "frontend",
+        "component": "React + Vite SPA",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "backend",
+        "component": "ASP.NET Core",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "database",
+        "component": "Azure SQL Database",
+        "min": 6.76,
+        "max": 27.04
+      },
+      {
+        "layer": "database",
+        "component": "Azure SQL Database (storage)",
+        "min": 2.4,
+        "max": 2.4
+      },
+      {
+        "layer": "hosting",
+        "component": "Azure App Service",
+        "min": 20.4,
+        "max": 67.04
+      },
+      {
+        "layer": "auth",
+        "component": "Microsoft Entra ID",
+        "min": 0.0,
+        "max": 15.51
+      },
+      {
+        "layer": "storage",
+        "component": "Azure Blob Storage",
+        "min": 0.18,
+        "max": 3.41
+      },
+      {
+        "layer": "queue",
+        "component": "Azure Service Bus",
+        "min": 10.0,
+        "max": 15.88
+      },
+      {
+        "layer": "other",
+        "component": "Microsoft Graph (Exchange Online and Teams)",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "other",
+        "component": "Azure Key Vault, Defender for Cloud and WAF",
+        "min": 5.88,
+        "max": 17.64
+      },
+      {
+        "layer": "ci_cd",
+        "component": "GitHub Actions",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "observability",
+        "component": "Azure Monitor and Application Insights",
+        "min": 0.53,
+        "max": 9.4
+      }
+    ]
+  },
+  "capacity": {
+    "peak_users": 1500,
+    "peak_concurrent_users": 300,
+    "peak_rps": 60.0,
+    "api_instances_at_peak": 1,
+    "data_volume_gb_12_months": 20,
+    "basis": [
+      "peak_concurrent_users: given in scale.peak_concurrent_users",
+      "peak_rps: 0.2 requests per second per concurrent user, derived",
+      "api_instances_at_peak: peak_rps / 250 requests per second per instance, rounded up"
+    ]
+  },
+  "warnings": [
+    {
+      "code": "CERTIFICATION_IS_PROCESS",
+      "severity": "info",
+      "message": "ISO 27001 certifies the organisation, not the stack: the chosen services' attestations cover their part, but the team still needs its own risk register, access reviews, change records and an external audit.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "CERT_IN_LOGS",
+      "severity": "info",
+      "message": "CERT-In Directions (28 April 2022) require system logs to be kept for 180 days within India and cyber incidents to be reported within 6 hours; set log retention in the India region accordingly.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_ISO27001",
+      "severity": "info",
+      "message": "ISO/IEC 27001:2022: Information security management system; Access control and logging. Managed services need attestations: iso27001.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "EOL_EXISTING_SYSTEM",
+      "severity": "info",
+      "message": "On-prem SQL Server 2019 is past mainstream support and in extended support until 2030-01-08; plan an upgrade to SQL Server 2022 or Azure SQL.",
+      "fields": [
+        "infrastructure.existing_systems"
+      ]
+    },
+    {
+      "code": "EXISTING_SYSTEM_REUSED",
+      "severity": "info",
+      "message": "Microsoft 365 is reused. Sign in with the Entra ID tenant behind Microsoft 365 and use Microsoft Graph for mail, calendar and Teams.",
+      "fields": [
+        "infrastructure.existing_systems"
+      ]
+    },
+    {
+      "code": "EXISTING_SYSTEM_REUSED",
+      "severity": "info",
+      "message": "Microsoft Entra ID (Azure AD) is reused. Federate sign-in with Microsoft Entra ID (Azure AD) using OpenID Connect or SAML; keep Microsoft Entra ID (Azure AD) as the identity source of truth and map groups to roles.",
+      "fields": [
+        "infrastructure.existing_systems"
+      ]
+    },
+    {
+      "code": "EXISTING_SYSTEM_REUSED",
+      "severity": "info",
+      "message": "On-prem SQL Server 2019 is reused as the data source, not kept in place. It moves to Azure SQL Database, which keeps the same SQL Server engine and T-SQL; migrate with Azure Database Migration Service or the Data Migration Assistant (DMA) (https://learn.microsoft.com/en-us/azure/dms/dms-overview).",
+      "fields": [
+        "infrastructure.existing_systems"
+      ]
+    },
+    {
+      "code": "FREE_TIER_LIMITS",
+      "severity": "info",
+      "message": "The low end of the estimate relies on free tiers: Microsoft Entra ID (Free tier includes SSO for unlimited apps and basic features); GitHub Actions (Free: 2,000 minutes per month on private repos; unlimited on public). Check them against the expected traffic.",
+      "fields": [
+        "budget.monthly_infra_usd",
+        "scale.traffic_pattern"
+      ]
+    }
+  ],
+  "assumptions": [
+    "scale.peak_rps not provided; derived as 60.0 (0.2 requests per second per concurrent user, x1.5 when spiky)",
+    "scale.user_geography not provided; derived as [global] (no description or compliance hint)",
+    "requirements.data_sensitivity not provided; derived as internal (project.type is internal_tool)",
+    "requirements.consistency not provided; derived as eventual (no payments or transactional signals)",
+    "requirements.notifications not provided; derived as [email] (email sign-in, SSO or payments)",
+    "requirements.background_jobs not provided; derived as true (notifications, file uploads)",
+    "requirements.connectivity not provided; derived as reliable (no connectivity hint in the description)",
+    "requirements.min_device_ram_gb not provided; derived as null (no device hint; no memory penalty applied)",
+    "requirements.rpo_minutes not provided; derived as 60 (availability target 99.9)",
+    "team.size_in_12_months not provided; derived as 2 (same as team.size)",
+    "infrastructure.vendor_lock_in_tolerance not provided; derived as medium (neutral default)",
+    "infrastructure.existing_licences not provided; derived as [] (none declared)",
+    "Microsoft Entra ID is reused because it is already in place; it has no verified india region, so confirm where the directory data is stored."
+  ],
+  "validation_errors": [],
+  "description_signals": [
+    {
+      "keyword": "employee",
+      "field": "requirements.auth",
+      "value": "enterprise_sso",
+      "applied": false,
+      "reason": "description mentions 'employee', which suggests company sign-in"
+    },
+    {
+      "keyword": "employees",
+      "field": "requirements.auth",
+      "value": "enterprise_sso",
+      "applied": false,
+      "reason": "description mentions 'employees', which suggests company sign-in"
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "note": "No language model is used; the stack is chosen by deterministic rules and the knowledge base."
+  },
+  "kb_as_of": "2026-11-10"
+}

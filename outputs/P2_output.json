@@ -1,0 +1,887 @@
+{
+  "scenario_id": "P2",
+  "engine_version": "1.0.0",
+  "status": "ok_with_warnings",
+  "summary": "Modular monolith architecture: Next.js (web) + React Native with Expo (Android) with Supabase Cloud and Supabase Postgres on Google Cloud Run + Supabase platform (Google Cloud Run in asia-south1, Supabase platform in ap-south-1). Driven mainly by project.type and team.languages; about $140-440/month.",
+  "architecture_style": "modular_monolith",
+  "architecture": {
+    "justification": "A marketplace project with a team of 3 benefits from clear module boundaries inside one deployable unit, without the operating cost of separate services.",
+    "driven_by": [
+      "project.type",
+      "team.experience",
+      "team.size"
+    ],
+    "alternatives": [
+      {
+        "choice": "microservices",
+        "why_not": "Needs 12+ people, a devops engineer, 1,000,000+ users and scalability priority 4+; here team.size is 3, team.has_devops is false, scale.users_12_months is 30,000, priorities.scalability is 3, team.experience is intermediate."
+      },
+      {
+        "choice": "service_oriented",
+        "why_not": "No workload is heavy enough to need its own service (realtime under 2,000 concurrent users, no model training, no write-heavy iot, analytics or gaming)."
+      },
+      {
+        "choice": "serverless",
+        "why_not": "Traffic is steady, so always-on servers are cheaper than pay-per-request."
+      }
+    ]
+  },
+  "region": {
+    "zone": "india",
+    "primary": "ap-south-1",
+    "dr": null
+  },
+  "stack": {
+    "frontend": {
+      "choice": "Next.js (web) + React Native with Expo (Android)",
+      "justification": "Next.js (web) + React Native with Expo (Android): server rendering or pre-built pages serve search engines; suited to project.type marketplace; an 8-week MVP leans on a large library ecosystem; uses javascript, typescript, which the team already writes; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Web app: Next.js (server rendering, static generation and route handlers in one framework). Android app: React Native with Expo (one TypeScript codebase for Android and iOS).",
+      "driven_by": [
+        "priorities.scalability",
+        "priorities.time_to_market",
+        "project.platforms",
+        "project.type",
+        "requirements.seo_critical",
+        "team.languages",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "SvelteKit (web) + React Native with Expo (Android)",
+          "why_not": "Next.js (web) + React Native with Expo (Android) is preferred because an 8-week MVP leans on a large library ecosystem."
+        },
+        {
+          "choice": "React Native with Expo (one codebase for web and Android)",
+          "why_not": "React Native with Expo (one codebase for web and Android): client-side rendering is weak for search engines."
+        }
+      ],
+      "tradeoffs": [
+        "Heavier runtime than static generators",
+        "Full features are easiest on Vercel; self-hosting needs Node or a container"
+      ],
+      "sources": [
+        "https://nextjs.org/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 107.97,
+      "margin": 5.3,
+      "confidence": "medium"
+    },
+    "backend": {
+      "choice": "Supabase Cloud",
+      "justification": "Supabase Cloud: includes sign-in, file storage, real-time out of the box, so fewer services for a team of 3 to wire up; suited to project.type marketplace; has built-in real-time support; uses javascript, typescript, which the team already writes, for the 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Postgres, Auth, Storage, Realtime and Edge Functions behind one dashboard. Deployed in ap-south-1.",
+      "driven_by": [
+        "infrastructure.data_residency",
+        "priorities.scalability",
+        "priorities.time_to_market",
+        "project.type",
+        "requirements.auth",
+        "requirements.realtime",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Fastify (Node.js)",
+          "why_not": "Fastify (Node.js) scores 3.8 points higher on its own, but the best full stack built around it totals 14.4 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "Next.js route handlers",
+          "why_not": "Next.js route handlers scores about as high on its own, but the best full stack built around it totals 18.4 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "FastAPI",
+          "why_not": "Supabase Cloud is preferred because it includes sign-in, file storage, real-time out of the box, so fewer services for a team of 3 to wire up. It would use python, which the team writes, but with its best hosting and database the whole stack totals 22.6 points less."
+        }
+      ],
+      "tradeoffs": [
+        "Hosted free projects pause after inactivity",
+        "Complex server logic ends up in edge functions or database functions"
+      ],
+      "sources": [
+        "https://supabase.com/pricing",
+        "https://supabase.com/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 95.72,
+      "margin": 14.4,
+      "confidence": "high",
+      "sub_layer": "baas"
+    },
+    "database": {
+      "choice": "Supabase Postgres",
+      "justification": "Supabase Postgres: bundled with Supabase; suited to project.type marketplace; a relational database suits the data: requirements.consistency is strong; quick to build with for an 8-week MVP; about $7-8 a month for this layer against the $150 monthly budget. ACID transactions, JSONB, full-text search, PostGIS and pgvector in one engine. Deployed in ap-south-1.",
+      "driven_by": [
+        "priorities.cost",
+        "priorities.time_to_market",
+        "project.type",
+        "requirements.auth",
+        "requirements.consistency",
+        "requirements.full_text_search",
+        "scale.peak_rps",
+        "scale.users_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Cloud SQL for MySQL",
+          "why_not": "Cloud SQL for MySQL scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 36.5-point gap."
+        },
+        {
+          "choice": "Azure SQL Database",
+          "why_not": "Azure SQL Database scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 41.1-point gap."
+        },
+        {
+          "choice": "SQLite / libSQL",
+          "why_not": "Excluded: a single-writer file database cannot take 160 requests per second (about 100 is its limit with writes queued behind one writer)."
+        }
+      ],
+      "tradeoffs": [
+        "Vertical scaling first; sharding needs extra tooling",
+        "Self-managed HA and backups take skill"
+      ],
+      "sources": [
+        "https://supabase.com/pricing",
+        "https://www.postgresql.org/docs/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 112.62,
+      "margin": 16.7,
+      "confidence": "high",
+      "sub_layer": "relational"
+    },
+    "hosting": {
+      "choice": "Google Cloud Run + Supabase platform",
+      "justification": "Google Cloud Run: suited to project.type marketplace; deploys straight from git, no pipeline to maintain; quick to build with for an 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Any container, scales to zero, and bills per request. Deployed in asia-south1. The web build runs on Google Cloud Run and the API on Supabase platform (hosts the Supabase backend; security rated 4 of 5 for dpdp).",
+      "driven_by": [
+        "infrastructure.deployment_model",
+        "priorities.scalability",
+        "priorities.time_to_market",
+        "project.type",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "DigitalOcean App Platform",
+          "why_not": "DigitalOcean App Platform scores lower on cost (0.2 against 1.6, priorities.cost is 4), which accounts for 5.6 of the 12.7-point gap."
+        },
+        {
+          "choice": "Azure Container Apps",
+          "why_not": "Google Cloud Run is preferred because it deploys straight from git, no pipeline to maintain."
+        }
+      ],
+      "tradeoffs": [
+        "Websocket sessions are time limited",
+        "Cold starts on idle services"
+      ],
+      "sources": [
+        "https://cloud.google.com/run/pricing",
+        "https://cloud.google.com/run/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "asia-south1",
+      "score": 88.83,
+      "margin": 23.3,
+      "confidence": "high",
+      "sub_layer": "container"
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Supabase Auth + MSG91 OTP",
+        "justification": "Supabase Auth + MSG91 OTP: already included with Supabase; registered for Indian DLT SMS rules; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; quick to build with for an 8-week MVP; about $38-188 a month for this layer against the $150 monthly budget. Email, phone OTP, social and SSO bundled with the Supabase database. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type",
+          "requirements.auth",
+          "scale.user_geography",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Amazon Cognito",
+            "why_not": "Amazon Cognito: Amazon Web Services is a different cloud from the gcp core stack."
+          },
+          {
+            "choice": "Microsoft Entra ID (workforce SSO)",
+            "why_not": "Excluded: Microsoft Entra ID has no verified india region (infrastructure.data_residency is india)."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to Supabase",
+          "SAML SSO needs a paid plan",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/pricing",
+          "https://supabase.com/docs/guides/auth",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 80.95,
+        "sub_layer": "phone_otp"
+      },
+      {
+        "layer": "payments",
+        "choice": "Cashfree Payments",
+        "justification": "Cashfree Payments: supports UPI for Indian users; splits payments between sellers and the platform; suited to project.type marketplace; quick to build with for an 8-week MVP; free at the expected load. Payment gateway with fast settlements and Payouts API. Deployed in india.",
+        "driven_by": [
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type",
+          "scale.user_geography"
+        ],
+        "alternatives": [
+          {
+            "choice": "Razorpay",
+            "why_not": "Razorpay and Cashfree Payments are about equal on the weighted score; Cashfree Payments wins the fixed tie-break order (operations burden, maturity, then name)."
+          },
+          {
+            "choice": "PayU India",
+            "why_not": "Cashfree Payments is preferred because splits payments between sellers and the platform."
+          }
+        ],
+        "tradeoffs": [
+          "India focus",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://docs.cashfree.com/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "india",
+        "score": 98.0,
+        "margin": 0.0,
+        "confidence": "low"
+      },
+      {
+        "layer": "realtime",
+        "choice": "Supabase Realtime",
+        "justification": "Supabase Realtime: already included with Supabase; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; suited to project.type marketplace; quick to build with for an 8-week MVP; free at the expected load. Broadcast, presence and Postgres change feeds bundled with Supabase. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type",
+          "team.has_devops",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloud Firestore listeners",
+            "why_not": "Cloud Firestore listeners scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 46.7-point gap."
+          },
+          {
+            "choice": "Pusher Channels",
+            "why_not": "Pusher Channels scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 56.3-point gap."
+          },
+          {
+            "choice": "Phoenix Channels",
+            "why_not": "Excluded: needs a library for the chosen backend language."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to Supabase",
+          "Connection limits per plan",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/pricing",
+          "https://supabase.com/docs/guides/realtime",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 104.29,
+        "margin": 46.7,
+        "confidence": "high"
+      },
+      {
+        "layer": "storage",
+        "choice": "Supabase Storage",
+        "justification": "Supabase Storage: already included with Supabase; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; suited to project.type marketplace; quick to build with for an 8-week MVP; free at the expected load. Bundled with Supabase with policy-based access control. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Google Cloud Storage",
+            "why_not": "Google Cloud Storage scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 27.5-point gap."
+          },
+          {
+            "choice": "DigitalOcean Spaces",
+            "why_not": "DigitalOcean Spaces scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 47.2-point gap."
+          },
+          {
+            "choice": "Cloudflare R2",
+            "why_not": "Excluded: Cloudflare R2 has no verified india region (infrastructure.data_residency is india)."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to the Supabase project",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/pricing",
+          "https://supabase.com/docs/guides/storage",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 100.29,
+        "margin": 27.5,
+        "confidence": "high"
+      },
+      {
+        "layer": "search",
+        "choice": "PostgreSQL full-text search",
+        "justification": "PostgreSQL full-text search: PostgreSQL already searches text, so there is no extra system to run; suited to project.type marketplace; quick to build with for an 8-week MVP; free at the expected load. No extra system when PostgreSQL is already the database.",
+        "driven_by": [
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type",
+          "requirements.full_text_search",
+          "scale.data_volume_gb_12_months"
+        ],
+        "alternatives": [
+          {
+            "choice": "Typesense Cloud",
+            "why_not": "Typesense Cloud scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 44.3-point gap."
+          },
+          {
+            "choice": "Meilisearch self-hosted",
+            "why_not": "Meilisearch self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          },
+          {
+            "choice": "Pagefind",
+            "why_not": "Excluded: indexes static sites only."
+          }
+        ],
+        "tradeoffs": [
+          "Weaker relevance tuning, typo tolerance and faceting",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://www.postgresql.org/docs/current/textsearch.html",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 97.19,
+        "margin": 44.3,
+        "confidence": "high"
+      },
+      {
+        "layer": "cache",
+        "choice": "Upstash Redis (pay as you go)",
+        "justification": "Upstash Redis (pay as you go): suited to project.type marketplace; managed cache, nothing to patch; quick to build with for an 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Serverless Redis with per-request pricing and an HTTP API. Deployed in ap-south-1.",
+        "driven_by": [
+          "priorities.scalability",
+          "priorities.time_to_market",
+          "project.type",
+          "team.has_devops"
+        ],
+        "alternatives": [
+          {
+            "choice": "Memorystore",
+            "why_not": "Memorystore: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Redis Open Source self-hosted",
+            "why_not": "Redis Open Source self-hosted: self-hosted on a managed-cloud deployment with no devops engineer to patch and back it up."
+          }
+        ],
+        "tradeoffs": [
+          "Per-command pricing grows with chatty workloads",
+          "Latency depends on region",
+          "Adds another vendor (Upstash) to sign up with, secure and pay."
+        ],
+        "sources": [
+          "https://upstash.com/pricing/redis",
+          "https://upstash.com/docs/redis/overall/getstarted",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 55.86,
+        "margin": 5.7,
+        "confidence": "medium"
+      },
+      {
+        "layer": "queue",
+        "choice": "Supabase Queues (pgmq) and pg_cron",
+        "justification": "Supabase Queues (pgmq) and pg_cron: already included with Supabase; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; suited to project.type marketplace; quick to build with for an 8-week MVP; free at the expected load. Durable queues and scheduled jobs inside the Supabase Postgres project. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Google Pub/Sub and Cloud Tasks",
+            "why_not": "Google Pub/Sub and Cloud Tasks scores lower on cost (2.6 against 5.0, priorities.cost is 4), which accounts for 9.1 of the 14.2-point gap."
+          },
+          {
+            "choice": "CloudAMQP",
+            "why_not": "CloudAMQP scores lower on cost (0.0 against 5.0, priorities.cost is 4), which accounts for 19.0 of the 75.6-point gap."
+          },
+          {
+            "choice": "Postgres-backed job queue (pg-boss / Procrastinate / Solid Queue)",
+            "why_not": "Excluded: needs a library for the chosen backend language."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to the Supabase project; throughput limited by the database",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/docs/guides/queues",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 100.29,
+        "margin": 14.2,
+        "confidence": "high"
+      },
+      {
+        "layer": "cdn",
+        "choice": "Google Cloud CDN",
+        "justification": "Google Cloud CDN: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; suited to project.type marketplace; quick to build with for an 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Uses Google edge with the global load balancer.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.time_to_market",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Bunny CDN",
+            "why_not": "Bunny CDN: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Cloudflare CDN: adds another vendor (Cloudflare) to sign up with, secure and pay."
+          },
+          {
+            "choice": "AWS Amplify Hosting (CDN included with host)",
+            "why_not": "Excluded: is only available with its own hosting platform."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only",
+          "Operations burden 5 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://cloud.google.com/cdn/pricing",
+          "https://cloud.google.com/cdn/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 67.91,
+        "margin": 9.4,
+        "confidence": "high"
+      },
+      {
+        "layer": "other",
+        "choice": "Resend + Firebase Cloud Messaging",
+        "justification": "Resend + Firebase Cloud Messaging: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; suited to project.type marketplace; quick to build with for an 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Developer-friendly email API with React Email templates. Deployed in us-east-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.existing_licences",
+          "priorities.scalability",
+          "priorities.time_to_market",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Twilio SendGrid",
+            "why_not": "Twilio SendGrid: adds another vendor (Twilio SendGrid) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Postmark",
+            "why_not": "Postmark: adds another vendor (Postmark) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Microsoft Graph mail and Teams",
+            "why_not": "Excluded: needs a Microsoft 365 licence."
+          }
+        ],
+        "tradeoffs": [
+          "Young product",
+          "No India region verified",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://resend.com/pricing",
+          "https://resend.com/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "us-east-1",
+        "score": 69.84,
+        "sub_layer": "notifications"
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "GitHub Actions + Expo Application Services",
+        "justification": "GitHub Actions + Expo Application Services: suited to project.type marketplace; widely used, with free minutes for small teams; quick to build with for an 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Pipelines next to the code with a huge marketplace of actions. Deployed in us.",
+        "driven_by": [
+          "priorities.scalability",
+          "priorities.time_to_market",
+          "project.type",
+          "team.languages",
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "Google Cloud Build: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "GitLab.com",
+            "why_not": "GitLab.com scores lower on cost (0.0 against 1.3, priorities.cost is 4), which accounts for 4.9 of the 21.2-point gap."
+          },
+          {
+            "choice": "Host git integration (Vercel, Netlify, Cloudflare Pages)",
+            "why_not": "Excluded: needs a host with its own build-from-git pipeline."
+          }
+        ],
+        "tradeoffs": [
+          "Hosted runners are US based; self-hosted runners fix that",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
+          "https://docs.github.com/en/actions",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "us",
+        "score": 63.92
+      },
+      {
+        "layer": "observability",
+        "choice": "Google Cloud Observability",
+        "justification": "Google Cloud Observability: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; suited to project.type marketplace; quick to build with for an 8-week MVP; handles the 30,000 users expected in 12 months (about 800 concurrent at peak). Native logs, metrics and tracing in your GCP region. Deployed in asia-south1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.time_to_market",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Sentry",
+            "why_not": "Sentry: adds another vendor (Sentry) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Grafana Cloud",
+            "why_not": "Grafana Cloud: adds another vendor (Grafana Cloud) to sign up with, secure and pay."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://cloud.google.com/products/observability/pricing",
+          "https://cloud.google.com/stackdriver/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "asia-south1",
+        "score": 59.08,
+        "margin": 12.6,
+        "confidence": "high"
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 140.0,
+    "max": 440.0,
+    "assumptions": [
+      "Priced for 30,000 monthly active users (the larger of users_at_launch and users_12_months), interpolated between list-price anchors in the knowledge base.",
+      "Prices are list prices of the cheapest region inside the chosen residency zone; taxes are excluded.",
+      "Database storage is priced for 50 GB (scale.data_volume_gb_12_months).",
+      "A staging environment is added for a team of 3 or more (x1.1 to x1.3 on core services).",
+      "The upper bound is limited to 3 times the lower bound: the components do not all peak in the same month, so the band stays within one order of magnitude.",
+      "Supabase Postgres: included in the Supabase Cloud price, with no separate charge",
+      "Supabase platform: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Auth: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Realtime: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Storage: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Queues (pgmq) and pg_cron: included in the Supabase Cloud price, with no separate charge",
+      "Firebase Cloud Messaging: free tier used at the low end (FCM is free with no message cap)",
+      "Payment gateway fees (about 2% per transaction), one-time costs, domain names and developer seats are not infrastructure and are excluded."
+    ],
+    "breakdown": [
+      {
+        "layer": "frontend",
+        "component": "Next.js",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "frontend",
+        "component": "React Native with Expo",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "backend",
+        "component": "Supabase Cloud",
+        "min": 27.5,
+        "max": 120.22
+      },
+      {
+        "layer": "database",
+        "component": "Supabase Postgres",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "database",
+        "component": "Supabase Postgres (storage)",
+        "min": 6.88,
+        "max": 8.12
+      },
+      {
+        "layer": "hosting",
+        "component": "Google Cloud Run",
+        "min": 14.85,
+        "max": 88.02
+      },
+      {
+        "layer": "hosting",
+        "component": "Supabase platform",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "auth",
+        "component": "Supabase Auth",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "auth",
+        "component": "MSG91 OTP",
+        "min": 37.58,
+        "max": 187.91
+      },
+      {
+        "layer": "payments",
+        "component": "Cashfree Payments",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "realtime",
+        "component": "Supabase Realtime",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "storage",
+        "component": "Supabase Storage",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "search",
+        "component": "PostgreSQL full-text search",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "cache",
+        "component": "Upstash Redis (pay as you go)",
+        "min": 5.25,
+        "max": 44.02
+      },
+      {
+        "layer": "queue",
+        "component": "Supabase Queues (pgmq) and pg_cron",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "cdn",
+        "component": "Google Cloud CDN",
+        "min": 5.82,
+        "max": 55.56
+      },
+      {
+        "layer": "other",
+        "component": "Resend",
+        "min": 9.54,
+        "max": 53.4
+      },
+      {
+        "layer": "other",
+        "component": "Firebase Cloud Messaging",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "ci_cd",
+        "component": "GitHub Actions",
+        "min": 2.39,
+        "max": 19.08
+      },
+      {
+        "layer": "ci_cd",
+        "component": "Expo Application Services",
+        "min": 19.0,
+        "max": 57.17
+      },
+      {
+        "layer": "observability",
+        "component": "Google Cloud Observability",
+        "min": 15.88,
+        "max": 111.11
+      }
+    ]
+  },
+  "capacity": {
+    "peak_users": 30000,
+    "peak_concurrent_users": 800,
+    "peak_rps": 160.0,
+    "api_instances_at_peak": null,
+    "data_volume_gb_12_months": 50,
+    "basis": [
+      "peak_concurrent_users: given in scale.peak_concurrent_users",
+      "peak_rps: 0.2 requests per second per concurrent user, derived",
+      "api_instances_at_peak: none to size, Supabase platform scales per request"
+    ]
+  },
+  "warnings": [
+    {
+      "code": "BUDGET_TIGHT",
+      "severity": "warning",
+      "message": "The estimate is $140-440 a month against a budget of $150, so a busy month could go over.",
+      "fields": [
+        "budget.monthly_infra_usd"
+      ]
+    },
+    {
+      "code": "TIMELINE_TIGHT",
+      "severity": "warning",
+      "message": "timeline.mvp_weeks is 8 against an estimate of about 10 weeks for the scope.",
+      "fields": [
+        "timeline.mvp_weeks"
+      ]
+    },
+    {
+      "code": "CDN_STATIC_ONLY",
+      "severity": "info",
+      "message": "The CDN (Google Cloud CDN) is used for static assets only; personal data stays at the origin in india.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "CERT_IN_LOGS",
+      "severity": "info",
+      "message": "CERT-In Directions (28 April 2022) require system logs to be kept for 180 days within India and cyber incidents to be reported within 6 hours; set log retention in the India region accordingly.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_DPDP",
+      "severity": "info",
+      "message": "India DPDP Act 2023 and DPDP Rules 2025: Notice and consent for processing personal data; Data principal rights: access, correction, erasure, grievance redressal. The stack keeps data in ap-south-1.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "FREE_TIER_LIMITS",
+      "severity": "info",
+      "message": "The low end of the estimate relies on free tiers: Firebase Cloud Messaging (FCM is free with no message cap). Check them against the expected traffic.",
+      "fields": [
+        "budget.monthly_infra_usd",
+        "scale.traffic_pattern"
+      ]
+    },
+    {
+      "code": "OVERSELL_RISK",
+      "severity": "info",
+      "message": "Claim stock, slots or bookings in Supabase Postgres with a single conditional UPDATE (for example WHERE stock > 0) or a row lock inside a transaction, not a read followed by a write, so two buyers cannot take the last unit.",
+      "fields": [
+        "project.type"
+      ]
+    },
+    {
+      "code": "PAYMENT_IDEMPOTENCY",
+      "severity": "info",
+      "message": "Make every Cashfree Payments charge and refund call idempotent (one idempotency key or order id per attempt) and store processed webhook event ids, so a retry or a repeated webhook never charges or refunds twice.",
+      "fields": [
+        "requirements.payments"
+      ]
+    },
+    {
+      "code": "PCI_SCOPE",
+      "severity": "info",
+      "message": "Card data still falls under PCI DSS even though compliance does not list pci_dss. Use the payment provider's hosted checkout or redirect so card numbers never touch these servers; the merchant then files the short Self-Assessment Questionnaire A instead of a full assessment.",
+      "fields": [
+        "requirements.payments",
+        "compliance"
+      ]
+    },
+    {
+      "code": "SMS_DLT_REQUIRED",
+      "severity": "info",
+      "message": "SMS to Indian numbers must go through a DLT-registered sender and templates; register before launch.",
+      "fields": [
+        "requirements.auth",
+        "scale.user_geography"
+      ]
+    }
+  ],
+  "assumptions": [
+    "scale.peak_rps not provided; derived as 160.0 (0.2 requests per second per concurrent user, x1.5 when spiky)",
+    "scale.user_geography not provided; derived as [india] (implied by compliance dpdp)",
+    "requirements.data_sensitivity not provided; derived as personal (compliance covers personal data)",
+    "requirements.consistency not provided; derived as strong (payments or a transactional project type)",
+    "requirements.notifications not provided; derived as [email, push, sms] (mobile app with live or social features; email sign-in, SSO or payments; phone OTP sign-in)",
+    "requirements.background_jobs not provided; derived as true (payments, notifications, file uploads)",
+    "requirements.connectivity not provided; derived as reliable (no connectivity hint in the description)",
+    "requirements.min_device_ram_gb not provided; derived as null (no device hint; no memory penalty applied)",
+    "requirements.rpo_minutes not provided; derived as 60 (availability target 99.9)",
+    "team.size_in_12_months not provided; derived as 3 (same as team.size)",
+    "infrastructure.vendor_lock_in_tolerance not provided; derived as medium (neutral default)",
+    "infrastructure.existing_licences not provided; derived as [] (none declared)",
+    "SMS messages go through the same gateway as the one-time passwords, so no second SMS provider is added."
+  ],
+  "validation_errors": [],
+  "description_signals": [
+    {
+      "keyword": "get paid",
+      "field": "requirements.payments",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'get paid', which suggests taking or sending money"
+    },
+    {
+      "keyword": "chat",
+      "field": "requirements.realtime",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'chat', which suggests live updates"
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "note": "No language model is used; the stack is chosen by deterministic rules and the knowledge base."
+  },
+  "kb_as_of": "2026-11-10"
+}

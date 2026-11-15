@@ -1,0 +1,61 @@
+{
+  "project": {
+    "name": "GeoCode API",
+    "type": "api_platform",
+    "description": "Public REST API for address geocoding sold to developers with API keys and usage billing.",
+    "platforms": [
+      "api_only"
+    ]
+  },
+  "scale": {
+    "traffic_pattern": "steady",
+    "workload": "read_heavy",
+    "users_at_launch": 1000,
+    "users_12_months": 10000,
+    "peak_concurrent_users": 200,
+    "data_volume_gb_12_months": 10
+  },
+  "team": {
+    "has_devops": false,
+    "size": 3,
+    "experience": "senior",
+    "languages": [
+      "go"
+    ]
+  },
+  "budget": {
+    "monthly_infra_usd": 500
+  },
+  "timeline": {
+    "mvp_weeks": 10
+  },
+  "infrastructure": {
+    "cloud_preference": "any",
+    "deployment_model": "managed_cloud",
+    "data_residency": "none",
+    "existing_systems": []
+  },
+  "requirements": {
+    "realtime": false,
+    "offline_support": false,
+    "full_text_search": false,
+    "file_media_storage": false,
+    "payments": true,
+    "auth": "email_password",
+    "multi_tenant": false,
+    "ml_features": "none",
+    "seo_critical": false,
+    "availability": "99.9",
+    "p95_latency_ms": 150
+  },
+  "compliance": [],
+  "priorities": {
+    "cost": 3,
+    "time_to_market": 3,
+    "scalability": 3,
+    "performance": 3,
+    "maintainability": 3,
+    "security": 3
+  },
+  "scenario_id": "E19"
+}

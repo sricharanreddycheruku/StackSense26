@@ -1,0 +1,2444 @@
+[
+ {
+  "id": "aws",
+  "name": "Amazon Web Services",
+  "kind": "hyperscaler",
+  "regions": {
+   "india": [
+    "ap-south-1",
+    "ap-south-2"
+   ],
+   "eu": [
+    "eu-central-1",
+    "eu-west-1"
+   ],
+   "us": [
+    "us-east-1",
+    "us-west-2"
+   ],
+   "apac": [
+    "ap-southeast-1",
+    "ap-southeast-2"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA through AWS Artifact; covers HIPAA-eligible services only",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Mumbai and Hyderabad regions keep data, logs and backups in India. Services must be on the HIPAA eligible list for PHI.",
+  "sources": [
+   {
+    "title": "AWS compliance programs",
+    "url": "https://aws.amazon.com/compliance/programs/"
+   },
+   {
+    "title": "AWS Regions and Availability Zones",
+    "url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/"
+   },
+   {
+    "title": "AWS GDPR Data Processing Addendum",
+    "url": "https://aws.amazon.com/compliance/gdpr-center/"
+   }
+  ]
+ },
+ {
+  "id": "gcp",
+  "name": "Google Cloud",
+  "kind": "hyperscaler",
+  "regions": {
+   "india": [
+    "asia-south1",
+    "asia-south2"
+   ],
+   "eu": [
+    "europe-west1",
+    "europe-west3"
+   ],
+   "us": [
+    "us-central1",
+    "us-east1"
+   ],
+   "apac": [
+    "asia-southeast1",
+    "australia-southeast1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA covers listed Google Cloud products only",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Mumbai (asia-south1) and Delhi (asia-south2) regions. Cloud Run functions was formerly Cloud Functions.",
+  "sources": [
+   {
+    "title": "Google Cloud compliance resource center",
+    "url": "https://cloud.google.com/security/compliance"
+   },
+   {
+    "title": "Google Cloud locations",
+    "url": "https://cloud.google.com/about/locations"
+   }
+  ]
+ },
+ {
+  "id": "azure",
+  "name": "Microsoft Azure",
+  "kind": "hyperscaler",
+  "regions": {
+   "india": [
+    "centralindia",
+    "southindia"
+   ],
+   "eu": [
+    "westeurope",
+    "northeurope"
+   ],
+   "us": [
+    "eastus",
+    "westus2"
+   ],
+   "apac": [
+    "southeastasia",
+    "australiaeast"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA is part of the Microsoft Product Terms for in-scope services",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Central India (Pune) and South India (Chennai). Azure AD is now Microsoft Entra ID.",
+  "sources": [
+   {
+    "title": "Azure compliance offerings",
+    "url": "https://learn.microsoft.com/en-us/azure/compliance/"
+   },
+   {
+    "title": "Azure geographies and regions",
+    "url": "https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/"
+   }
+  ]
+ },
+ {
+  "id": "digitalocean",
+  "name": "DigitalOcean",
+  "kind": "paas",
+  "regions": {
+   "india": [
+    "blr1"
+   ],
+   "eu": [
+    "fra1",
+    "ams3",
+    "lon1"
+   ],
+   "us": [
+    "nyc3",
+    "sfo3"
+   ],
+   "apac": [
+    "sgp1",
+    "syd1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "SOC 2 Type II and PCI DSS SAQ-A are published. ISO 27001 applies to colocated facilities only and HIPAA is not listed, so neither is claimed here.",
+  "sources": [
+   {
+    "title": "DigitalOcean certifications and reports",
+    "url": "https://www.digitalocean.com/trust/certification-reports"
+   },
+   {
+    "title": "DigitalOcean regional availability",
+    "url": "https://docs.digitalocean.com/platform/regional-availability/"
+   }
+  ]
+ },
+ {
+  "id": "supabase",
+  "name": "Supabase",
+  "kind": "baas",
+  "regions": {
+   "india": [
+    "ap-south-1"
+   ],
+   "eu": [
+    "eu-central-1",
+    "eu-west-1",
+    "eu-west-2",
+    "eu-west-3"
+   ],
+   "us": [
+    "us-east-1",
+    "us-west-1"
+   ],
+   "apac": [
+    "ap-southeast-1",
+    "ap-southeast-2"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "Team plan and above with the HIPAA add-on",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Project region fixes database, storage and auth location. Hosted on AWS.",
+  "sources": [
+   {
+    "title": "Supabase security and compliance",
+    "url": "https://supabase.com/security"
+   },
+   {
+    "title": "Supabase regions",
+    "url": "https://supabase.com/docs/guides/platform/regions"
+   }
+  ]
+ },
+ {
+  "id": "vercel",
+  "name": "Vercel",
+  "kind": "paas",
+  "regions": {
+   "india": [
+    "bom1"
+   ],
+   "eu": [
+    "fra1",
+    "cdg1",
+    "dub1"
+   ],
+   "us": [
+    "iad1",
+    "sfo1"
+   ],
+   "apac": [
+    "sin1",
+    "syd1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA add-on on Pro, available on Enterprise",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "SOC 2 Type 2 and ISO 27001:2022 confirmed on the compliance page. Functions can run in bom1 but Vercel may process data anywhere per its DPA, so India full residency is not claimed. Hobby plan is non-commercial only.",
+  "sources": [
+   {
+    "title": "Vercel security and compliance",
+    "url": "https://vercel.com/docs/security/compliance"
+   },
+   {
+    "title": "Vercel regions",
+    "url": "https://vercel.com/docs/regions"
+   }
+  ]
+ },
+ {
+  "id": "netlify",
+  "name": "Netlify",
+  "kind": "paas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu-central-1"
+   ],
+   "us": [
+    "us-east-2"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "No India function region verified. Function region choice is limited and edge delivery is global, so no zone is claimed as full residency.",
+  "sources": [
+   {
+    "title": "Netlify security",
+    "url": "https://www.netlify.com/security/"
+   },
+   {
+    "title": "Netlify functions regions",
+    "url": "https://docs.netlify.com/build/functions/overview/"
+   }
+  ]
+ },
+ {
+  "id": "cloudflare",
+  "name": "Cloudflare",
+  "kind": "paas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Global edge network. Regional services and data localisation suite are enterprise features, so no zone is claimed as full residency. R2 supports an EU jurisdiction.",
+  "sources": [
+   {
+    "title": "Cloudflare compliance",
+    "url": "https://www.cloudflare.com/trust-hub/compliance-resources/"
+   },
+   {
+    "title": "Cloudflare R2 data location",
+    "url": "https://developers.cloudflare.com/r2/reference/data-location/"
+   }
+  ]
+ },
+ {
+  "id": "render",
+  "name": "Render",
+  "kind": "paas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "frankfurt"
+   ],
+   "us": [
+    "oregon",
+    "ohio",
+    "virginia"
+   ],
+   "apac": [
+    "singapore"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region; Singapore is nearest. HIPAA is not claimed.",
+  "sources": [
+   {
+    "title": "Render regions",
+    "url": "https://render.com/docs/regions"
+   },
+   {
+    "title": "Render security",
+    "url": "https://render.com/security"
+   }
+  ]
+ },
+ {
+  "id": "railway",
+  "name": "Railway",
+  "kind": "paas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "europe-west4"
+   ],
+   "us": [
+    "us-east4",
+    "us-west2"
+   ],
+   "apac": [
+    "asia-southeast1"
+   ]
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region; Singapore is nearest. SOC 2 not verified, so not claimed.",
+  "sources": [
+   {
+    "title": "Railway regions",
+    "url": "https://docs.railway.com/reference/deployment-regions"
+   },
+   {
+    "title": "Railway privacy and DPA",
+    "url": "https://railway.com/legal/dpa"
+   }
+  ]
+ },
+ {
+  "id": "flyio",
+  "name": "Fly.io",
+  "kind": "paas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "fra",
+    "ams",
+    "lhr"
+   ],
+   "us": [
+    "iad",
+    "ord",
+    "sjc"
+   ],
+   "apac": [
+    "sin",
+    "syd"
+   ]
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "The official region list (17 regions) has no Mumbai (bom), so India is empty. SOC 2 not verified, so not claimed.",
+  "sources": [
+   {
+    "title": "Fly.io regions",
+    "url": "https://docs.fly.io/reference/regions"
+   },
+   {
+    "title": "Fly.io data processing addendum",
+    "url": "https://fly.io/legal/"
+   }
+  ]
+ },
+ {
+  "id": "github",
+  "name": "GitHub",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Pages is a global static host without region selection. GitHub Enterprise Cloud offers data residency in the EU and US.",
+  "sources": [
+   {
+    "title": "GitHub security and compliance",
+    "url": "https://github.com/security"
+   },
+   {
+    "title": "GitHub Trust Center",
+    "url": "https://github.com/security"
+   }
+  ]
+ },
+ {
+  "id": "mongodb_atlas",
+  "name": "MongoDB Atlas",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1",
+    "aws/ap-south-2",
+    "gcp/asia-south1",
+    "azure/centralindia"
+   ],
+   "eu": [
+    "aws/eu-central-1",
+    "gcp/europe-west1",
+    "azure/westeurope"
+   ],
+   "us": [
+    "aws/us-east-1",
+    "gcp/us-central1",
+    "azure/eastus"
+   ],
+   "apac": [
+    "aws/ap-southeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on eligible dedicated tiers",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Runs on AWS, GCP or Azure in the region you pick. Free M0 clusters are not for production.",
+  "sources": [
+   {
+    "title": "MongoDB Atlas trust and compliance",
+    "url": "https://www.mongodb.com/products/platform/trust"
+   },
+   {
+    "title": "MongoDB Atlas cloud providers and regions",
+    "url": "https://www.mongodb.com/docs/atlas/cloud-providers-regions/"
+   }
+  ]
+ },
+ {
+  "id": "neon",
+  "name": "Neon",
+  "kind": "baas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "aws-eu-central-1",
+    "aws-eu-west-2"
+   ],
+   "us": [
+    "aws-us-east-1",
+    "aws-us-east-2",
+    "aws-us-west-2"
+   ],
+   "apac": [
+    "aws-ap-southeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region. The security page says annual SOC 2 and ISO audits are done by independent firms; HIPAA is not claimed.",
+  "sources": [
+   {
+    "title": "Neon security overview",
+    "url": "https://neon.com/docs/security/security-overview"
+   },
+   {
+    "title": "Neon regions",
+    "url": "https://neon.com/docs/introduction/regions"
+   }
+  ]
+ },
+ {
+  "id": "firebase",
+  "name": "Firebase (Google Cloud)",
+  "kind": "baas",
+  "regions": {
+   "india": [
+    "asia-south1",
+    "asia-south2"
+   ],
+   "eu": [
+    "europe-west1",
+    "europe-west3"
+   ],
+   "us": [
+    "us-central1",
+    "us-east1"
+   ],
+   "apac": [
+    "asia-southeast1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "Covered services only through the Google Cloud BAA",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": true
+  },
+  "notes": "Firestore and Cloud Storage can be pinned to a region, but Firebase Authentication user data is processed in the US, so India and EU full residency fail when auth is used.",
+  "sources": [
+   {
+    "title": "Firebase privacy and security",
+    "url": "https://firebase.google.com/support/privacy"
+   },
+   {
+    "title": "Firebase locations",
+    "url": "https://firebase.google.com/docs/projects/locations"
+   }
+  ]
+ },
+ {
+  "id": "hetzner",
+  "name": "Hetzner Cloud",
+  "kind": "paas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "fsn1",
+    "nbg1",
+    "hel1"
+   ],
+   "us": [
+    "ash",
+    "hil"
+   ],
+   "apac": [
+    "sin"
+   ]
+  },
+  "attestations": [
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region. Hosting in Germany and Finland suits EU residency.",
+  "sources": [
+   {
+    "title": "Hetzner Cloud locations",
+    "url": "https://docs.hetzner.com/cloud/general/locations/"
+   },
+   {
+    "title": "Hetzner certificates",
+    "url": "https://www.hetzner.com/unternehmen/zertifizierung/"
+   }
+  ]
+ },
+ {
+  "id": "self",
+  "name": "Self-managed (on-premise or own VMs)",
+  "kind": "self",
+  "regions": {
+   "india": [
+    "self-managed"
+   ],
+   "eu": [
+    "self-managed"
+   ],
+   "us": [
+    "self-managed"
+   ],
+   "apac": [
+    "self-managed"
+   ]
+  },
+  "attestations": [],
+  "hipaa_baa_plan": "inherited from the organisation",
+  "dpa": false,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Attestations are inherited from the organisation that runs the servers (assumption logged by the engine). Placement is wherever the hardware sits.",
+  "sources": [
+   {
+    "title": "NIST SP 800-53 Rev. 5 security controls",
+    "url": "https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final"
+   }
+  ]
+ },
+ {
+  "id": "upstash",
+  "name": "Upstash",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "ap-south-1"
+   ],
+   "eu": [
+    "eu-west-1",
+    "eu-central-1"
+   ],
+   "us": [
+    "us-east-1",
+    "us-west-1"
+   ],
+   "apac": [
+    "ap-southeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Serverless Redis regions run on AWS; ap-south-1 Mumbai is listed in the console region picker.",
+  "sources": [
+   {
+    "title": "Upstash Redis regions",
+    "url": "https://upstash.com/docs/redis/features/globaldatabase"
+   }
+  ]
+ },
+ {
+  "id": "algolia",
+  "name": "Algolia",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "Frankfurt",
+    "Paris"
+   ],
+   "us": [
+    "Virginia",
+    "Oregon"
+   ],
+   "apac": [
+    "Singapore"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India cluster listed; Singapore is nearest.",
+  "sources": [
+   {
+    "title": "Algolia security and compliance",
+    "url": "https://www.algolia.com/doc/"
+   }
+  ]
+ },
+ {
+  "id": "typesense_cloud",
+  "name": "Typesense Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "Mumbai"
+   ],
+   "eu": [
+    "Frankfurt",
+    "Ireland"
+   ],
+   "us": [
+    "N. Virginia",
+    "Oregon"
+   ],
+   "apac": [
+    "Singapore"
+   ]
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Runs on AWS in the selected region. Certifications not verified, so none claimed.",
+  "sources": [
+   {
+    "title": "Typesense Cloud regions",
+    "url": "https://cloud.typesense.org/"
+   }
+  ]
+ },
+ {
+  "id": "meilisearch_cloud",
+  "name": "Meilisearch Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "Frankfurt"
+   ],
+   "us": [
+    "N. Virginia"
+   ],
+   "apac": [
+    "Singapore"
+   ]
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region verified.",
+  "sources": [
+   {
+    "title": "Meilisearch Cloud pricing and regions",
+    "url": "https://www.meilisearch.com/pricing"
+   }
+  ]
+ },
+ {
+  "id": "grafana_cloud",
+  "name": "Grafana Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu-west",
+    "eu-central"
+   ],
+   "us": [
+    "us-east",
+    "us-central"
+   ],
+   "apac": [
+    "ap-southeast"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India stack region verified.",
+  "sources": [
+   {
+    "title": "Grafana Cloud regions",
+    "url": "https://grafana.com/docs/grafana-cloud/account-management/regional-availability/"
+   }
+  ]
+ },
+ {
+  "id": "sentry",
+  "name": "Sentry",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "de"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Data storage regions are US and EU (Germany). Self-hosting is possible.",
+  "sources": [
+   {
+    "title": "Sentry data storage location",
+    "url": "https://docs.sentry.io/organization/data-storage-location/"
+   }
+  ]
+ },
+ {
+  "id": "datadog",
+  "name": "Datadog",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "EU1"
+   ],
+   "us": [
+    "US1",
+    "US3",
+    "US5"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA for eligible products",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India site.",
+  "sources": [
+   {
+    "title": "Datadog sites",
+    "url": "https://docs.datadoghq.com/getting_started/site/"
+   }
+  ]
+ },
+ {
+  "id": "newrelic",
+  "name": "New Relic",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "EU"
+   ],
+   "us": [
+    "US"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "US and EU data centers only.",
+  "sources": [
+   {
+    "title": "New Relic data regions",
+    "url": "https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/choose-your-data-center/"
+   }
+  ]
+ },
+ {
+  "id": "clerk",
+  "name": "Clerk",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "User data is stored in the US; no regional pinning, so residency-bound projects must not use it.",
+  "sources": [
+   {
+    "title": "Clerk security",
+    "url": "https://clerk.com/legal/dpa"
+   }
+  ]
+ },
+ {
+  "id": "auth0",
+  "name": "Auth0 (Okta)",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "EU"
+   ],
+   "us": [
+    "US"
+   ],
+   "apac": [
+    "AU"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on Enterprise",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Tenant regions: US, EU, Australia, Japan. No India region.",
+  "sources": [
+   {
+    "title": "Auth0 data residency",
+    "url": "https://auth0.com/docs/secure/data-privacy-and-compliance"
+   }
+  ]
+ },
+ {
+  "id": "pusher",
+  "name": "Pusher",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "ap2"
+   ],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "mt1",
+    "us2",
+    "us3"
+   ],
+   "apac": [
+    "ap1",
+    "ap3",
+    "ap4"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Clusters are for connection relay; ap2 is Mumbai. Messages transit the selected cluster only.",
+  "sources": [
+   {
+    "title": "Pusher Channels clusters",
+    "url": "https://pusher.com/docs/channels/miscellaneous/clusters/"
+   }
+  ]
+ },
+ {
+  "id": "ably",
+  "name": "Ably",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Global realtime edge; regional pinning is an enterprise feature and India is not verified.",
+  "sources": [
+   {
+    "title": "Ably trust and security",
+    "url": "https://ably.com/docs"
+   }
+  ]
+ },
+ {
+  "id": "liveblocks",
+  "name": "Liveblocks",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Regions not verified, so none claimed beyond US.",
+  "sources": [
+   {
+    "title": "Liveblocks security",
+    "url": "https://liveblocks.io/security"
+   }
+  ]
+ },
+ {
+  "id": "workos",
+  "name": "WorkOS",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "US hosted.",
+  "sources": [
+   {
+    "title": "WorkOS security",
+    "url": "https://workos.com/security"
+   }
+  ]
+ },
+ {
+  "id": "razorpay",
+  "name": "Razorpay",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "india"
+   ],
+   "eu": [],
+   "us": [],
+   "apac": []
+  },
+  "attestations": [
+   "pci_dss",
+   "iso27001",
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": false,
+   "us": false
+  },
+  "notes": "RBI-authorised payment aggregator; payment data stored in India. PCI DSS Level 1.",
+  "sources": [
+   {
+    "title": "Razorpay security and compliance",
+    "url": "https://razorpay.com/docs/"
+   }
+  ]
+ },
+ {
+  "id": "cashfree",
+  "name": "Cashfree Payments",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "india"
+   ],
+   "eu": [],
+   "us": [],
+   "apac": []
+  },
+  "attestations": [
+   "pci_dss",
+   "iso27001",
+   "soc2"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": false,
+   "us": false
+  },
+  "notes": "RBI-authorised payment aggregator; data stored in India.",
+  "sources": [
+   {
+    "title": "Cashfree Payments security",
+    "url": "https://www.cashfree.com/security/"
+   }
+  ]
+ },
+ {
+  "id": "payu",
+  "name": "PayU India",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "india"
+   ],
+   "eu": [],
+   "us": [],
+   "apac": []
+  },
+  "attestations": [
+   "pci_dss",
+   "iso27001"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": false,
+   "us": false
+  },
+  "notes": "RBI-authorised payment aggregator; data stored in India.",
+  "sources": [
+   {
+    "title": "PayU India security",
+    "url": "https://payu.in/"
+   }
+  ]
+ },
+ {
+  "id": "stripe",
+  "name": "Stripe",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "pci_dss",
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "PCI DSS Level 1. Stripe accounts in India are invite-only for new businesses, and payment data is not stored in India.",
+  "sources": [
+   {
+    "title": "Stripe accounts are invite-only in India",
+    "url": "https://support.stripe.com/questions/stripe-accounts-are-invite-only-in-india"
+   }
+  ]
+ },
+ {
+  "id": "paddle",
+  "name": "Paddle",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "pci_dss",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Merchant of record; handles VAT and sales tax. Not RBI-localised.",
+  "sources": [
+   {
+    "title": "Paddle security",
+    "url": "https://www.paddle.com/"
+   }
+  ]
+ },
+ {
+  "id": "adyen",
+  "name": "Adyen",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "india"
+   ],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "pci_dss",
+   "iso27001",
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Enterprise acquirer. India local processing availability is unverified, so full residency is not claimed.",
+  "sources": [
+   {
+    "title": "Adyen security",
+    "url": "https://docs.adyen.com/"
+   }
+  ]
+ },
+ {
+  "id": "msg91",
+  "name": "MSG91",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "india"
+   ],
+   "eu": [],
+   "us": [],
+   "apac": []
+  },
+  "attestations": [
+   "iso27001"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Indian SMS and OTP provider with TRAI DLT support.",
+  "sources": [
+   {
+    "title": "MSG91 security",
+    "url": "https://msg91.com/"
+   }
+  ]
+ },
+ {
+  "id": "twilio",
+  "name": "Twilio",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "ie1"
+   ],
+   "us": [
+    "us1"
+   ],
+   "apac": [
+    "au1",
+    "sg1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on eligible products",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "India SMS needs DLT registration. No India region for data.",
+  "sources": [
+   {
+    "title": "Twilio security and compliance",
+    "url": "https://www.twilio.com/en-us/trust"
+   }
+  ]
+ },
+ {
+  "id": "resend",
+  "name": "Resend",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu-west-1"
+   ],
+   "us": [
+    "us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Regions: us-east-1, eu-west-1, sa-east-1, ap-northeast-1. No India region.",
+  "sources": [
+   {
+    "title": "Resend regions",
+    "url": "https://resend.com/docs/dashboard/domains/introduction"
+   }
+  ]
+ },
+ {
+  "id": "postmark",
+  "name": "Postmark",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "US hosted.",
+  "sources": [
+   {
+    "title": "Postmark security",
+    "url": "https://postmarkapp.com/security"
+   }
+  ]
+ },
+ {
+  "id": "sendgrid",
+  "name": "Twilio SendGrid",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": true
+  },
+  "notes": "US hosted email API (Twilio).",
+  "sources": [
+   {
+    "title": "SendGrid security and certifications",
+    "url": "https://sendgrid.com/en-us/policies/security"
+   }
+  ]
+ },
+ {
+  "id": "sanity",
+  "name": "Sanity",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "EU/EEA"
+   ],
+   "us": [
+    "US"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": true
+  },
+  "notes": "Hosted content platform on Google Cloud; Sanity's own user database may be kept in the US.",
+  "sources": [
+   {
+    "title": "Sanity security and compliance",
+    "url": "https://www.sanity.io/security"
+   }
+  ]
+ },
+ {
+  "id": "strapi",
+  "name": "Strapi",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "Europe (West)"
+   ],
+   "us": [
+    "US (East)"
+   ],
+   "apac": [
+    "Asia (Southeast)"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {},
+  "notes": "Strapi Cloud; the hosting region is chosen when the project is created.",
+  "sources": [
+   {
+    "title": "Strapi Cloud deployment",
+    "url": "https://docs.strapi.io/cloud/getting-started/deployment"
+   }
+  ]
+ },
+ {
+  "id": "onesignal",
+  "name": "OneSignal",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Push service; data centre choice is limited to US and EU.",
+  "sources": [
+   {
+    "title": "OneSignal security",
+    "url": "https://onesignal.com/"
+   }
+  ]
+ },
+ {
+  "id": "planetscale",
+  "name": "PlanetScale",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu-central-1",
+    "eu-west-1"
+   ],
+   "us": [
+    "us-east-1",
+    "us-west-2"
+   ],
+   "apac": [
+    "ap-southeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on Enterprise",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Paid plans only; the free Hobby plan was removed in April 2024.",
+  "sources": [
+   {
+    "title": "PlanetScale regions",
+    "url": "https://planetscale.com/docs/concepts/regions"
+   }
+  ]
+ },
+ {
+  "id": "turso",
+  "name": "Turso",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "aws-eu-west-1"
+   ],
+   "us": [
+    "aws-us-east-1",
+    "aws-us-west-2"
+   ],
+   "apac": [
+    "aws-ap-northeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India location verified.",
+  "sources": [
+   {
+    "title": "Turso locations",
+    "url": "https://docs.turso.tech/"
+   }
+  ]
+ },
+ {
+  "id": "cockroach",
+  "name": "CockroachDB Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1",
+    "gcp/asia-south1"
+   ],
+   "eu": [
+    "aws/eu-central-1",
+    "gcp/europe-west1"
+   ],
+   "us": [
+    "aws/us-east-1",
+    "gcp/us-east1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on Advanced plan",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Runs on AWS, GCP or Azure regions. Licence changed in 2024: the core is source-available under a paid enterprise licence.",
+  "sources": [
+   {
+    "title": "CockroachDB Cloud regions",
+    "url": "https://www.cockroachlabs.com/docs/cockroachcloud/regions"
+   }
+  ]
+ },
+ {
+  "id": "tigerdata",
+  "name": "Tiger Data (Timescale)",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu-central-1",
+    "eu-west-1"
+   ],
+   "us": [
+    "us-east-1",
+    "us-west-2"
+   ],
+   "apac": [
+    "ap-southeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on Enterprise",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region verified.",
+  "sources": [
+   {
+    "title": "Tiger Data regions",
+    "url": "https://www.tigerdata.com/cloud"
+   }
+  ]
+ },
+ {
+  "id": "clickhouse",
+  "name": "ClickHouse Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "aws/eu-central-1",
+    "gcp/europe-west4"
+   ],
+   "us": [
+    "aws/us-east-1",
+    "gcp/us-central1"
+   ],
+   "apac": [
+    "aws/ap-southeast-1"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on Enterprise",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region verified.",
+  "sources": [
+   {
+    "title": "ClickHouse Cloud regions",
+    "url": "https://clickhouse.com/docs/cloud/reference/supported-regions"
+   }
+  ]
+ },
+ {
+  "id": "scylladb",
+  "name": "ScyllaDB Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1"
+   ],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Runs in customer-selected AWS or GCP regions.",
+  "sources": [
+   {
+    "title": "ScyllaDB Cloud regions",
+    "url": "https://cloud.docs.scylladb.com/stable/"
+   }
+  ]
+ },
+ {
+  "id": "confluent",
+  "name": "Confluent Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1",
+    "gcp/asia-south1",
+    "azure/centralindia"
+   ],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on eligible clusters",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Managed Kafka on AWS, GCP, Azure.",
+  "sources": [
+   {
+    "title": "Confluent Cloud regions",
+    "url": "https://docs.confluent.io/cloud/current/clusters/regions.html"
+   }
+  ]
+ },
+ {
+  "id": "cloudamqp",
+  "name": "CloudAMQP",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1"
+   ],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Managed RabbitMQ in AWS/GCP/Azure regions.",
+  "sources": [
+   {
+    "title": "CloudAMQP data centers",
+    "url": "https://www.cloudamqp.com/docs/"
+   }
+  ]
+ },
+ {
+  "id": "elastic",
+  "name": "Elastic Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "gcp/asia-south1",
+    "aws/ap-south-1",
+    "azure/centralindia"
+   ],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on eligible deployments",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Hosted on AWS, GCP or Azure.",
+  "sources": [
+   {
+    "title": "Elastic Cloud regions",
+    "url": "https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/regions"
+   }
+  ]
+ },
+ {
+  "id": "pinecone",
+  "name": "Pinecone",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "aws/eu-west-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on Enterprise",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region.",
+  "sources": [
+   {
+    "title": "Pinecone cloud regions",
+    "url": "https://docs.pinecone.io/guides/index-data/create-an-index"
+   }
+  ]
+ },
+ {
+  "id": "qdrant_cloud",
+  "name": "Qdrant Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "No India region verified.",
+  "sources": [
+   {
+    "title": "Qdrant Cloud",
+    "url": "https://qdrant.tech/documentation/cloud/"
+   }
+  ]
+ },
+ {
+  "id": "openai",
+  "name": "OpenAI API",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on request",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Data residency in the EU and US for eligible projects. No India region.",
+  "sources": [
+   {
+    "title": "OpenAI data residency",
+    "url": "https://platform.openai.com/docs/guides/your-data"
+   }
+  ]
+ },
+ {
+  "id": "powersync",
+  "name": "PowerSync",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Cloud regions US, EU, JP, AU, BR; India not listed. Open-source service is self-hostable.",
+  "sources": [
+   {
+    "title": "PowerSync Cloud",
+    "url": "https://docs.powersync.com/"
+   }
+  ]
+ },
+ {
+  "id": "appwrite",
+  "name": "Appwrite Cloud",
+  "kind": "baas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "fra"
+   ],
+   "us": [
+    "nyc"
+   ],
+   "apac": [
+    "sgp"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Cloud regions: Frankfurt, New York, Sydney, Singapore. No India region.",
+  "sources": [
+   {
+    "title": "Appwrite Cloud regions",
+    "url": "https://appwrite.io/docs/advanced/platform/regions"
+   }
+  ]
+ },
+ {
+  "id": "emqx_cloud",
+  "name": "EMQX Cloud",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1"
+   ],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Managed MQTT broker on AWS, GCP, Azure.",
+  "sources": [
+   {
+    "title": "EMQX Cloud",
+    "url": "https://docs.emqx.com/en/cloud/latest/"
+   }
+  ]
+ },
+ {
+  "id": "bunny",
+  "name": "Bunny.net",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "eu"
+   ],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Global CDN; edge only.",
+  "sources": [
+   {
+    "title": "Bunny CDN",
+    "url": "https://bunny.net/cdn/"
+   }
+  ]
+ },
+ {
+  "id": "fastly",
+  "name": "Fastly",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "pci_dss",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on eligible plans",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Global CDN; edge only.",
+  "sources": [
+   {
+    "title": "Fastly trust",
+    "url": "https://www.fastly.com/trust"
+   }
+  ]
+ },
+ {
+  "id": "expo",
+  "name": "Expo (EAS)",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "Build service for React Native apps.",
+  "sources": [
+   {
+    "title": "Expo EAS Build",
+    "url": "https://docs.expo.dev/build/introduction/"
+   }
+  ]
+ },
+ {
+  "id": "gitlab",
+  "name": "GitLab",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [],
+   "us": [
+    "us"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": false,
+   "us": false
+  },
+  "notes": "SaaS runs in the US; self-managed is supported for on-premise.",
+  "sources": [
+   {
+    "title": "GitLab trust center",
+    "url": "https://about.gitlab.com/security/"
+   }
+  ]
+ },
+ {
+  "id": "couchbase",
+  "name": "Couchbase",
+  "kind": "saas",
+  "regions": {
+   "india": [
+    "aws/ap-south-1"
+   ],
+   "eu": [
+    "aws/eu-central-1"
+   ],
+   "us": [
+    "aws/us-east-1"
+   ],
+   "apac": []
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "none",
+  "dpa": true,
+  "full_residency": {
+   "india": true,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Capella runs on AWS, GCP, Azure.",
+  "sources": [
+   {
+    "title": "Couchbase Capella",
+    "url": "https://www.couchbase.com/products/capella/"
+   }
+  ]
+ },
+ {
+  "id": "okta",
+  "name": "Okta",
+  "kind": "saas",
+  "regions": {
+   "india": [],
+   "eu": [
+    "EU"
+   ],
+   "us": [
+    "US"
+   ],
+   "apac": [
+    "APAC"
+   ]
+  },
+  "attestations": [
+   "soc2",
+   "iso27001",
+   "hipaa_baa",
+   "gdpr_dpa"
+  ],
+  "hipaa_baa_plan": "BAA on request for in-scope products",
+  "dpa": true,
+  "full_residency": {
+   "india": false,
+   "eu": true,
+   "us": true
+  },
+  "notes": "Org cells in US, EU and APAC. No India cell; an existing tenant is kept as is.",
+  "sources": [
+   {
+    "title": "Okta trust and compliance",
+    "url": "https://trust.okta.com/"
+   }
+  ]
+ }
+]

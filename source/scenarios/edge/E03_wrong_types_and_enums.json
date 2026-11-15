@@ -1,0 +1,47 @@
+{
+  "scenario_id": "E03",
+  "project": {
+    "name": "Typo City",
+    "type": "Web_App",
+    "platforms": [
+      "web",
+      "smartwatch"
+    ]
+  },
+  "scale": {
+    "users_at_launch": "5000",
+    "users_12_months": -10,
+    "traffic_pattern": "bursty"
+  },
+  "team": {
+    "size": 0,
+    "experience": "expert",
+    "languages": "python",
+    "has_devops": "yes"
+  },
+  "budget": {
+    "monthly_infra_usd": -100
+  },
+  "timeline": {
+    "mvp_weeks": 2.5
+  },
+  "infrastructure": {
+    "cloud_preference": "AWS",
+    "deployment_model": "cloud"
+  },
+  "requirements": {
+    "availability": 99.9,
+    "auth": "magic_link",
+    "p95_latency_ms": 0,
+    "realtime": "true"
+  },
+  "compliance": [
+    "gdpr",
+    "ccpa"
+  ],
+  "priorities": {
+    "cost": 9,
+    "security": 0,
+    "performance": "high"
+  }
+}

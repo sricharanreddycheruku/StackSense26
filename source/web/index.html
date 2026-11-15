@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StackSense</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo" aria-hidden="true"></span><div><h1>StackSense</h1><p>Explainable tech-stack recommendations</p></div></div>
+  <div class="toolbar">
+    <label class="sr" for="sample">Sample scenario</label>
+    <select id="sample"><option value="">Load a sample...</option></select>
+    <label class="btn" for="import-file">Import JSON</label>
+    <input id="import-file" type="file" accept=".json,application/json" hidden>
+    <button id="run" class="btn primary" type="button">Run recommendation</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="input-col" id="input-col" aria-label="Input">
+    <div id="raw-note" class="notice" hidden></div>
+    <div id="top-errors" class="errors-banner" hidden></div>
+
+    <section class="card" id="description">
+      <h2>Describe your project</h2>
+      <p class="help">Free text is used to suggest fields. Nothing is applied until you tick it and confirm.</p>
+      <textarea id="desc-text" rows="4" placeholder="e.g. Customers book electricians, providers chat with customers and get paid via UPI. Android app and web."></textarea>
+      <div class="row"><button id="suggest" type="button" class="btn">Suggest fields from description</button><span id="suggest-status" class="muted"></span></div>
+      <div id="suggestions" hidden>
+        <h3>Suggested fields <span class="muted">(tick the ones to apply)</span></h3>
+        <ul id="suggest-list" class="suggest-list"></ul>
+        <button id="apply-suggest" type="button" class="btn primary">Apply selected</button>
+      </div>
+    </section>
+
+    <form id="form" autocomplete="off" novalidate></form>
+
+    <div class="row actions">
+      <button id="run2" class="btn primary" type="button">Run recommendation</button>
+      <button id="dl-input" class="btn" type="button">Download input JSON</button>
+      <button id="dl-output" class="btn" type="button" disabled>Download output JSON</button>
+    </div>
+  </section>
+
+  <section class="output-col" id="output-col" aria-label="Results">
+    <div id="empty" class="card empty"><h2>Results</h2><p>Fill the form or load a sample, then run. The stack, cost band, warnings and the reasoning for every component appear here.</p></div>
+    <div id="results" hidden></div>
+  </section>
+</main>
+
+<footer>LLM features: off (none used). Knowledge base facts are dated; see kb_as_of in the output.</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

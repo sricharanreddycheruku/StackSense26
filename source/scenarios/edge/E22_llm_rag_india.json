@@ -1,0 +1,64 @@
+{
+  "project": {
+    "name": "PolicyBot",
+    "type": "ai_ml_product",
+    "description": "Chat assistant that answers employee questions from internal policy PDFs, India data residency.",
+    "platforms": [
+      "web"
+    ]
+  },
+  "scale": {
+    "traffic_pattern": "steady",
+    "workload": "balanced",
+    "users_at_launch": 1000,
+    "users_12_months": 10000,
+    "peak_concurrent_users": 200,
+    "data_volume_gb_12_months": 10
+  },
+  "team": {
+    "has_devops": false,
+    "size": 3,
+    "experience": "intermediate",
+    "languages": [
+      "typescript",
+      "python"
+    ]
+  },
+  "budget": {
+    "monthly_infra_usd": 1000
+  },
+  "timeline": {
+    "mvp_weeks": 10
+  },
+  "infrastructure": {
+    "cloud_preference": "any",
+    "deployment_model": "managed_cloud",
+    "data_residency": "india",
+    "existing_systems": []
+  },
+  "requirements": {
+    "realtime": false,
+    "offline_support": false,
+    "full_text_search": true,
+    "file_media_storage": true,
+    "payments": false,
+    "auth": "enterprise_sso",
+    "multi_tenant": false,
+    "ml_features": "llm_rag",
+    "seo_critical": false,
+    "availability": "99.9",
+    "p95_latency_ms": null
+  },
+  "compliance": [
+    "dpdp"
+  ],
+  "priorities": {
+    "cost": 3,
+    "time_to_market": 3,
+    "scalability": 3,
+    "performance": 3,
+    "maintainability": 3,
+    "security": 3
+  },
+  "scenario_id": "E22"
+}

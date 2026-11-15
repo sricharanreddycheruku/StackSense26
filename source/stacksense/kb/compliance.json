@@ -1,0 +1,196 @@
+[
+ {
+  "code": "dpdp",
+  "name": "India DPDP Act 2023 and DPDP Rules 2025",
+  "hard_effect": "none (soft India preference)",
+  "attestation_required": [],
+  "scopes": [],
+  "obligations": [
+   "Notice and consent for processing personal data",
+   "Data principal rights: access, correction, erasure, grievance redressal",
+   "Breach intimation to the Data Protection Board and affected principals",
+   "Reasonable security safeguards",
+   "Rules 2025 phase obligations in over time; confirm dates with counsel"
+  ],
+  "sources": [
+   {
+    "title": "Digital Personal Data Protection Act, 2023",
+    "url": "https://www.meity.gov.in/data-protection-framework"
+   },
+   {
+    "title": "MeitY: DPDP Rules 2025",
+    "url": "https://www.meity.gov.in/documents/act-and-policies/digital-personal-data-protection-rules-2025-gDOxUjMtQWa?pageTitle=Digital-Personal-Data-Protection-Rules-2025"
+   }
+  ]
+ },
+ {
+  "code": "rbi_localisation",
+  "name": "RBI storage of payment system data",
+  "hard_effect": "zone = india for data-storing components and the payment provider; disaster recovery also in India",
+  "attestation_required": [],
+  "scopes": [
+   "data",
+   "compute",
+   "processor"
+  ],
+  "obligations": [
+   "All payment system data stored only in systems in India (RBI circular 2018)",
+   "Foreign processing allowed only if data is deleted abroad and returned to India within one business day",
+   "Digital lending: borrower data on servers located in India"
+  ],
+  "sources": [
+   {
+    "title": "RBI: Storage of Payment System Data (2018)",
+    "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11244&Mode=0"
+   },
+   {
+    "title": "RBI Digital Lending Directions",
+    "url": "https://www.rbi.org.in/"
+   }
+  ]
+ },
+ {
+  "code": "pci_dss",
+  "name": "PCI DSS v4.0.1",
+  "hard_effect": "payment provider must be PCI DSS Level 1; hosting, database and storage providers must list pci_dss",
+  "attestation_required": [
+   "pci_dss"
+  ],
+  "scopes": [
+   "data",
+   "compute",
+   "processor"
+  ],
+  "obligations": [
+   "Use hosted checkout or tokenisation to keep scope near SAQ-A",
+   "Never store PAN, CVV or full track data",
+   "Quarterly scans, logging and access control"
+  ],
+  "sources": [
+   {
+    "title": "PCI Security Standards Council: PCI DSS",
+    "url": "https://www.pcisecuritystandards.org/standards/pci-dss/"
+   }
+  ],
+  "exempt_layers": [
+   {
+    "layer": "notifications",
+    "reason": "email, SMS and push messages carry no cardholder data, so the sender is outside the cardholder data environment; never put card data in messages"
+   }
+  ]
+ },
+ {
+  "code": "hipaa",
+  "name": "HIPAA (US)",
+  "hard_effect": "every component holding PHI needs a signed BAA; free tiers excluded",
+  "attestation_required": [
+   "hipaa_baa"
+  ],
+  "scopes": [
+   "data",
+   "compute",
+   "processor"
+  ],
+  "obligations": [
+   "Business Associate Agreement with every vendor that touches PHI",
+   "Audit logs and access controls",
+   "Encryption in transit and at rest",
+   "Minimum necessary use"
+  ],
+  "sources": [
+   {
+    "title": "HHS: HIPAA for Professionals",
+    "url": "https://www.hhs.gov/hipaa/for-professionals/index.html"
+   },
+   {
+    "title": "42 U.S.C. 1320d-8: Processing payment transactions by financial institutions",
+    "url": "https://www.law.cornell.edu/uscode/text/42/1320d-8"
+   }
+  ],
+  "exempt_layers": [
+   {
+    "layer": "payments",
+    "reason": "processing payment transactions is outside HIPAA business-associate rules (HIPAA section 1179); keep PHI out of payment descriptions and metadata"
+   }
+  ]
+ },
+ {
+  "code": "gdpr",
+  "name": "EU GDPR",
+  "hard_effect": "soft EU preference; vendors need a DPA",
+  "attestation_required": [
+   "gdpr_dpa"
+  ],
+  "scopes": [
+   "data",
+   "compute",
+   "processor"
+  ],
+  "obligations": [
+   "Data processing agreement and SCCs for transfers",
+   "DPIA for high-risk processing",
+   "Records of processing",
+   "Right to erasure and portability"
+  ],
+  "sources": [
+   {
+    "title": "GDPR full text",
+    "url": "https://gdpr-info.eu/"
+   },
+   {
+    "title": "EUR-Lex: Regulation (EU) 2016/679",
+    "url": "https://eur-lex.europa.eu/eli/reg/2016/679/oj"
+   }
+  ]
+ },
+ {
+  "code": "soc2",
+  "name": "SOC 2 Type II",
+  "hard_effect": "managed vendors must hold a SOC 2 Type II report",
+  "attestation_required": [
+   "soc2"
+  ],
+  "scopes": [
+   "data",
+   "compute",
+   "processor",
+   "telemetry"
+  ],
+  "obligations": [
+   "Change management",
+   "Periodic access reviews",
+   "Centralised logging and monitoring"
+  ],
+  "sources": [
+   {
+    "title": "AICPA: SOC 2",
+    "url": "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2"
+   }
+  ]
+ },
+ {
+  "code": "iso27001",
+  "name": "ISO/IEC 27001:2022",
+  "hard_effect": "managed vendors must hold an ISO/IEC 27001 certificate",
+  "attestation_required": [
+   "iso27001"
+  ],
+  "scopes": [
+   "data",
+   "compute",
+   "processor",
+   "telemetry"
+  ],
+  "obligations": [
+   "Information security management system",
+   "Access control and logging",
+   "Supplier management"
+  ],
+  "sources": [
+   {
+    "title": "ISO/IEC 27001:2022",
+    "url": "https://www.iso.org/standard/27001"
+   }
+  ]
+ }
+]

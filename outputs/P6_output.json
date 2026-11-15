@@ -1,0 +1,696 @@
+{
+  "scenario_id": "P6",
+  "engine_version": "1.0.0",
+  "status": "ok_with_warnings",
+  "summary": "Serverless architecture: React Native with Expo with Supabase Cloud and Supabase Postgres on Supabase platform in ap-south-1. Driven mainly by team.has_devops and team.size; about $25-90/month.",
+  "architecture_style": "serverless",
+  "architecture": {
+    "justification": "No devops engineer, a team of 2 and spiky traffic suit pay-per-use serverless or backend-as-a-service, which scales to zero between peaks.",
+    "driven_by": [
+      "scale.traffic_pattern",
+      "team.has_devops",
+      "team.size"
+    ],
+    "alternatives": [
+      {
+        "choice": "microservices",
+        "why_not": "Needs 12+ people, a devops engineer, 1,000,000+ users and scalability priority 4+; here team.size is 2, team.has_devops is false, scale.users_12_months is 2,000, priorities.scalability is 2."
+      },
+      {
+        "choice": "service_oriented",
+        "why_not": "No workload is heavy enough to need its own service (realtime under 2,000 concurrent users, no model training, no write-heavy iot, analytics or gaming)."
+      }
+    ]
+  },
+  "region": {
+    "zone": "india",
+    "primary": "ap-south-1",
+    "dr": null
+  },
+  "stack": {
+    "frontend": {
+      "choice": "React Native with Expo",
+      "justification": "React Native with Expo: supports an on-device store for offline use; written in javascript, which the team already uses; quick to build with for a 10-week MVP; low operations burden for a team of 2 with no devops engineer. One TypeScript codebase for Android and iOS.",
+      "driven_by": [
+        "priorities.maintainability",
+        "priorities.time_to_market",
+        "requirements.offline_support",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Native Android (Kotlin + Jetpack Compose)",
+          "why_not": "Native Android (Kotlin + Jetpack Compose): none of the team's languages (javascript, python) is used by Native Android (Kotlin + Jetpack Compose)."
+        },
+        {
+          "choice": "Ionic with Capacitor",
+          "why_not": "Ionic with Capacitor scores lower on maintainability (3.4 against 4.4, priorities.maintainability is 4), which accounts for 3.8 of the 9.0-point gap."
+        }
+      ],
+      "tradeoffs": [
+        "Native modules still need native knowledge occasionally",
+        "Heavier than native; keep the bundle lean for 2 GB devices."
+      ],
+      "sources": [
+        "https://docs.expo.dev/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 76.79,
+      "margin": 8.5,
+      "confidence": "high"
+    },
+    "backend": {
+      "choice": "Supabase Cloud",
+      "justification": "Supabase Cloud: fits a serverless architecture with no servers to run; includes sign-in, file storage out of the box, so fewer services for a team of 2 to wire up; javascript like the frontend, so a team of 2 works in one language; quick to build with for a 10-week MVP; low operations burden for a team of 2 with no devops engineer. Postgres, Auth, Storage, Realtime and Edge Functions behind one dashboard. Deployed in ap-south-1.",
+      "driven_by": [
+        "infrastructure.data_residency",
+        "priorities.maintainability",
+        "priorities.time_to_market",
+        "project.platforms",
+        "requirements.auth",
+        "scale.traffic_pattern",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure Functions (Flex Consumption)",
+          "why_not": "Azure Functions (Flex Consumption) scores 1.5 points higher on its own, but the best full stack built around it totals 13.8 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "AWS Lambda + Amazon API Gateway",
+          "why_not": "AWS Lambda + Amazon API Gateway scores 2.1 points higher on its own, but the best full stack built around it totals 14.6 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "Firebase",
+          "why_not": "Excluded: Firebase (Blaze plan) processes user data in US, which breaks data_residency=india."
+        }
+      ],
+      "tradeoffs": [
+        "Hosted free projects pause after inactivity",
+        "Complex server logic ends up in edge functions or database functions"
+      ],
+      "sources": [
+        "https://supabase.com/pricing",
+        "https://supabase.com/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 93.59,
+      "margin": 13.8,
+      "confidence": "high",
+      "sub_layer": "baas"
+    },
+    "database": {
+      "choice": "Supabase Postgres",
+      "justification": "Supabase Postgres: bundled with Supabase; a relational database suits the data: the input has no key-value, document or very-high-scale signal; location queries are supported (PostGIS); about $12-16 a month for this layer against the $100 monthly budget; low operations burden for a team of 2 with no devops engineer. ACID transactions, JSONB, full-text search, PostGIS and pgvector in one engine. Deployed in ap-south-1.",
+      "driven_by": [
+        "priorities.cost",
+        "priorities.maintainability",
+        "project.description",
+        "project.type",
+        "requirements.auth",
+        "requirements.consistency"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure SQL Database",
+          "why_not": "Azure SQL Database scores lower on cost (2.0 against 5.0, priorities.cost is 5), which accounts for 14.2 of the 25.4-point gap."
+        },
+        {
+          "choice": "Amazon RDS for MySQL",
+          "why_not": "Amazon RDS for MySQL scores lower on cost (0.9 against 5.0, priorities.cost is 5), which accounts for 19.3 of the 31.6-point gap."
+        }
+      ],
+      "tradeoffs": [
+        "Vertical scaling first; sharding needs extra tooling",
+        "Self-managed HA and backups take skill"
+      ],
+      "sources": [
+        "https://supabase.com/pricing",
+        "https://www.postgresql.org/docs/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 106.46,
+      "margin": 13.8,
+      "confidence": "high",
+      "sub_layer": "relational"
+    },
+    "hosting": {
+      "choice": "Supabase platform",
+      "justification": "Supabase platform: free at the expected load; quick to build with for a 10-week MVP. Hosts the Supabase backend. Deployed in ap-south-1.",
+      "driven_by": [
+        "infrastructure.deployment_model",
+        "priorities.cost",
+        "priorities.time_to_market",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure Functions (Flex Consumption)",
+          "why_not": "Azure Functions (Flex Consumption) scores 4.0 points higher on its own, but the best full stack built around it totals 13.8 points less once hosting, database and cloud fit are counted."
+        },
+        {
+          "choice": "AWS Lambda + Amazon API Gateway",
+          "why_not": "AWS Lambda + Amazon API Gateway scores 4.6 points higher on its own, but the best full stack built around it totals 14.6 points less once hosting, database and cloud fit are counted."
+        }
+      ],
+      "tradeoffs": [
+        "Does not host arbitrary backend frameworks"
+      ],
+      "sources": [
+        "https://supabase.com/pricing",
+        "https://supabase.com/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "ap-south-1",
+      "score": 87.09,
+      "margin": 13.8,
+      "confidence": "high",
+      "sub_layer": "baas_platform"
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Supabase Auth + MSG91 OTP",
+        "justification": "Supabase Auth + MSG91 OTP: already included with Supabase; registered for Indian DLT SMS rules; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; about $3-16 a month for this layer against the $100 monthly budget; quick to build with for a 10-week MVP. Email, phone OTP, social and SSO bundled with the Supabase database. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "requirements.auth",
+          "scale.user_geography",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Amazon Cognito",
+            "why_not": "Amazon Cognito: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Microsoft Entra ID (workforce SSO)",
+            "why_not": "Excluded: Microsoft Entra ID has no verified india region (infrastructure.data_residency is india)."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to Supabase",
+          "SAML SSO needs a paid plan",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/pricing",
+          "https://supabase.com/docs/guides/auth",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 81.08,
+        "sub_layer": "phone_otp"
+      },
+      {
+        "layer": "storage",
+        "choice": "Supabase Storage",
+        "justification": "Supabase Storage: already included with Supabase; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; free at the expected load; quick to build with for a 10-week MVP. Bundled with Supabase with policy-based access control. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market"
+        ],
+        "alternatives": [
+          {
+            "choice": "Azure Blob Storage",
+            "why_not": "Azure Blob Storage: operations burden 5 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Google Cloud Storage",
+            "why_not": "Google Cloud Storage: operations burden 5 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Ceph RGW",
+            "why_not": "Excluded: needs a long-running server, and the chosen hosts run functions only."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to the Supabase project",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/pricing",
+          "https://supabase.com/docs/guides/storage",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 92.51,
+        "margin": 28.7,
+        "confidence": "high"
+      },
+      {
+        "layer": "queue",
+        "choice": "Supabase Queues (pgmq) and pg_cron",
+        "justification": "Supabase Queues (pgmq) and pg_cron: already included with Supabase; same vendor (Supabase) as the core stack, so one account and no cross-vendor traffic; free at the expected load; quick to build with for a 10-week MVP. Durable queues and scheduled jobs inside the Supabase Postgres project. Deployed in ap-south-1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.cost",
+          "priorities.time_to_market"
+        ],
+        "alternatives": [
+          {
+            "choice": "Google Pub/Sub and Cloud Tasks",
+            "why_not": "Google Pub/Sub and Cloud Tasks: adds another vendor (Google Cloud) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Amazon SQS",
+            "why_not": "Amazon SQS: adds another vendor (Amazon Web Services) to sign up with, secure and pay."
+          },
+          {
+            "choice": "NATS JetStream",
+            "why_not": "Excluded: needs a long-running server, and the chosen hosts run functions only."
+          }
+        ],
+        "tradeoffs": [
+          "Tied to the Supabase project; throughput limited by the database",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://supabase.com/docs/guides/queues",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "ap-south-1",
+        "score": 92.51,
+        "margin": 16.6,
+        "confidence": "high"
+      },
+      {
+        "layer": "other",
+        "choice": "SQLite local store with outbox sync",
+        "justification": "SQLite local store with outbox sync: on-device SQLite with a sync queue fits the mobile framework; free at the expected load; quick to build with for a 10-week MVP. Simple offline-first pattern: write locally, replay to your API when online.",
+        "driven_by": [
+          "infrastructure.data_residency",
+          "priorities.cost",
+          "priorities.time_to_market",
+          "requirements.offline_support"
+        ],
+        "alternatives": [
+          {
+            "choice": "RxDB",
+            "why_not": "SQLite local store with outbox sync is preferred because on-device SQLite with a sync queue fits the mobile framework."
+          },
+          {
+            "choice": "WatermelonDB",
+            "why_not": "WatermelonDB: operations burden 5 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Firestore offline persistence",
+            "why_not": "Excluded: needs Firestore as the database."
+          }
+        ],
+        "tradeoffs": [
+          "You design conflict handling",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://www.sqlite.org/docs.html",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 85.18,
+        "margin": 12.9,
+        "confidence": "high",
+        "sub_layer": "offline_sync"
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "GitHub Actions + Expo Application Services",
+        "justification": "GitHub Actions + Expo Application Services: widely used, with free minutes for small teams; about $6-19 a month for this layer against the $100 monthly budget; quick to build with for a 10-week MVP. Pipelines next to the code with a huge marketplace of actions. Deployed in us.",
+        "driven_by": [
+          "priorities.cost",
+          "priorities.time_to_market",
+          "team.languages",
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "Google Cloud Build: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "GitLab.com",
+            "why_not": "GitLab.com scores lower on cost (2.5 against 5.0, priorities.cost is 5), which accounts for 11.9 of the 19.6-point gap."
+          },
+          {
+            "choice": "Host git integration (Vercel, Netlify, Cloudflare Pages)",
+            "why_not": "Excluded: needs a host with its own build-from-git pipeline."
+          }
+        ],
+        "tradeoffs": [
+          "Hosted runners are US based; self-hosted runners fix that",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
+          "https://docs.github.com/en/actions",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "us",
+        "score": 64.37
+      },
+      {
+        "layer": "observability",
+        "choice": "Sentry",
+        "justification": "Sentry: hosted error tracking with a free tier; quick to build with for a 10-week MVP. Error and performance tracking with SDKs for every stack. Deployed in us.",
+        "driven_by": [
+          "priorities.cost",
+          "priorities.time_to_market",
+          "team.has_devops"
+        ],
+        "alternatives": [
+          {
+            "choice": "Grafana Cloud",
+            "why_not": "Grafana Cloud: adds another vendor (Grafana Cloud) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Azure Monitor and Application Insights",
+            "why_not": "Azure Monitor and Application Insights: adds another vendor (Microsoft Azure) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Prometheus + Grafana + Loki (OpenTelemetry)",
+            "why_not": "Excluded: needs a long-running server, and the chosen hosts run functions only."
+          }
+        ],
+        "tradeoffs": [
+          "US or EU data regions only",
+          "Scrub PII when residency applies",
+          "Free tier limits apply: Developer plan free: 5K errors per month.",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://sentry.io/pricing/",
+          "https://docs.sentry.io/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "us",
+        "score": 52.62,
+        "margin": 1.2,
+        "confidence": "low"
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 25.0,
+    "max": 90.0,
+    "assumptions": [
+      "Priced for 2,000 monthly active users (the larger of users_at_launch and users_12_months), interpolated between list-price anchors in the knowledge base.",
+      "Prices are list prices of the cheapest region inside the chosen residency zone; taxes are excluded.",
+      "Database storage is priced for 100 GB (scale.data_volume_gb_12_months).",
+      "The upper bound includes a x1.25 allowance for spiky traffic (not stacked on the staging allowance).",
+      "The upper bound is limited to 3 times the lower bound: the components do not all peak in the same month, so the band stays within one order of magnitude.",
+      "Supabase Postgres: included in the Supabase Cloud price, with no separate charge",
+      "Supabase platform: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Auth: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Storage: included in the Supabase Cloud price, with no separate charge",
+      "Supabase Queues (pgmq) and pg_cron: included in the Supabase Cloud price, with no separate charge",
+      "GitHub Actions: free tier used at the low end (Free: 2,000 minutes per month on private repos; unlimited on public)",
+      "Sentry: free tier used at the low end (Developer plan free: 5K errors per month)",
+      "Payment gateway fees (about 2% per transaction), one-time costs, domain names and developer seats are not infrastructure and are excluded."
+    ],
+    "breakdown": [
+      {
+        "layer": "frontend",
+        "component": "React Native with Expo",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "backend",
+        "component": "Supabase Cloud",
+        "min": 7.53,
+        "max": 29.52
+      },
+      {
+        "layer": "database",
+        "component": "Supabase Postgres",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "database",
+        "component": "Supabase Postgres (storage)",
+        "min": 12.5,
+        "max": 15.62
+      },
+      {
+        "layer": "hosting",
+        "component": "Supabase platform",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "auth",
+        "component": "Supabase Auth",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "auth",
+        "component": "MSG91 OTP",
+        "min": 3.11,
+        "max": 15.54
+      },
+      {
+        "layer": "storage",
+        "component": "Supabase Storage",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "queue",
+        "component": "Supabase Queues (pgmq) and pg_cron",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "other",
+        "component": "SQLite local store with outbox sync",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "ci_cd",
+        "component": "GitHub Actions",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "ci_cd",
+        "component": "Expo Application Services",
+        "min": 5.72,
+        "max": 19.0
+      },
+      {
+        "layer": "observability",
+        "component": "Sentry",
+        "min": 0.0,
+        "max": 7.83
+      }
+    ]
+  },
+  "capacity": {
+    "peak_users": 2000,
+    "peak_concurrent_users": 200,
+    "peak_rps": 60.0,
+    "api_instances_at_peak": null,
+    "data_volume_gb_12_months": 100,
+    "basis": [
+      "peak_concurrent_users: given in scale.peak_concurrent_users",
+      "peak_rps: 0.2 requests per second per concurrent user, x1.5 for spiky traffic, derived",
+      "api_instances_at_peak: none to size, Supabase platform scales per request"
+    ]
+  },
+  "warnings": [
+    {
+      "code": "RESIDENCY_TELEMETRY",
+      "severity": "warning",
+      "message": "Sentry has no india region; log only scrubbed events and keep personal data out of telemetry.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "CERT_IN_LOGS",
+      "severity": "info",
+      "message": "CERT-In Directions (28 April 2022) require system logs to be kept for 180 days within India and cyber incidents to be reported within 6 hours; set log retention in the India region accordingly.",
+      "fields": [
+        "infrastructure.data_residency"
+      ]
+    },
+    {
+      "code": "COMPLIANCE_DPDP",
+      "severity": "info",
+      "message": "India DPDP Act 2023 and DPDP Rules 2025: Notice and consent for processing personal data; Data principal rights: access, correction, erasure, grievance redressal. The stack keeps data in ap-south-1.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "FREE_TIER_LIMITS",
+      "severity": "info",
+      "message": "The low end of the estimate relies on free tiers: GitHub Actions (Free: 2,000 minutes per month on private repos; unlimited on public); Sentry (Developer plan free: 5K errors per month). Check them against the expected traffic.",
+      "fields": [
+        "budget.monthly_infra_usd",
+        "scale.traffic_pattern"
+      ]
+    },
+    {
+      "code": "LOCATION_DATA",
+      "severity": "info",
+      "message": "The app records location, which is personal data: ask for consent before collecting it, store only the precision the feature needs and set a retention period.",
+      "fields": [
+        "project.description",
+        "compliance"
+      ]
+    },
+    {
+      "code": "LOW_END_DEVICE",
+      "severity": "info",
+      "message": "Target devices have about 2 GB of RAM: keep the app bundle small, use the Hermes engine for React Native, paginate lists and avoid holding images in memory.",
+      "fields": [
+        "requirements.min_device_ram_gb",
+        "project.platforms"
+      ]
+    },
+    {
+      "code": "SMS_DLT_REQUIRED",
+      "severity": "info",
+      "message": "SMS to Indian numbers must go through a DLT-registered sender and templates; register before launch.",
+      "fields": [
+        "requirements.auth",
+        "scale.user_geography"
+      ]
+    }
+  ],
+  "assumptions": [
+    "scale.peak_rps not provided; derived as 60.0 (0.2 requests per second per concurrent user, x1.5 when spiky)",
+    "scale.user_geography not provided; derived as [india] (implied by compliance dpdp)",
+    "requirements.data_sensitivity not provided; derived as personal (compliance covers personal data)",
+    "requirements.consistency not provided; derived as eventual (no payments or transactional signals)",
+    "requirements.notifications not provided; derived as [sms] (phone OTP sign-in)",
+    "requirements.background_jobs not provided; derived as true (notifications, file uploads)",
+    "requirements.connectivity not provided; derived as intermittent (description mentions '2g', '3g', 'intermittent', 'syncs when', 'villages')",
+    "requirements.min_device_ram_gb not provided; derived as 2 (description mentions '2 gb ram', 'low-end')",
+    "requirements.rpo_minutes not provided; derived as 1440 (availability target 99)",
+    "team.size_in_12_months not provided; derived as 2 (same as team.size)",
+    "infrastructure.vendor_lock_in_tolerance not provided; derived as medium (neutral default)",
+    "infrastructure.existing_licences not provided; derived as [] (none declared)",
+    "SMS messages go through the same gateway as the one-time passwords, so no second SMS provider is added."
+  ],
+  "validation_errors": [],
+  "description_signals": [
+    {
+      "keyword": "gps",
+      "field": "derived.geo",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'gps', which suggests location data"
+    },
+    {
+      "keyword": "2g",
+      "field": "requirements.connectivity",
+      "value": "intermittent",
+      "applied": true,
+      "reason": "description mentions '2g', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "3g",
+      "field": "requirements.connectivity",
+      "value": "intermittent",
+      "applied": true,
+      "reason": "description mentions '3g', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "intermittent",
+      "field": "requirements.connectivity",
+      "value": "intermittent",
+      "applied": true,
+      "reason": "description mentions 'intermittent', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "syncs when",
+      "field": "requirements.connectivity",
+      "value": "intermittent",
+      "applied": true,
+      "reason": "description mentions 'syncs when', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "villages",
+      "field": "requirements.connectivity",
+      "value": "intermittent",
+      "applied": true,
+      "reason": "description mentions 'villages', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "photos",
+      "field": "requirements.file_media_storage",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'photos', which suggests user files"
+    },
+    {
+      "keyword": "2 gb ram",
+      "field": "requirements.min_device_ram_gb",
+      "value": 2,
+      "applied": true,
+      "reason": "description mentions '2 gb ram', which states the RAM of the weakest device"
+    },
+    {
+      "keyword": "low-end",
+      "field": "requirements.min_device_ram_gb",
+      "value": 2,
+      "applied": true,
+      "reason": "description mentions 'low-end', which suggests low-memory devices"
+    },
+    {
+      "keyword": "2g",
+      "field": "requirements.offline_support",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions '2g', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "3g",
+      "field": "requirements.offline_support",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions '3g', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "intermittent",
+      "field": "requirements.offline_support",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'intermittent', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "syncs when",
+      "field": "requirements.offline_support",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'syncs when', which suggests unreliable connectivity"
+    },
+    {
+      "keyword": "villages",
+      "field": "requirements.offline_support",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'villages', which suggests unreliable connectivity"
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "note": "No language model is used; the stack is chosen by deterministic rules and the knowledge base."
+  },
+  "kb_as_of": "2026-11-10"
+}

@@ -1,0 +1,685 @@
+[
+ {
+  "pattern": "entra|azure\\s*(ad|active\\s*directory)",
+  "id": "entra_id",
+  "kind": "identity",
+  "effects": {
+   "auth": {
+    "prefer": "entra_id",
+    "bonus": 35
+   }
+  },
+  "integration": "Federate sign-in with {name} using OpenID Connect or SAML; keep {name} as the identity source of truth and map groups to roles.",
+  "sources": [
+   {
+    "title": "Microsoft Entra documentation",
+    "url": "https://learn.microsoft.com/en-us/entra/identity/"
+   }
+  ]
+ },
+ {
+  "pattern": "^(?!.*\\b(azure|entra)\\b).*(active\\s*directory|\\bad\\s*ds\\b)",
+  "id": "ad_ds",
+  "kind": "identity",
+  "effects": {
+   "auth": {
+    "prefer": "keycloak",
+    "accept": [
+     "entra_id"
+    ],
+    "bonus": 20,
+    "reason": "federates the existing directory \"{input}\" over LDAP and Kerberos, so accounts and groups stay in it"
+   }
+  },
+  "integration": "Keep {name} as the directory: connect it over LDAP/Kerberos (Keycloak user federation, Spring Security LDAP or ASP.NET Core Negotiate) and map its groups to roles; for cloud sign-in, sync it to Entra ID with Entra Connect.",
+  "sources": [
+   {
+    "title": "Active Directory Domain Services overview",
+    "url": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview"
+   },
+   {
+    "title": "Keycloak Server Administration Guide: LDAP and Active Directory user federation",
+    "url": "https://www.keycloak.org/docs/latest/server_admin/index.html"
+   },
+   {
+    "title": "What is Microsoft Entra Connect",
+    "url": "https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bokta\\b",
+  "id": "okta",
+  "kind": "identity",
+  "effects": {
+   "auth": {
+    "prefer": "okta",
+    "bonus": 35
+   }
+  },
+  "integration": "Integrate {name} through OpenID Connect or SAML; the app only needs an OIDC client.",
+  "sources": [
+   {
+    "title": "Okta developer docs",
+    "url": "https://developer.okta.com/docs/"
+   }
+  ]
+ },
+ {
+  "pattern": "google\\s*workspace|\\bg\\s*suite\\b|\\bgsuite\\b",
+  "id": "google_workspace",
+  "kind": "identity",
+  "effects": {},
+  "integration": "Use Google as an OIDC identity provider and the Admin and Gmail APIs for directory and mail integration.",
+  "sources": [
+   {
+    "title": "Google Workspace developer docs",
+    "url": "https://developers.google.com/workspace"
+   }
+  ]
+ },
+ {
+  "pattern": "keycloak",
+  "id": "keycloak",
+  "kind": "identity",
+  "effects": {
+   "auth": {
+    "prefer": "keycloak",
+    "bonus": 35
+   }
+  },
+  "integration": "Reuse the existing {name} realm: register this app as an OIDC client.",
+  "sources": [
+   {
+    "title": "Keycloak documentation",
+    "url": "https://www.keycloak.org/documentation"
+   }
+  ]
+ },
+ {
+  "pattern": "auth0",
+  "id": "auth0",
+  "kind": "identity",
+  "effects": {
+   "auth": {
+    "prefer": "auth0",
+    "bonus": 35
+   }
+  },
+  "integration": "Reuse the existing {name} tenant: add an application and connect through OIDC.",
+  "sources": [
+   {
+    "title": "Auth0 documentation",
+    "url": "https://auth0.com/docs"
+   }
+  ]
+ },
+ {
+  "pattern": "(?:ms|microsoft)?\\s*sql\\s*server(?:\\s*(\\d{4}|\\d+(\\.\\d+)*))?",
+  "id": "sqlserver",
+  "kind": "database",
+  "effects": {
+   "database": {
+    "prefer": "sqlserver",
+    "bonus": 20
+   }
+  },
+  "integration": "Keep {name} as the system of record and read through its supported drivers; plan the upgrade if its support has ended.",
+  "sources": [
+   {
+    "title": "SQL Server documentation",
+    "url": "https://learn.microsoft.com/en-us/sql/sql-server/"
+   }
+  ],
+  "version_regex": "(\\d{4}|\\d+(\\.\\d+)*)",
+  "migrate": {
+   "engine": "SQL Server",
+   "detail": "the same SQL Server engine and T-SQL",
+   "azure": {
+    "tool": "Azure Database Migration Service or the Data Migration Assistant (DMA)",
+    "url": "https://learn.microsoft.com/en-us/azure/dms/dms-overview"
+   },
+   "aws": {
+    "tool": "AWS Database Migration Service",
+    "url": "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
+   },
+   "gcp": {
+    "tool": "Google Database Migration Service",
+    "url": "https://cloud.google.com/database-migration/docs"
+   }
+  }
+ },
+ {
+  "pattern": "postgres(?:ql)?(?:\\s*(\\d{4}|\\d+(\\.\\d+)*))?",
+  "id": "postgresql",
+  "kind": "database",
+  "effects": {
+   "database": {
+    "prefer": "postgresql",
+    "bonus": 20
+   }
+  },
+  "integration": "Reuse the existing {name} instance or move it to a managed service with the same major version.",
+  "sources": [
+   {
+    "title": "PostgreSQL documentation",
+    "url": "https://www.postgresql.org/docs/"
+   }
+  ],
+  "version_regex": "(\\d{4}|\\d+(\\.\\d+)*)",
+  "migrate": {
+   "engine": "PostgreSQL",
+   "detail": "the same PostgreSQL engine and SQL",
+   "azure": {
+    "tool": "Azure Database Migration Service",
+    "url": "https://learn.microsoft.com/en-us/azure/dms/dms-overview"
+   },
+   "aws": {
+    "tool": "AWS Database Migration Service",
+    "url": "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
+   },
+   "gcp": {
+    "tool": "Google Database Migration Service",
+    "url": "https://cloud.google.com/database-migration/docs"
+   }
+  }
+ },
+ {
+  "pattern": "\\b(?:mysql|mariadb)(?:\\s*(\\d{4}|\\d+(\\.\\d+)*))?",
+  "id": "mysql",
+  "kind": "database",
+  "effects": {
+   "database": {
+    "prefer": "mysql",
+    "bonus": 20
+   }
+  },
+  "integration": "Reuse the existing {name} database; managed MySQL is available on every major cloud.",
+  "sources": [
+   {
+    "title": "MySQL documentation",
+    "url": "https://dev.mysql.com/doc/"
+   }
+  ],
+  "version_regex": "(\\d{4}|\\d+(\\.\\d+)*)",
+  "migrate": {
+   "engine": "MySQL",
+   "detail": "the same MySQL engine and SQL",
+   "azure": {
+    "tool": "Azure Database Migration Service",
+    "url": "https://learn.microsoft.com/en-us/azure/dms/dms-overview"
+   },
+   "aws": {
+    "tool": "AWS Database Migration Service",
+    "url": "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html"
+   },
+   "gcp": {
+    "tool": "Google Database Migration Service",
+    "url": "https://cloud.google.com/database-migration/docs"
+   }
+  }
+ },
+ {
+  "pattern": "oracle(?:\\s*database)?(?:\\s*(\\d{4}|\\d+(\\.\\d+)*)[cg]?)?",
+  "id": "oracle",
+  "kind": "database",
+  "effects": {},
+  "integration": "Integrate with {name} through its supported drivers or CDC export; avoid moving schemas as part of the first release.",
+  "sources": [
+   {
+    "title": "Oracle Database documentation",
+    "url": "https://docs.oracle.com/en/database/"
+   }
+  ],
+  "version_regex": "(\\d{4}|\\d+(\\.\\d+)*)",
+  "migration": {
+   "layer": "database",
+   "prefer": "postgresql",
+   "bonus": 14,
+   "text": "The data moves to {target} because the knowledge base lists no Oracle option for the new stack; plan a schema and PL/SQL conversion with a CDC copy before cut-over."
+  }
+ },
+ {
+  "pattern": "mongo\\s*db|\\bmongo\\b(?:\\s*(\\d{4}|\\d+(\\.\\d+)*))?",
+  "id": "mongodb",
+  "kind": "database",
+  "effects": {
+   "database": {
+    "prefer": "mongodb",
+    "bonus": 20
+   }
+  },
+  "integration": "Reuse the existing {name} deployment or move it to Atlas.",
+  "sources": [
+   {
+    "title": "MongoDB documentation",
+    "url": "https://www.mongodb.com/docs/"
+   }
+  ],
+  "version_regex": "(\\d{4}|\\d+(\\.\\d+)*)"
+ },
+ {
+  "pattern": "\\bredis\\b|\\bvalkey\\b",
+  "id": "redis",
+  "kind": "database",
+  "effects": {
+   "cache": {
+    "prefer": "redis_oss_self",
+    "bonus": 15
+   }
+  },
+  "integration": "Reuse the existing {name} instance for cache and sessions.",
+  "sources": [
+   {
+    "title": "Redis documentation",
+    "url": "https://redis.io/docs/latest/"
+   }
+  ]
+ },
+ {
+  "pattern": "microsoft\\s*365|\\bm365\\b|office\\s*365|\\bo365\\b|\\bsharepoint\\b|\\bexchange\\s*online\\b|\\bmicrosoft\\s*teams\\b|\\bms\\s*teams\\b",
+  "id": "m365",
+  "kind": "productivity",
+  "effects": {
+   "auth": {
+    "prefer": "entra_id",
+    "bonus": 10
+   },
+   "notifications": {
+    "prefer": "ms_graph_mail",
+    "bonus": 15
+   }
+  },
+  "integration": "Sign in with the Entra ID tenant behind {name} and use Microsoft Graph for mail, calendar and Teams.",
+  "sources": [
+   {
+    "title": "Microsoft Graph overview",
+    "url": "https://learn.microsoft.com/en-us/graph/overview"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bslack\\b",
+  "id": "slack",
+  "kind": "productivity",
+  "effects": {},
+  "integration": "Post alerts and approvals to {name} with incoming webhooks or the Slack API.",
+  "sources": [
+   {
+    "title": "Slack API",
+    "url": "https://api.slack.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bjira\\b|\\batlassian\\b|\\bconfluence\\b",
+  "id": "jira",
+  "kind": "productivity",
+  "effects": {},
+  "integration": "Link work items with the {name} REST API and webhooks.",
+  "sources": [
+   {
+    "title": "Atlassian developer docs",
+    "url": "https://developer.atlassian.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\baws\\b|amazon\\s*web\\s*services",
+  "id": "aws_account",
+  "kind": "cloud",
+  "effects": {
+   "hosting": {
+    "prefer": "aws_ecs_fargate",
+    "bonus": 10,
+    "reason": "deploys into the existing AWS account (\"{input}\") with its VPC and IAM baseline"
+   }
+  },
+  "integration": "Deploy into the existing {name} account and organisation with its VPC and IAM baseline.",
+  "sources": [
+   {
+    "title": "AWS documentation",
+    "url": "https://docs.aws.amazon.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bgcp\\b|google\\s*cloud",
+  "id": "gcp_account",
+  "kind": "cloud",
+  "effects": {
+   "hosting": {
+    "prefer": "gcp_cloud_run",
+    "bonus": 10,
+    "reason": "deploys into the existing Google Cloud organisation (\"{input}\") with its project hierarchy"
+   }
+  },
+  "integration": "Deploy into the existing {name} organisation and project hierarchy.",
+  "sources": [
+   {
+    "title": "Google Cloud documentation",
+    "url": "https://cloud.google.com/docs"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bazure\\b|microsoft\\s*azure",
+  "id": "azure_account",
+  "kind": "cloud",
+  "effects": {
+   "hosting": {
+    "prefer": "azure_app_service",
+    "bonus": 10,
+    "reason": "integrates with the existing Azure tenant (\"{input}\"); App Service has built-in authentication for Microsoft Entra ID"
+   }
+  },
+  "integration": "Deploy into the existing {name} subscription and landing zone.",
+  "sources": [
+   {
+    "title": "Azure documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bkafka\\b|\\bconfluent\\b",
+  "id": "kafka",
+  "kind": "messaging",
+  "effects": {
+   "queue": {
+    "prefer": "kafka",
+    "bonus": 15
+   }
+  },
+  "integration": "Publish and consume on the existing {name} cluster; do not add a second broker.",
+  "sources": [
+   {
+    "title": "Apache Kafka documentation",
+    "url": "https://kafka.apache.org/documentation/"
+   }
+  ]
+ },
+ {
+  "pattern": "rabbit\\s*mq|\\bamqp\\b",
+  "id": "rabbitmq",
+  "kind": "messaging",
+  "effects": {
+   "queue": {
+    "prefer": "rabbitmq",
+    "bonus": 15
+   }
+  },
+  "integration": "Reuse the existing {name} broker with new queues and a dedicated vhost.",
+  "sources": [
+   {
+    "title": "RabbitMQ documentation",
+    "url": "https://www.rabbitmq.com/docs"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bstripe\\b",
+  "id": "stripe",
+  "kind": "payments",
+  "effects": {
+   "payments": {
+    "prefer": "stripe",
+    "bonus": 15
+   }
+  },
+  "integration": "Keep the existing {name} account; note it cannot store payment data in India.",
+  "sources": [
+   {
+    "title": "Stripe documentation",
+    "url": "https://docs.stripe.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "razor\\s*pay",
+  "id": "razorpay",
+  "kind": "payments",
+  "effects": {
+   "payments": {
+    "prefer": "razorpay",
+    "bonus": 15
+   }
+  },
+  "integration": "Keep the existing {name} account and add Orders and Webhooks.",
+  "sources": [
+   {
+    "title": "Razorpay documentation",
+    "url": "https://razorpay.com/docs/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bsap\\b|\\bs/4\\s*hana\\b|\\bs4\\s*hana\\b",
+  "id": "sap",
+  "kind": "erp_crm",
+  "effects": {},
+  "integration": "Integrate with {name} through OData or BAPI via an integration layer; do not write to it directly.",
+  "sources": [
+   {
+    "title": "SAP API Business Hub",
+    "url": "https://api.sap.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "sales\\s*force|\\bsfdc\\b",
+  "id": "salesforce",
+  "kind": "erp_crm",
+  "effects": {},
+  "integration": "Sync with {name} through the REST API and Platform Events.",
+  "sources": [
+   {
+    "title": "Salesforce developer docs",
+    "url": "https://developer.salesforce.com/docs"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bzoho\\b",
+  "id": "zoho",
+  "kind": "erp_crm",
+  "effects": {},
+  "integration": "Integrate with {name} through its REST API and webhooks.",
+  "sources": [
+   {
+    "title": "Zoho developer docs",
+    "url": "https://www.zoho.com/developer/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\btally(\\s*prime|\\s*erp)?\\b",
+  "id": "tally",
+  "kind": "erp_crm",
+  "effects": {},
+  "integration": "Exchange data with {name} through its XML over HTTP interface or scheduled exports.",
+  "sources": [
+   {
+    "title": "Tally integration",
+    "url": "https://help.tallysolutions.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "word\\s*press|\\bwoocommerce\\b",
+  "id": "wordpress",
+  "kind": "cms",
+  "effects": {},
+  "integration": "Keep {name} as the content source and read it through the REST API (headless) or put the new app beside it.",
+  "sources": [
+   {
+    "title": "WordPress REST API",
+    "url": "https://developer.wordpress.org/rest-api/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bshopify\\b",
+  "id": "shopify",
+  "kind": "cms",
+  "effects": {},
+  "integration": "Keep {name} for the storefront and integrate through the Admin and Storefront APIs.",
+  "sources": [
+   {
+    "title": "Shopify developer docs",
+    "url": "https://shopify.dev/docs"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bgithub\\b",
+  "id": "github",
+  "kind": "ci",
+  "effects": {
+   "ci_cd": {
+    "prefer": "github_actions",
+    "bonus": 15
+   }
+  },
+  "integration": "Use the existing {name} organisation for source and pipelines.",
+  "sources": [
+   {
+    "title": "GitHub Actions",
+    "url": "https://docs.github.com/en/actions"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bgitlab\\b",
+  "id": "gitlab",
+  "kind": "ci",
+  "effects": {
+   "ci_cd": {
+    "prefer": "gitlab_ci",
+    "bonus": 15
+   }
+  },
+  "integration": "Use the existing {name} instance for source and pipelines.",
+  "sources": [
+   {
+    "title": "GitLab CI/CD",
+    "url": "https://docs.gitlab.com/ee/ci/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bjenkins\\b",
+  "id": "jenkins",
+  "kind": "ci",
+  "effects": {
+   "ci_cd": {
+    "prefer": "jenkins",
+    "bonus": 15
+   }
+  },
+  "integration": "Reuse the existing {name} controller and agents with a new pipeline job.",
+  "sources": [
+   {
+    "title": "Jenkins documentation",
+    "url": "https://www.jenkins.io/doc/"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*devops|\\bvsts\\b|\\btfs\\b",
+  "id": "azure_devops",
+  "kind": "ci",
+  "effects": {
+   "ci_cd": {
+    "prefer": "azure_pipelines",
+    "bonus": 15
+   }
+  },
+  "integration": "Use the existing {name} organisation for repos and pipelines.",
+  "sources": [
+   {
+    "title": "Azure DevOps documentation",
+    "url": "https://learn.microsoft.com/en-us/azure/devops/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bjava\\b|\\bspring\\b|\\bj2ee\\b|\\bjakarta\\s*ee\\b",
+  "id": "java_spring",
+  "kind": "framework",
+  "effects": {
+   "backend": {
+    "prefer": "springboot",
+    "bonus": 15
+   }
+  },
+  "integration": "Keep the {name} services; add new capabilities through their APIs or a Spring Boot module.",
+  "sources": [
+   {
+    "title": "Spring Boot reference",
+    "url": "https://docs.spring.io/spring-boot/"
+   }
+  ],
+  "migration": {
+   "layer": "backend",
+   "prefer": "springboot",
+   "bonus": 15,
+   "text": "The new API is {target} 3.x on Java 21; upgrade the old services to it (Spring Boot 3 needs Java 17 or later and moves javax.* imports to jakarta.*)."
+  }
+ },
+ {
+  "pattern": "\\.net\\s*framework|asp\\.net\\s*(webforms|mvc\\s*5)|\\bvb\\.net\\b|\\bwcf\\b",
+  "id": "dotnet_framework",
+  "kind": "language_runtime",
+  "effects": {
+   "backend": {
+    "prefer": "aspnet",
+    "bonus": 15
+   }
+  },
+  "integration": "Keep {name} in place and strangle it behind an API layer; plan migration to current .NET.",
+  "sources": [
+   {
+    "title": "Upgrade from .NET Framework",
+    "url": "https://learn.microsoft.com/en-us/dotnet/core/porting/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bphp\\b|\\bcodeigniter\\b|\\bsymfony\\b",
+  "id": "php_legacy",
+  "kind": "language_runtime",
+  "effects": {
+   "backend": {
+    "prefer": "laravel",
+    "bonus": 10
+   }
+  },
+  "integration": "Keep {name} running and expose its data through an API; move modules gradually.",
+  "sources": [
+   {
+    "title": "PHP: Supported versions",
+    "url": "https://www.php.net/supported-versions.php"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bdjango\\b",
+  "id": "django_existing",
+  "kind": "framework",
+  "effects": {
+   "backend": {
+    "prefer": "django",
+    "bonus": 15
+   }
+  },
+  "integration": "Extend the existing {name} project; reuse its models and admin.",
+  "sources": [
+   {
+    "title": "Django documentation",
+    "url": "https://docs.djangoproject.com/"
+   }
+  ],
+  "version_regex": "(\\d{4}|\\d+(\\.\\d+)*)"
+ }
+]

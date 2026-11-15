@@ -1,0 +1,22 @@
+{
+ "rps_per_instance": 250,
+ "instance_usd_month": [
+  30,
+  65
+ ],
+ "basis": "One 1 vCPU container instance serves about 80 concurrent requests by default; at roughly 300 ms per request that is about 250 requests per second. An always-on 1 vCPU instance costs about $30 (Fargate) to $65 (Cloud Run) per month at list price.",
+ "sources": [
+  {
+   "title": "Cloud Run: maximum concurrent requests per instance",
+   "url": "https://cloud.google.com/run/docs/about-concurrency"
+  },
+  {
+   "title": "Cloud Run pricing",
+   "url": "https://cloud.google.com/run/pricing"
+  },
+  {
+   "title": "AWS Fargate pricing",
+   "url": "https://aws.amazon.com/fargate/pricing/"
+  }
+ ]
+}

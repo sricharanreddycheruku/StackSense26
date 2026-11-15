@@ -1,0 +1,15 @@
+{
+  "scenario_id": "E02",
+  "project": {
+    "name": "Half-filled form",
+    "platforms": []
+  },
+  "scale": {
+    "users_at_launch": 100
+  },
+  "team": {
+    "languages": [
+      "python"
+    ]
+  }
+}

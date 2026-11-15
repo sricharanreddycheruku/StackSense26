@@ -1,0 +1,1067 @@
+[
+ {
+  "pattern": "angular\\s*js|angularjs|angular\\s*1\\.\\d",
+  "name": "AngularJS 1.x",
+  "status": "eol",
+  "date": "2021-12-31",
+  "successor": "Angular",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "AngularJS long term support ended",
+    "url": "https://docs.angularjs.org/misc/version-support-status"
+   }
+  ],
+  "layer": "frontend"
+ },
+ {
+  "pattern": "vue\\s*(js)?\\s*2(\\.\\d+)*\\b",
+  "name": "Vue 2",
+  "status": "eol",
+  "date": "2023-12-31",
+  "successor": "Vue 3",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Vue 2 End of Life",
+    "url": "https://v2.vuejs.org/eol/"
+   }
+  ]
+ },
+ {
+  "pattern": "create[\\s-]*react[\\s-]*app|\\bcra\\b",
+  "name": "Create React App",
+  "status": "maintenance",
+  "date": "2025-02-14",
+  "successor": "Vite or a React framework",
+  "severity_rule": "warning",
+  "sources": [
+   {
+    "title": "Sunsetting Create React App",
+    "url": "https://react.dev/blog/2025/02/14/sunsetting-create-react-app"
+   }
+  ]
+ },
+ {
+  "pattern": "internet\\s*explorer\\s*(11|10|9)?|\\bie\\s*11\\b",
+  "name": "Internet Explorer 11",
+  "status": "retired",
+  "date": "2022-06-15",
+  "successor": "Microsoft Edge",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Microsoft: Internet Explorer 11 desktop app retirement FAQ",
+    "url": "https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+   }
+  ]
+ },
+ {
+  "pattern": "adobe\\s*flash|\\bflash\\s*player\\b|\\bactionscript\\b",
+  "name": "Adobe Flash",
+  "status": "eol",
+  "date": "2020-12-31",
+  "successor": "HTML5",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Adobe Flash Player EOL",
+    "url": "https://www.adobe.com/products/flashplayer/end-of-life.html"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bxamarin\\b",
+  "name": "Xamarin",
+  "status": "eol",
+  "date": "2024-05-01",
+  "successor": ".NET MAUI",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Xamarin support policy",
+    "url": "https://dotnet.microsoft.com/en-us/platform/support/policy/xamarin"
+   }
+  ]
+ },
+ {
+  "pattern": "python\\s*2(\\.\\d+)*\\b",
+  "name": "Python 2.7",
+  "status": "eol",
+  "date": "2020-01-01",
+  "successor": "Python 3.13 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: python",
+    "url": "https://endoflife.date/python"
+   }
+  ]
+ },
+ {
+  "pattern": "python\\s*3\\.8\\b",
+  "name": "Python 3.8",
+  "status": "eol",
+  "date": "2024-10-07",
+  "successor": "Python 3.13 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: python",
+    "url": "https://endoflife.date/python"
+   }
+  ]
+ },
+ {
+  "pattern": "python\\s*3\\.9\\b",
+  "name": "Python 3.9",
+  "status": "eol",
+  "date": "2025-10-31",
+  "successor": "Python 3.13 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: python",
+    "url": "https://endoflife.date/python"
+   }
+  ]
+ },
+ {
+  "pattern": "node(\\.?js)?\\s*v?(16|18)(\\.\\d+)*\\b",
+  "name": "Node.js 16 and 18",
+  "status": "eol",
+  "date": "2025-04-30",
+  "successor": "Node.js 24 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: nodejs",
+    "url": "https://endoflife.date/nodejs"
+   }
+  ]
+ },
+ {
+  "pattern": "node(\\.?js)?\\s*v?20(\\.\\d+)*\\b",
+  "name": "Node.js 20",
+  "status": "eol",
+  "date": "2026-04-30",
+  "successor": "Node.js 24 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: nodejs",
+    "url": "https://endoflife.date/nodejs"
+   }
+  ]
+ },
+ {
+  "pattern": "php\\s*(7\\.\\d|5\\.\\d)\\b",
+  "name": "PHP 7.x and older",
+  "status": "eol",
+  "date": "2022-11-28",
+  "successor": "PHP 8.4 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: php",
+    "url": "https://endoflife.date/php"
+   }
+  ]
+ },
+ {
+  "pattern": "php\\s*8\\.0\\b",
+  "name": "PHP 8.0",
+  "status": "eol",
+  "date": "2023-11-26",
+  "successor": "PHP 8.4 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: php",
+    "url": "https://endoflife.date/php"
+   }
+  ]
+ },
+ {
+  "pattern": "php\\s*8\\.1\\b",
+  "name": "PHP 8.1",
+  "status": "eol",
+  "date": "2025-12-31",
+  "successor": "PHP 8.4 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: php",
+    "url": "https://endoflife.date/php"
+   }
+  ]
+ },
+ {
+  "pattern": "\\.net\\s*framework\\s*(1\\.\\d|2\\.0|3\\.0|3\\.5|4\\.0|4\\.5(\\.\\d)?|4\\.6(?!\\.[2-9])(\\.1)?)\\b",
+  "name": ".NET Framework 4.6.1 and older",
+  "status": "eol",
+  "date": "2022-04-26",
+  "successor": ".NET 10 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Microsoft: .NET Framework 4.5.2, 4.6, 4.6.1 retirement",
+    "url": "https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-framework"
+   }
+  ]
+ },
+ {
+  "pattern": "\\.net\\s*core\\s*(1|2|3)(\\.\\d+)*\\b",
+  "name": ".NET Core 3.1 and older",
+  "status": "eol",
+  "date": "2022-12-13",
+  "successor": ".NET 10 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: dotnet",
+    "url": "https://endoflife.date/dotnet"
+   }
+  ]
+ },
+ {
+  "pattern": "(?<![\\w.])\\.net\\s*5(\\.0)?\\b",
+  "name": ".NET 5",
+  "status": "eol",
+  "date": "2022-05-10",
+  "successor": ".NET 10 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: dotnet",
+    "url": "https://endoflife.date/dotnet"
+   }
+  ]
+ },
+ {
+  "pattern": "(?<![\\w.])\\.net\\s*6(\\.0)?\\b",
+  "name": ".NET 6",
+  "status": "eol",
+  "date": "2024-11-12",
+  "successor": ".NET 10 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: dotnet",
+    "url": "https://endoflife.date/dotnet"
+   }
+  ]
+ },
+ {
+  "pattern": "(?<![\\w.])\\.net\\s*7(\\.0)?\\b",
+  "name": ".NET 7",
+  "status": "eol",
+  "date": "2024-05-14",
+  "successor": ".NET 10 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: dotnet",
+    "url": "https://endoflife.date/dotnet"
+   }
+  ]
+ },
+ {
+  "pattern": "(?<![\\w.])\\.net\\s*(8|9)(\\.0)?\\b",
+  "name": ".NET 8 and .NET 9",
+  "status": "eol",
+  "date": "2026-11-10",
+  "successor": ".NET 10 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: dotnet",
+    "url": "https://endoflife.date/dotnet"
+   }
+  ]
+ },
+ {
+  "pattern": "django\\s*3\\.2\\b",
+  "name": "Django 3.2",
+  "status": "eol",
+  "date": "2024-04-01",
+  "successor": "Django 5.2 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: django",
+    "url": "https://endoflife.date/django"
+   }
+  ]
+ },
+ {
+  "pattern": "django\\s*4\\.2\\b",
+  "name": "Django 4.2",
+  "status": "eol",
+  "date": "2026-04-30",
+  "successor": "Django 5.2 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: django",
+    "url": "https://endoflife.date/django"
+   }
+  ]
+ },
+ {
+  "pattern": "rails\\s*(5|6\\.0|6\\.1)(\\.\\d+)*\\b",
+  "name": "Rails 6.1 and older",
+  "status": "eol",
+  "date": "2024-10-01",
+  "successor": "Rails 8",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: rails",
+    "url": "https://endoflife.date/rails"
+   }
+  ]
+ },
+ {
+  "pattern": "ruby\\s*(2\\.\\d|3\\.0|3\\.1)(\\.\\d+)?\\b",
+  "name": "Ruby 3.1 and older",
+  "status": "eol",
+  "date": "2025-03-31",
+  "successor": "Ruby 3.4 or newer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: ruby",
+    "url": "https://endoflife.date/ruby"
+   }
+  ]
+ },
+ {
+  "pattern": "spring\\s*boot\\s*[12](\\.\\d+)*\\b",
+  "name": "Spring Boot 2.x and older",
+  "status": "eol",
+  "date": "2023-11-24",
+  "successor": "Spring Boot 3.5 or 4",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: spring-boot",
+    "url": "https://endoflife.date/spring-boot"
+   }
+  ]
+ },
+ {
+  "pattern": "sql\\s*server\\s*(2005|2008(\\s*r2)?|2012)\\b",
+  "name": "SQL Server 2012 and older",
+  "status": "eol",
+  "date": "2022-07-12",
+  "successor": "SQL Server 2022 or Azure SQL",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mssqlserver",
+    "url": "https://endoflife.date/mssqlserver"
+   }
+  ]
+ },
+ {
+  "pattern": "sql\\s*server\\s*2014\\b",
+  "name": "SQL Server 2014",
+  "status": "eol",
+  "date": "2024-07-09",
+  "successor": "SQL Server 2022 or Azure SQL",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mssqlserver",
+    "url": "https://endoflife.date/mssqlserver"
+   }
+  ]
+ },
+ {
+  "pattern": "sql\\s*server\\s*2016\\b",
+  "name": "SQL Server 2016",
+  "status": "eol",
+  "date": "2026-07-14",
+  "successor": "SQL Server 2022 or Azure SQL",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mssqlserver",
+    "url": "https://endoflife.date/mssqlserver"
+   }
+  ]
+ },
+ {
+  "pattern": "sql\\s*server\\s*2017\\b",
+  "name": "SQL Server 2017 (extended support only)",
+  "status": "eol",
+  "date": "2027-10-12",
+  "successor": "SQL Server 2022 or Azure SQL",
+  "severity_rule": "warning",
+  "sources": [
+   {
+    "title": "endoflife.date: mssqlserver",
+    "url": "https://endoflife.date/mssqlserver"
+   }
+  ]
+ },
+ {
+  "pattern": "sql\\s*server\\s*2019\\b",
+  "name": "SQL Server 2019 (extended support only)",
+  "status": "eol",
+  "date": "2030-01-08",
+  "successor": "SQL Server 2022 or Azure SQL",
+  "severity_rule": "info",
+  "sources": [
+   {
+    "title": "endoflife.date: mssqlserver",
+    "url": "https://endoflife.date/mssqlserver"
+   }
+  ]
+ },
+ {
+  "pattern": "oracle(\\s*database)?\\s*(11g?|12c?)(\\.\\d+)*\\b",
+  "name": "Oracle Database 11g and 12c",
+  "status": "eol",
+  "date": "2022-07-31",
+  "successor": "Oracle Database 19c or 23ai",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Oracle Lifetime Support Policy: Oracle Technology Products",
+    "url": "https://www.oracle.com/us/assets/lifetime-support-technology-069183.pdf"
+   }
+  ]
+ },
+ {
+  "pattern": "mysql\\s*5\\.[0-7]\\b",
+  "name": "MySQL 5.7 and older",
+  "status": "eol",
+  "date": "2023-10-31",
+  "successor": "MySQL 8.4 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mysql",
+    "url": "https://endoflife.date/mysql"
+   }
+  ]
+ },
+ {
+  "pattern": "mysql\\s*8\\.0\\b",
+  "name": "MySQL 8.0",
+  "status": "eol",
+  "date": "2026-04-30",
+  "successor": "MySQL 8.4 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mysql",
+    "url": "https://endoflife.date/mysql"
+   }
+  ]
+ },
+ {
+  "pattern": "postgres(ql)?\\s*(9(\\.\\d+)?|10|11)\\b",
+  "name": "PostgreSQL 11 and older",
+  "status": "eol",
+  "date": "2023-11-09",
+  "successor": "PostgreSQL 17 or 18",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: postgresql",
+    "url": "https://endoflife.date/postgresql"
+   }
+  ]
+ },
+ {
+  "pattern": "postgres(ql)?\\s*12\\b",
+  "name": "PostgreSQL 12",
+  "status": "eol",
+  "date": "2024-11-14",
+  "successor": "PostgreSQL 17 or 18",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: postgresql",
+    "url": "https://endoflife.date/postgresql"
+   }
+  ]
+ },
+ {
+  "pattern": "postgres(ql)?\\s*13\\b",
+  "name": "PostgreSQL 13",
+  "status": "eol",
+  "date": "2025-11-13",
+  "successor": "PostgreSQL 17 or 18",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: postgresql",
+    "url": "https://endoflife.date/postgresql"
+   }
+  ]
+ },
+ {
+  "pattern": "postgres(ql)?\\s*14\\b",
+  "name": "PostgreSQL 14",
+  "status": "eol",
+  "date": "2026-11-12",
+  "successor": "PostgreSQL 17 or 18",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: postgresql",
+    "url": "https://endoflife.date/postgresql"
+   }
+  ]
+ },
+ {
+  "pattern": "mongo(db)?\\s*(3\\.\\d|4\\.[0-4])\\b",
+  "name": "MongoDB 4.4 and older",
+  "status": "eol",
+  "date": "2024-02-29",
+  "successor": "MongoDB 8.0",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mongodb",
+    "url": "https://endoflife.date/mongodb"
+   }
+  ]
+ },
+ {
+  "pattern": "mongo(db)?\\s*5\\.0\\b",
+  "name": "MongoDB 5.0",
+  "status": "eol",
+  "date": "2024-10-31",
+  "successor": "MongoDB 8.0",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mongodb",
+    "url": "https://endoflife.date/mongodb"
+   }
+  ]
+ },
+ {
+  "pattern": "mongo(db)?\\s*6\\.0\\b",
+  "name": "MongoDB 6.0",
+  "status": "eol",
+  "date": "2025-07-31",
+  "successor": "MongoDB 8.0",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: mongodb",
+    "url": "https://endoflife.date/mongodb"
+   }
+  ]
+ },
+ {
+  "pattern": "elastic\\s*search\\s*7(\\.\\d+)*\\b|\\belasticsearch\\s*6",
+  "name": "Elasticsearch 7.x and older",
+  "status": "eol",
+  "date": "2026-01-15",
+  "successor": "Elasticsearch 9, OpenSearch or Typesense",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: elasticsearch",
+    "url": "https://endoflife.date/elasticsearch"
+   }
+  ]
+ },
+ {
+  "pattern": "windows\\s*server\\s*(2003|2008|2012)(\\s*r2)?\\b",
+  "name": "Windows Server 2012 and older",
+  "status": "eol",
+  "date": "2023-10-10",
+  "successor": "Windows Server 2022 or 2025",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Microsoft: Windows Server 2012 lifecycle",
+    "url": "https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2012"
+   }
+  ]
+ },
+ {
+  "pattern": "cent\\s*os\\s*(linux\\s*)?7\\b",
+  "name": "CentOS Linux 7",
+  "status": "eol",
+  "date": "2024-06-30",
+  "successor": "AlmaLinux, Rocky Linux or RHEL",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: centos",
+    "url": "https://endoflife.date/centos"
+   }
+  ]
+ },
+ {
+  "pattern": "cent\\s*os\\s*(linux\\s*)?8\\b",
+  "name": "CentOS Linux 8",
+  "status": "eol",
+  "date": "2021-12-31",
+  "successor": "AlmaLinux, Rocky Linux or RHEL",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: centos",
+    "url": "https://endoflife.date/centos"
+   }
+  ]
+ },
+ {
+  "pattern": "ubuntu\\s*(1[0-8]\\.04|16\\.04|18\\.04)\\b",
+  "name": "Ubuntu 18.04 and older",
+  "status": "eol",
+  "date": "2023-05-31",
+  "successor": "Ubuntu 24.04 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: ubuntu",
+    "url": "https://endoflife.date/ubuntu"
+   }
+  ]
+ },
+ {
+  "pattern": "ubuntu\\s*20\\.04\\b",
+  "name": "Ubuntu 20.04",
+  "status": "eol",
+  "date": "2025-05-31",
+  "successor": "Ubuntu 24.04 LTS",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "endoflife.date: ubuntu",
+    "url": "https://endoflife.date/ubuntu"
+   }
+  ]
+ },
+ {
+  "pattern": "\\b(amazon\\s*|aws\\s*)qldb\\b",
+  "name": "Amazon QLDB",
+  "status": "eol",
+  "date": "2025-07-31",
+  "successor": "PostgreSQL with ledger tables",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Amazon QLDB end of support",
+    "url": "https://aws.amazon.com/qldb/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\baws\\s*app\\s*mesh\\b",
+  "name": "AWS App Mesh",
+  "status": "eol",
+  "date": "2026-09-30",
+  "successor": "Amazon ECS Service Connect or VPC Lattice",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "AWS App Mesh end of support",
+    "url": "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.html"
+   }
+  ]
+ },
+ {
+  "pattern": "\\b(amazon|aws)\\s*pinpoint\\b",
+  "name": "Amazon Pinpoint",
+  "status": "eol",
+  "date": "2026-10-30",
+  "successor": "Amazon SES, SNS or AWS End User Messaging",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Amazon Pinpoint end of support",
+    "url": "https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html"
+   }
+  ]
+ },
+ {
+  "pattern": "\\baws\\s*iot\\s*analytics\\b",
+  "name": "AWS IoT Analytics",
+  "status": "eol",
+  "date": "2025-12-15",
+  "successor": "Amazon Kinesis, S3 and Athena or Timestream",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "AWS IoT Analytics end of support",
+    "url": "https://aws.amazon.com/iot-analytics/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\baws\\s*iot\\s*events\\b",
+  "name": "AWS IoT Events",
+  "status": "eol",
+  "date": "2026-05-20",
+  "successor": "AWS IoT Core rules with Lambda or Step Functions",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "AWS IoT Events end of support",
+    "url": "https://aws.amazon.com/iot-events/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\b(aws\\s*|amazon\\s*)?cloud9\\b",
+  "name": "AWS Cloud9",
+  "status": "closed_to_new",
+  "date": "2024-07-25",
+  "successor": "AWS IDE Toolkits or Amazon CodeCatalyst Dev Environments",
+  "severity_rule": "info",
+  "sources": [
+   {
+    "title": "AWS Cloud9 availability change",
+    "url": "https://docs.aws.amazon.com/cloud9/latest/user-guide/cloud9-availability-change.html"
+   }
+  ]
+ },
+ {
+  "pattern": "google\\s*cloud\\s*iot\\s*core|\\bgcp\\s*iot\\s*core\\b",
+  "name": "Google Cloud IoT Core",
+  "status": "retired",
+  "date": "2023-08-16",
+  "successor": "Pub/Sub with a partner MQTT broker",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Google Cloud IoT Core retirement",
+    "url": "https://cloud.google.com/iot/docs/release-notes"
+   }
+  ]
+ },
+ {
+  "pattern": "google\\s*container\\s*registry|\\bgcr\\.io\\b",
+  "name": "Google Container Registry",
+  "status": "shutdown",
+  "date": "2025-03-18",
+  "successor": "Artifact Registry",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Container Registry deprecation",
+    "url": "https://cloud.google.com/container-registry/docs/deprecations/container-registry-deprecation"
+   }
+  ]
+ },
+ {
+  "pattern": "firebase\\s*dynamic\\s*links",
+  "name": "Firebase Dynamic Links",
+  "status": "shutdown",
+  "date": "2025-08-25",
+  "successor": "Branch, AppsFlyer or native deep links",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Dynamic Links deprecation FAQ",
+    "url": "https://firebase.google.com/support/dynamic-links-faq"
+   }
+  ]
+ },
+ {
+  "pattern": "universal\\s*analytics|\\bga3\\b",
+  "name": "Google Universal Analytics",
+  "status": "shutdown",
+  "date": "2023-07-01",
+  "successor": "Google Analytics 4",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Universal Analytics sunset",
+    "url": "https://support.google.com/analytics/answer/11583528"
+   }
+  ]
+ },
+ {
+  "pattern": "google\\s*cloud\\s*functions|\\bgcp\\s*cloud\\s*functions\\b",
+  "name": "Google Cloud Functions (renamed)",
+  "status": "renamed",
+  "date": "2024-08-01",
+  "successor": "Cloud Run functions",
+  "severity_rule": "info",
+  "sources": [
+   {
+    "title": "Cloud Run functions overview",
+    "url": "https://cloud.google.com/functions/docs/concepts/overview"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*active\\s*directory|\\baad\\b|\\bazure\\s*ad\\b(?!\\s*(b2c|graph))",
+  "name": "Azure Active Directory (renamed)",
+  "status": "renamed",
+  "date": "2023-07-11",
+  "successor": "Microsoft Entra ID",
+  "severity_rule": "info",
+  "sources": [
+   {
+    "title": "Microsoft: New name for Azure AD",
+    "url": "https://learn.microsoft.com/en-us/entra/fundamentals/new-name"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*ad\\s*graph",
+  "name": "Azure AD Graph API",
+  "status": "retired",
+  "date": "2025-09-01",
+  "successor": "Microsoft Graph",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Azure AD Graph retirement",
+    "url": "https://learn.microsoft.com/en-us/graph/migrate-azure-ad-graph-overview"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*ad\\s*b2c|\\baad\\s*b2c\\b",
+  "name": "Azure AD B2C",
+  "status": "closed_to_new",
+  "date": "2025-05-01",
+  "successor": "Microsoft Entra External ID",
+  "severity_rule": "info",
+  "sources": [
+   {
+    "title": "Azure AD B2C FAQ",
+    "url": "https://learn.microsoft.com/en-us/azure/active-directory-b2c/faq"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*database\\s*for\\s*mysql\\s*single\\s*server",
+  "name": "Azure Database for MySQL Single Server",
+  "status": "retired",
+  "date": "2024-09-16",
+  "successor": "Azure Database for MySQL Flexible Server",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Single Server retirement",
+    "url": "https://learn.microsoft.com/en-us/azure/mysql/single-server/whats-happening-to-mysql-single-server"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*database\\s*for\\s*postgre(sql)?\\s*single\\s*server",
+  "name": "Azure Database for PostgreSQL Single Server",
+  "status": "retired",
+  "date": "2025-03-28",
+  "successor": "Azure Database for PostgreSQL Flexible Server",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Single Server retirement",
+    "url": "https://learn.microsoft.com/en-us/azure/postgresql/single-server/whats-happening-to-postgresql-single-server"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*media\\s*services",
+  "name": "Azure Media Services",
+  "status": "retired",
+  "date": "2024-06-30",
+  "successor": "Partner video services",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Azure Media Services retirement guide",
+    "url": "https://learn.microsoft.com/en-us/azure/media-services/latest/azure-media-services-retirement"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*cdn\\s*from\\s*edgio|\\bedgio\\b",
+  "name": "Azure CDN from Edgio",
+  "status": "retired",
+  "date": "2025-01-15",
+  "successor": "Azure Front Door",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Azure CDN from Edgio retirement",
+    "url": "https://learn.microsoft.com/en-us/azure/cdn/edgio-retirement-faq"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*cdn\\s*standard\\s*from\\s*microsoft\\s*\\(?classic|azure\\s*cdn\\s*classic",
+  "name": "Azure CDN Standard from Microsoft (classic)",
+  "status": "retired",
+  "date": "2027-09-30",
+  "successor": "Azure Front Door",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Azure CDN classic migration",
+    "url": "https://learn.microsoft.com/en-us/azure/cdn/classic-cdn-retirement-faq"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*cache\\s*for\\s*redis",
+  "name": "Azure Cache for Redis",
+  "status": "retired",
+  "date": "2028-09-30",
+  "successor": "Azure Managed Redis",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Azure Cache for Redis retirement FAQ",
+    "url": "https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/retirement-faq"
+   }
+  ]
+ },
+ {
+  "pattern": "azure\\s*spring\\s*apps",
+  "name": "Azure Spring Apps",
+  "status": "retired",
+  "date": "2028-03-31",
+  "successor": "Azure Container Apps",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Azure Spring Apps retirement announcement",
+    "url": "https://azure.microsoft.com/en-us/updates?id=azure-spring-apps-retirement"
+   }
+  ]
+ },
+ {
+  "pattern": "atlas\\s*device\\s*sync|\\brealm\\s*sync\\b|atlas\\s*data\\s*api",
+  "name": "MongoDB Atlas Device Sync and Data API",
+  "status": "eol",
+  "date": "2025-09-30",
+  "successor": "PowerSync or a custom sync layer",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "MongoDB: Atlas Device Sync end of life",
+    "url": "https://www.mongodb.com/docs/atlas/app-services/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bfaunadb\\b|\\bfauna\\s*(db|database|cloud)\\b|fauna\\.com",
+  "name": "Fauna",
+  "status": "shutdown",
+  "date": "2025-05-30",
+  "successor": "PostgreSQL or Firestore",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Fauna service wind-down",
+    "url": "https://web.archive.org/web/2025/https://fauna.com/blog/the-future-of-fauna"
+   }
+  ]
+ },
+ {
+  "pattern": "planet\\s*scale\\s*(hobby|free)",
+  "name": "PlanetScale Hobby plan",
+  "status": "closed_to_new",
+  "date": "2024-04-08",
+  "successor": "Neon, Supabase or Turso free tiers",
+  "severity_rule": "info",
+  "sources": [
+   {
+    "title": "PlanetScale: Plans",
+    "url": "https://planetscale.com/pricing"
+   }
+  ]
+ },
+ {
+  "pattern": "netlify\\s*identity",
+  "name": "Netlify Identity",
+  "status": "eol",
+  "date": "2025-02-28",
+  "successor": "Auth0, Clerk or Supabase Auth",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Netlify Identity deprecation",
+    "url": "https://docs.netlify.com/manage/security/secure-access-to-sites/identity/overview/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\blucia(\\s*auth)?\\b",
+  "name": "Lucia auth library",
+  "status": "maintenance",
+  "date": "2025-03-01",
+  "successor": "Better Auth or framework-native auth",
+  "severity_rule": "warning",
+  "sources": [
+   {
+    "title": "Lucia: deprecation notice",
+    "url": "https://lucia-auth.com/"
+   }
+  ]
+ },
+ {
+  "pattern": "glitch\\.com|\\bglitch\\s*(hosting|projects?|apps?)\\b",
+  "name": "Glitch project hosting",
+  "status": "shutdown",
+  "date": "2025-07-08",
+  "successor": "Render, Railway or Fly.io",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Glitch: Changes to hosting",
+    "url": "https://blog.glitch.com/post/changes-are-coming-to-glitch/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bheroku\\b",
+  "name": "Heroku (sustaining engineering)",
+  "status": "maintenance",
+  "date": "2026-02-06",
+  "successor": "Render, Fly.io or a cloud container service",
+  "severity_rule": "warning",
+  "sources": [
+   {
+    "title": "Heroku: Ushering in the next era",
+    "url": "https://www.heroku.com/blog/an-update-on-heroku/"
+   }
+  ]
+ },
+ {
+  "pattern": "\\bminio(\\s*community)?(\\s*edition)?\\b",
+  "name": "MinIO Community Edition",
+  "status": "maintenance",
+  "date": "2025-12-03",
+  "successor": "SeaweedFS, Ceph RGW or Cloudflare R2",
+  "severity_rule": "warning",
+  "sources": [
+   {
+    "title": "MinIO repository",
+    "url": "https://github.com/minio/minio"
+   }
+  ]
+ },
+ {
+  "pattern": "docker[\\s-]*compose\\s*v?1(\\.\\d+)*\\b",
+  "name": "docker-compose v1",
+  "status": "eol",
+  "date": "2023-07-01",
+  "successor": "Docker Compose v2 (docker compose)",
+  "severity_rule": "by_date",
+  "sources": [
+   {
+    "title": "Docker: Migrate to Compose V2",
+    "url": "https://docs.docker.com/compose/releases/migrate/"
+   }
+  ]
+ }
+]

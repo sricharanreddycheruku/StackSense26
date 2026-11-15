@@ -1,0 +1,140 @@
+[
+ {
+  "id": "so2025",
+  "title": "Stack Overflow Developer Survey 2025: Technology",
+  "url": "https://survey.stackoverflow.co/2025/technology",
+  "topic": "popularity"
+ },
+ {
+  "id": "techempower",
+  "title": "TechEmpower Framework Benchmarks Round 23",
+  "url": "https://www.techempower.com/benchmarks/",
+  "topic": "performance"
+ },
+ {
+  "id": "eol",
+  "title": "endoflife.date",
+  "url": "https://endoflife.date/",
+  "topic": "lifecycle"
+ },
+ {
+  "id": "cncf",
+  "title": "CNCF Annual Survey",
+  "url": "https://www.cncf.io/reports/cncf-annual-survey-2024/",
+  "topic": "adoption"
+ },
+ {
+  "id": "sre",
+  "title": "Google SRE Book: Availability Table",
+  "url": "https://sre.google/sre-book/availability-table/",
+  "topic": "availability"
+ },
+ {
+  "id": "rbi2018",
+  "title": "RBI: Storage of Payment System Data",
+  "url": "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11244&Mode=0",
+  "topic": "compliance"
+ },
+ {
+  "id": "dpdp",
+  "title": "MeitY: Data Protection Framework (DPDP Act and Rules)",
+  "url": "https://www.meity.gov.in/data-protection-framework",
+  "topic": "compliance"
+ },
+ {
+  "id": "gdpr",
+  "title": "GDPR full text",
+  "url": "https://gdpr-info.eu/",
+  "topic": "compliance"
+ },
+ {
+  "id": "hipaa",
+  "title": "HHS: HIPAA for Professionals",
+  "url": "https://www.hhs.gov/hipaa/for-professionals/index.html",
+  "topic": "compliance"
+ },
+ {
+  "id": "pcissc",
+  "title": "PCI Security Standards Council",
+  "url": "https://www.pcisecuritystandards.org/standards/pci-dss/",
+  "topic": "compliance"
+ },
+ {
+  "id": "trai",
+  "title": "TRAI: Telecom Commercial Communications Customer Preference Regulations 2018 (DLT)",
+  "url": "https://www.trai.gov.in/",
+  "topic": "compliance"
+ },
+ {
+  "id": "aws_regions",
+  "title": "AWS Regions and Availability Zones",
+  "url": "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/",
+  "topic": "regions"
+ },
+ {
+  "id": "gcp_regions",
+  "title": "Google Cloud locations",
+  "url": "https://cloud.google.com/about/locations",
+  "topic": "regions"
+ },
+ {
+  "id": "azure_regions",
+  "title": "Azure geographies and regions",
+  "url": "https://azure.microsoft.com/en-us/explore/global-infrastructure/geographies/",
+  "topic": "regions"
+ },
+ {
+  "id": "aws_compliance",
+  "title": "AWS Compliance Programs",
+  "url": "https://aws.amazon.com/compliance/programs/",
+  "topic": "compliance"
+ },
+ {
+  "id": "gcp_compliance",
+  "title": "Google Cloud Compliance resource center",
+  "url": "https://cloud.google.com/security/compliance",
+  "topic": "compliance"
+ },
+ {
+  "id": "azure_compliance",
+  "title": "Microsoft Azure compliance offerings",
+  "url": "https://learn.microsoft.com/en-us/azure/compliance/offerings/",
+  "topic": "compliance"
+ },
+ {
+  "id": "twelve_factor",
+  "title": "The Twelve-Factor App",
+  "url": "https://12factor.net/",
+  "topic": "practice"
+ },
+ {
+  "id": "owasp",
+  "title": "OWASP Application Security Verification Standard",
+  "url": "https://owasp.org/www-project-application-security-verification-standard/",
+  "topic": "security"
+ },
+ {
+  "id": "certin2022",
+  "title": "CERT-In Directions under section 70B(6) of the IT Act, 28 April 2022",
+  "url": "https://www.cert-in.org.in/PDF/CERT-In_Directions_70B_28.04.2022.pdf",
+  "topic": "compliance"
+ },
+ {
+  "id": "pcisaq",
+  "title": "PCI Security Standards Council: Document Library (Self-Assessment Questionnaires)",
+  "url": "https://www.pcisecuritystandards.org/document_library/",
+  "topic": "compliance"
+ },
+ {
+  "id": "isocert",
+  "title": "ISO: Certification",
+  "url": "https://www.iso.org/certification.html",
+  "topic": "compliance"
+ },
+ {
+  "id": "aicpasoc2",
+  "title": "AICPA: SOC 2 examinations",
+  "url": "https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2",
+  "topic": "compliance"
+ }
+]

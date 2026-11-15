@@ -1,0 +1,327 @@
+{
+  "scenario_id": "P1",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "Static architecture: Astro with no backend and no database on Firebase Hosting in us-central1. Driven mainly by project.type and scale.workload; $0/month.",
+  "architecture_style": "static",
+  "architecture": {
+    "justification": "No server-side logic or stored user data is needed (project.type is content_site, platforms include web), so the site is built ahead of time and served as static files.",
+    "driven_by": [
+      "project.platforms",
+      "project.type",
+      "requirements.auth"
+    ],
+    "alternatives": [
+      {
+        "choice": "microservices",
+        "why_not": "There is no server component to split or scale."
+      },
+      {
+        "choice": "service_oriented",
+        "why_not": "There is no server component to split or scale."
+      },
+      {
+        "choice": "serverless",
+        "why_not": "There is no server component to split or scale."
+      }
+    ]
+  },
+  "region": {
+    "zone": "us",
+    "primary": "us-central1",
+    "dr": null
+  },
+  "stack": {
+    "frontend": {
+      "choice": "Astro",
+      "justification": "Astro: content that rarely changes is best pre-built as static files; server rendering or pre-built pages serve search engines; suited to project.type content_site; free at the expected load; uses javascript, which the team already writes, for the 2-week MVP. Ships near-zero JavaScript by default, so pages stay light on slow networks.",
+      "driven_by": [
+        "priorities.cost",
+        "priorities.time_to_market",
+        "project.type",
+        "requirements.seo_critical",
+        "scale.workload",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Eleventy",
+          "why_not": "Eleventy scores lower on maintainability (3.7 against 4.0, priorities.maintainability is 3), which accounts for 1.0 of the 1.0-point gap."
+        },
+        {
+          "choice": "SvelteKit",
+          "why_not": "Astro is preferred because content that rarely changes is best pre-built as static files."
+        }
+      ],
+      "tradeoffs": [
+        "Not suited to highly interactive app-like screens",
+        "Smaller ecosystem than React-based frameworks"
+      ],
+      "sources": [
+        "https://docs.astro.build/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 121.0,
+      "margin": 1.0,
+      "confidence": "low"
+    },
+    "backend": {
+      "choice": "None",
+      "justification": "No server-side logic is needed: the site is pre-built and served as static files.",
+      "driven_by": [
+        "project.type",
+        "requirements.auth",
+        "requirements.payments"
+      ],
+      "alternatives": [
+        {
+          "choice": "ASP.NET Core",
+          "why_not": "No server-side logic is needed: the site is pre-built and served as static files."
+        }
+      ],
+      "tradeoffs": [],
+      "sources": [],
+      "region": null,
+      "score": null
+    },
+    "database": {
+      "choice": "None",
+      "justification": "No stored user data; content lives in Git.",
+      "driven_by": [
+        "requirements.auth",
+        "requirements.payments"
+      ],
+      "alternatives": [
+        {
+          "choice": "Cloud Firestore",
+          "why_not": "No stored user data; content lives in Git."
+        }
+      ],
+      "tradeoffs": [],
+      "sources": [],
+      "region": null,
+      "score": null
+    },
+    "hosting": {
+      "choice": "Firebase Hosting",
+      "justification": "Firebase Hosting: built for static files with a global CDN; suited to project.type content_site; deploys straight from git, no pipeline to maintain; free at the expected load; quick to build with for a 2-week MVP. Global CDN with one-command deploys. Deployed in us-central1.",
+      "driven_by": [
+        "infrastructure.deployment_model",
+        "priorities.cost",
+        "priorities.time_to_market",
+        "project.type",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Netlify",
+          "why_not": "Netlify and Firebase Hosting are about equal on the weighted score; Firebase Hosting is chosen on its free-tier terms (Spark plan: 10 GB storage and 360 MB/day transfer free); Netlify has Free plan: credit-based limits; check the current terms for commercial use."
+        },
+        {
+          "choice": "GitHub Pages",
+          "why_not": "GitHub Pages scores lower on security (3.0 against 4.0, priorities.security is 2), which accounts for 2.2 of the 3.8-point gap."
+        }
+      ],
+      "tradeoffs": [
+        "Static/CDN only; dynamic code goes to Cloud Functions or Cloud Run",
+        "Edge delivery is not region pinned",
+        "Free tier limits apply: Spark plan: 10 GB storage and 360 MB/day transfer free."
+      ],
+      "sources": [
+        "https://firebase.google.com/pricing",
+        "https://firebase.google.com/docs/hosting",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "us-central1",
+      "score": 107.44,
+      "margin": 0.0,
+      "confidence": "low"
+    },
+    "supporting": [
+      {
+        "layer": "cdn",
+        "choice": "Firebase Hosting (CDN included with host)",
+        "justification": "Firebase Hosting (CDN included with host): included with the hosting platform at no extra cost; suited to project.type content_site; free at the expected load; quick to build with for a 2-week MVP. No separate CDN to configure or pay for.",
+        "driven_by": [
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.platforms",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Firebase Hosting (CDN included with host) is preferred because included with the hosting platform at no extra cost."
+          },
+          {
+            "choice": "Google Cloud CDN",
+            "why_not": "Google Cloud CDN scores lower on cost (0.0 against 5.0, priorities.cost is 5), which accounts for 27.8 of the 86.8-point gap."
+          },
+          {
+            "choice": "AWS Amplify Hosting (CDN included with host)",
+            "why_not": "Excluded: is only available with its own hosting platform."
+          }
+        ],
+        "tradeoffs": [
+          "Only available when Firebase Hosting is the host",
+          "Operations burden 4 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://firebase.google.com/docs/hosting",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 97.56,
+        "margin": 22.2,
+        "confidence": "high"
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "GitHub Actions",
+        "justification": "GitHub Actions: suited to project.type content_site; widely used, with free minutes for small teams; free at the expected load; quick to build with for a 2-week MVP. Pipelines next to the code with a huge marketplace of actions.",
+        "driven_by": [
+          "priorities.cost",
+          "priorities.time_to_market",
+          "project.type",
+          "team.languages",
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitLab.com",
+            "why_not": "GitHub Actions is preferred because widely used, with free minutes for small teams."
+          },
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "Google Cloud Build: operations burden 4 of 5 with no devops engineer."
+          },
+          {
+            "choice": "Host git integration (Vercel, Netlify, Cloudflare Pages)",
+            "why_not": "Excluded: needs a host with its own build-from-git pipeline."
+          }
+        ],
+        "tradeoffs": [
+          "Hosted runners are US based; self-hosted runners fix that",
+          "Free tier limits apply: Free: 2,000 minutes per month on private repos; unlimited on public.",
+          "Operations burden 5 of 5 with no devops engineer."
+        ],
+        "sources": [
+          "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
+          "https://docs.github.com/en/actions",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 85.11,
+        "margin": 7.7,
+        "confidence": "medium"
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 0.0,
+    "max": 0.0,
+    "assumptions": [
+      "Priced for 3,000 monthly active users (the larger of users_at_launch and users_12_months), interpolated between list-price anchors in the knowledge base.",
+      "Prices are list prices of the cheapest region inside the chosen residency zone; taxes are excluded.",
+      "Database storage is priced for 1 GB (scale.data_volume_gb_12_months).",
+      "Firebase Hosting: free tier used at the low end (Spark plan: 10 GB storage and 360 MB/day transfer free)",
+      "GitHub Actions: free tier used at the low end (Free: 2,000 minutes per month on private repos; unlimited on public)",
+      "Payment gateway fees (about 2% per transaction), one-time costs, domain names and developer seats are not infrastructure and are excluded."
+    ],
+    "breakdown": [
+      {
+        "layer": "frontend",
+        "component": "Astro",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "hosting",
+        "component": "Firebase Hosting",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "cdn",
+        "component": "Firebase Hosting (CDN included with host)",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "ci_cd",
+        "component": "GitHub Actions",
+        "min": 0.0,
+        "max": 0.0
+      }
+    ]
+  },
+  "capacity": {
+    "peak_users": 3000,
+    "peak_concurrent_users": 50,
+    "peak_rps": 10.0,
+    "api_instances_at_peak": null,
+    "data_volume_gb_12_months": 1,
+    "basis": [
+      "peak_concurrent_users: given in scale.peak_concurrent_users",
+      "peak_rps: 0.2 requests per second per concurrent user, derived",
+      "api_instances_at_peak: none to size, no server-side backend"
+    ]
+  },
+  "warnings": [
+    {
+      "code": "FREE_TIER_LIMITS",
+      "severity": "info",
+      "message": "The low end of the estimate relies on free tiers: Firebase Hosting (Spark plan: 10 GB storage and 360 MB/day transfer free); GitHub Actions (Free: 2,000 minutes per month on private repos; unlimited on public). Check them against the expected traffic.",
+      "fields": [
+        "budget.monthly_infra_usd",
+        "scale.traffic_pattern"
+      ]
+    }
+  ],
+  "assumptions": [
+    "scale.peak_rps not provided; derived as 10.0 (0.2 requests per second per concurrent user, x1.5 when spiky)",
+    "scale.user_geography not provided; derived as [global] (no description or compliance hint)",
+    "no residency and no geography: defaulting to a US region for widest service availability; CDN serves global users",
+    "requirements.data_sensitivity not provided; derived as public (content site without sign-in)",
+    "requirements.consistency not provided; derived as eventual (no payments or transactional signals)",
+    "requirements.notifications not provided; derived as [] (none implied)",
+    "requirements.background_jobs not provided; derived as false (no trigger found)",
+    "requirements.connectivity not provided; derived as reliable (no connectivity hint in the description)",
+    "requirements.min_device_ram_gb not provided; derived as null (no device hint; no memory penalty applied)",
+    "requirements.rpo_minutes not provided; derived as 1440 (availability target 99)",
+    "team.size_in_12_months not provided; derived as 1 (same as team.size)",
+    "infrastructure.vendor_lock_in_tolerance not provided; derived as medium (neutral default)",
+    "infrastructure.existing_licences not provided; derived as [] (none declared)"
+  ],
+  "validation_errors": [],
+  "description_signals": [
+    {
+      "keyword": "blog",
+      "field": "derived.static_hint",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'blog', which suggests mostly static content"
+    },
+    {
+      "keyword": "markdown",
+      "field": "derived.static_hint",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'markdown', which suggests mostly static content"
+    },
+    {
+      "keyword": "portfolio",
+      "field": "derived.static_hint",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'portfolio', which suggests mostly static content"
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "note": "No language model is used; the stack is chosen by deterministic rules and the knowledge base."
+  },
+  "kb_as_of": "2026-11-10"
+}

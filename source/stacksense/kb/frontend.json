@@ -1,0 +1,1645 @@
+[
+ {
+  "id": "astro",
+  "name": "Astro",
+  "layer": "frontend",
+  "sub_layer": "web_static",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssg",
+   "ssr",
+   "seo",
+   "islands",
+   "small_bundle",
+   "lightweight_payload"
+  ],
+  "runs_on": [
+   "static",
+   "node",
+   "edge"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "content_site",
+   "portfolio",
+   "blog",
+   "documentation",
+   "landing_page",
+   "ecommerce_catalog"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab",
+   "internal_tools"
+  ],
+  "strengths": [
+   "Ships near-zero JavaScript by default, so pages stay light on slow networks",
+   "Static output hosts anywhere for little or no cost",
+   "Islands let React, Vue or Svelte components load only where needed"
+  ],
+  "limits": [
+   "Not suited to highly interactive app-like screens",
+   "Smaller ecosystem than React-based frameworks"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Astro documentation",
+    "url": "https://docs.astro.build/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "hugo",
+  "name": "Hugo",
+  "layer": "frontend",
+  "sub_layer": "web_static",
+  "status": "active",
+  "languages": [
+   "go"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssg",
+   "seo",
+   "small_bundle",
+   "lightweight_payload"
+  ],
+  "runs_on": [
+   "static"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "content_site",
+   "portfolio",
+   "blog",
+   "documentation",
+   "landing_page"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab",
+   "saas_b2b",
+   "fintech"
+  ],
+  "strengths": [
+   "Single binary builds thousands of pages in seconds",
+   "Pure static output with no runtime to patch"
+  ],
+  "limits": [
+   "Go templates have a learning curve",
+   "No client-side interactivity model of its own"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Hugo documentation",
+    "url": "https://gohugo.io/documentation/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "eleventy",
+  "name": "Eleventy",
+  "layer": "frontend",
+  "sub_layer": "web_static",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssg",
+   "seo",
+   "small_bundle",
+   "lightweight_payload"
+  ],
+  "runs_on": [
+   "static",
+   "node"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "content_site",
+   "portfolio",
+   "blog",
+   "documentation",
+   "landing_page"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab",
+   "saas_b2b"
+  ],
+  "strengths": [
+   "Zero client JavaScript by default",
+   "Simple, flexible templating with many languages"
+  ],
+  "limits": [
+   "Fewer batteries than Astro or Next.js",
+   "Smaller community"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Eleventy documentation",
+    "url": "https://www.11ty.dev/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "nextjs",
+  "name": "Next.js",
+  "layer": "frontend",
+  "sub_layer": "web_ssr",
+  "status": "active",
+  "recommended_version": "Next.js 16",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "ssg",
+   "seo",
+   "edge",
+   "spa",
+   "route_handlers"
+  ],
+  "ui_library": "React",
+  "runs_on": [
+   "node",
+   "container",
+   "static",
+   "edge"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "marketplace",
+   "ecommerce",
+   "saas_b2b",
+   "content_site",
+   "fintech"
+  ],
+  "avoid_for": [
+   "gaming"
+  ],
+  "strengths": [
+   "Server rendering, static generation and route handlers in one framework",
+   "Largest React ecosystem and hiring pool",
+   "Optimised for SEO-critical pages"
+  ],
+  "limits": [
+   "Heavier runtime than static generators",
+   "Full features are easiest on Vercel; self-hosting needs Node or a container"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Next.js documentation",
+    "url": "https://nextjs.org/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "react_router",
+  "name": "React Router v7 (framework mode, formerly Remix)",
+  "layer": "frontend",
+  "sub_layer": "web_ssr",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "ssg",
+   "seo",
+   "spa"
+  ],
+  "ui_library": "React",
+  "runs_on": [
+   "node",
+   "container",
+   "static",
+   "edge"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "marketplace",
+   "ecommerce"
+  ],
+  "avoid_for": [
+   "gaming"
+  ],
+  "strengths": [
+   "Web-standard loaders and actions make form flows simple",
+   "Runs on Node, containers and edge runtimes without a vendor tie"
+  ],
+  "limits": [
+   "Smaller ecosystem than Next.js",
+   "Remix v2 users need a migration"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "React Router v7 (framework mode, formerly Remix) documentation",
+    "url": "https://reactrouter.com/home"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "sveltekit",
+  "name": "SvelteKit",
+  "layer": "frontend",
+  "sub_layer": "web_ssr",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "ssg",
+   "seo",
+   "spa",
+   "small_bundle",
+   "lightweight_payload"
+  ],
+  "runs_on": [
+   "node",
+   "container",
+   "static",
+   "edge"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "content_site",
+   "saas_b2b",
+   "marketplace",
+   "portfolio"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Compiler-based output keeps bundles small",
+   "Fast first load on slow devices",
+   "Gentle learning curve"
+  ],
+  "limits": [
+   "Smaller job market than React or Angular",
+   "Fewer ready-made component libraries"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "SvelteKit documentation",
+    "url": "https://svelte.dev/docs/kit"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "nuxt",
+  "name": "Nuxt",
+  "layer": "frontend",
+  "sub_layer": "web_ssr",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "ssg",
+   "seo",
+   "spa",
+   "edge"
+  ],
+  "ui_library": "Vue",
+  "runs_on": [
+   "node",
+   "container",
+   "static",
+   "edge"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "content_site",
+   "marketplace",
+   "ecommerce",
+   "saas_b2b"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Vue-based with batteries included and file-based routing",
+   "Hybrid rendering per route"
+  ],
+  "limits": [
+   "Vue talent is thinner than React in many markets"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Nuxt documentation",
+    "url": "https://nuxt.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "angular",
+  "name": "Angular",
+  "layer": "frontend",
+  "sub_layer": "web_spa",
+  "status": "active",
+  "languages": [
+   "typescript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "spa",
+   "ssr",
+   "ssg",
+   "seo",
+   "enterprise_forms"
+  ],
+  "runs_on": [
+   "static",
+   "node",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "fintech",
+   "healthtech",
+   "internal_tools",
+   "government"
+  ],
+  "avoid_for": [
+   "portfolio",
+   "blog"
+  ],
+  "strengths": [
+   "Opinionated structure suits large teams",
+   "Strong typing, DI and forms for enterprise apps",
+   "Long-term support releases"
+  ],
+  "limits": [
+   "Steep learning curve",
+   "Heavier bundles than Svelte or Astro"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Angular documentation",
+    "url": "https://angular.dev/overview"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "react_vite",
+  "name": "React + Vite SPA",
+  "layer": "frontend",
+  "sub_layer": "web_spa",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "spa"
+  ],
+  "ui_library": "React",
+  "runs_on": [
+   "static",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 3,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "internal_tools",
+   "realtime_collab",
+   "gaming"
+  ],
+  "avoid_for": [
+   "content_site",
+   "blog",
+   "ecommerce"
+  ],
+  "strengths": [
+   "Largest ecosystem and talent pool",
+   "Static output hosts anywhere",
+   "Fast dev server"
+  ],
+  "limits": [
+   "Client-side rendering hurts SEO and first load",
+   "Routing and data fetching are your choice"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "React + Vite SPA documentation",
+    "url": "https://vite.dev/guide/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "vue_vite",
+  "name": "Vue 3 + Vite SPA",
+  "layer": "frontend",
+  "sub_layer": "web_spa",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "spa"
+  ],
+  "ui_library": "Vue",
+  "runs_on": [
+   "static",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 1,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 3,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "saas_b2b",
+   "internal_tools",
+   "realtime_collab"
+  ],
+  "avoid_for": [
+   "content_site",
+   "blog"
+  ],
+  "strengths": [
+   "Gentle learning curve and clear docs",
+   "Static output hosts anywhere"
+  ],
+  "limits": [
+   "Client-side rendering hurts SEO",
+   "Smaller ecosystem than React"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Vue 3 + Vite SPA documentation",
+    "url": "https://vuejs.org/guide/introduction.html"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "htmx",
+  "name": "HTMX + server-rendered templates",
+  "layer": "frontend",
+  "sub_layer": "web_mpa",
+  "status": "active",
+  "languages": [
+   "python",
+   "ruby",
+   "php",
+   "go",
+   "java",
+   "csharp",
+   "javascript",
+   "typescript"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "seo",
+   "small_bundle",
+   "lightweight_payload",
+   "server_templates"
+  ],
+  "runs_on": [
+   "server",
+   "node",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "BSD-2-Clause",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "internal_tools",
+   "saas_b2b",
+   "content_site",
+   "marketplace",
+   "healthtech"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab"
+  ],
+  "strengths": [
+   "Very light pages (the library is a single small script)",
+   "Language is whatever the backend uses, so one codebase and no JS build",
+   "Good on slow connections"
+  ],
+  "limits": [
+   "Rich client interaction needs extra scripting",
+   "Offline use is not practical"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "HTMX + server-rendered templates documentation",
+    "url": "https://htmx.org/docs/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "blazor",
+  "name": "Blazor Web App",
+  "layer": "frontend",
+  "sub_layer": "web_ssr",
+  "status": "active",
+  "recommended_version": ".NET 10 LTS",
+  "languages": [
+   "csharp"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "spa",
+   "seo",
+   "enterprise_forms"
+  ],
+  "runs_on": [
+   "dotnet",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "internal_tools",
+   "saas_b2b",
+   "fintech",
+   "government"
+  ],
+  "avoid_for": [
+   "content_site",
+   "gaming"
+  ],
+  "strengths": [
+   "One language (C#) across client and server",
+   "Pairs with ASP.NET Core Identity and Entra ID"
+  ],
+  "limits": [
+   "Interactive server mode keeps a socket per user",
+   "Smaller front-end ecosystem"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Blazor Web App documentation",
+    "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "livewire",
+  "name": "Laravel Livewire",
+  "layer": "frontend",
+  "sub_layer": "web_ssr",
+  "status": "active",
+  "languages": [
+   "php"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "capabilities": [
+   "ssr",
+   "seo",
+   "server_templates"
+  ],
+  "runs_on": [
+   "php",
+   "container"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 3,
+   "scalability": 3,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "internal_tools",
+   "saas_b2b",
+   "content_site",
+   "marketplace"
+  ],
+  "avoid_for": [
+   "gaming",
+   "realtime_collab"
+  ],
+  "strengths": [
+   "Dynamic UIs written in PHP with no JavaScript build",
+   "Fits the Laravel stack"
+  ],
+  "limits": [
+   "Every interaction is a server round trip",
+   "Not for offline or native apps"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Laravel Livewire documentation",
+    "url": "https://livewire.laravel.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "expo_rn",
+  "name": "React Native with Expo",
+  "layer": "frontend",
+  "sub_layer": "mobile_cross",
+  "status": "active",
+  "recommended_version": "Expo SDK 55",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "web"
+  ],
+  "capabilities": [
+   "offline_store",
+   "native_modules",
+   "ota_updates"
+  ],
+  "ui_library": "React",
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 4,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "marketplace",
+   "ecommerce",
+   "social",
+   "healthtech",
+   "fintech",
+   "logistics"
+  ],
+  "avoid_for": [
+   "gaming"
+  ],
+  "strengths": [
+   "One TypeScript codebase for Android and iOS",
+   "Over-the-air updates and managed builds via EAS",
+   "Reuses React skills from the web"
+  ],
+  "limits": [
+   "Heavier than native on 2 GB devices",
+   "Native modules still need native knowledge occasionally"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "React Native with Expo documentation",
+    "url": "https://docs.expo.dev/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "flutter",
+  "name": "Flutter",
+  "layer": "frontend",
+  "sub_layer": "mobile_cross",
+  "status": "active",
+  "languages": [
+   "dart"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "web",
+   "desktop"
+  ],
+  "capabilities": [
+   "offline_store",
+   "native_perf",
+   "custom_ui"
+  ],
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "BSD-3-Clause",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 3,
+   "performance": 4,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 4,
+   "resource_efficiency": 3
+  },
+  "good_for": [
+   "marketplace",
+   "fintech",
+   "social",
+   "gaming",
+   "healthtech"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Consistent UI and strong rendering performance on one codebase",
+   "Android, iOS, web and desktop from one toolkit"
+  ],
+  "limits": [
+   "Dart is new to most teams",
+   "Larger app size than native"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Flutter documentation",
+    "url": "https://docs.flutter.dev/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "android_native",
+  "name": "Native Android (Kotlin + Jetpack Compose)",
+  "layer": "frontend",
+  "sub_layer": "mobile_native",
+  "status": "active",
+  "languages": [
+   "kotlin",
+   "java"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "capabilities": [
+   "offline_store",
+   "native_perf",
+   "small_bundle",
+   "lightweight_payload"
+  ],
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 3,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "healthtech",
+   "logistics",
+   "iot",
+   "fintech",
+   "social"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Best performance and lowest memory on low-end Android devices",
+   "Full access to platform APIs, Room and WorkManager"
+  ],
+  "limits": [
+   "Android only; iOS needs a second codebase"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Native Android (Kotlin + Jetpack Compose) documentation",
+    "url": "https://developer.android.com/compose"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "ios_native",
+  "name": "Native iOS (Swift + SwiftUI)",
+  "layer": "frontend",
+  "sub_layer": "mobile_native",
+  "status": "active",
+  "languages": [
+   "swift"
+  ],
+  "platforms": [
+   "ios"
+  ],
+  "capabilities": [
+   "offline_store",
+   "native_perf",
+   "small_bundle"
+  ],
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 3,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 4,
+   "security": 5,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "healthtech",
+   "fintech",
+   "social"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Best performance and platform integration on iPhone",
+   "Strong security model"
+  ],
+  "limits": [
+   "iOS only",
+   "Requires Apple hardware and developer account"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Native iOS (Swift + SwiftUI) documentation",
+    "url": "https://developer.apple.com/documentation/swiftui"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "kmp",
+  "name": "Kotlin Multiplatform + Compose Multiplatform",
+  "layer": "frontend",
+  "sub_layer": "mobile_cross",
+  "status": "active",
+  "languages": [
+   "kotlin"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "desktop"
+  ],
+  "capabilities": [
+   "offline_store",
+   "native_perf"
+  ],
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "Apache-2.0",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 5,
+   "scalability": 5,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 4,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "fintech",
+   "healthtech",
+   "logistics"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Shared business logic with native performance",
+   "Compose UI can be shared on iOS too (stable)"
+  ],
+  "limits": [
+   "Smaller ecosystem than Flutter or React Native",
+   "Needs Kotlin skill on the team"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Kotlin Multiplatform + Compose Multiplatform documentation",
+    "url": "https://kotlinlang.org/docs/multiplatform.html"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "ionic_capacitor",
+  "name": "Ionic with Capacitor",
+  "layer": "frontend",
+  "sub_layer": "mobile_cross",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "web"
+  ],
+  "capabilities": [
+   "offline_store",
+   "webview",
+   "spa"
+  ],
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 2,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 2,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 3,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "internal_tools",
+   "saas_b2b",
+   "content_site"
+  ],
+  "avoid_for": [
+   "gaming",
+   "social"
+  ],
+  "strengths": [
+   "Wraps an existing web app into stores quickly",
+   "Web skills only"
+  ],
+  "limits": [
+   "WebView performance is below native or Flutter",
+   "Higher RAM use on low-end devices"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Ionic with Capacitor documentation",
+    "url": "https://capacitorjs.com/docs"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "maui",
+  "name": ".NET MAUI",
+  "layer": "frontend",
+  "sub_layer": "mobile_cross",
+  "status": "active",
+  "recommended_version": ".NET 10 LTS",
+  "languages": [
+   "csharp"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "desktop"
+  ],
+  "capabilities": [
+   "offline_store"
+  ],
+  "runs_on": [
+   "mobile"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 3,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 2,
+   "security": 4,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "internal_tools",
+   "logistics",
+   "saas_b2b"
+  ],
+  "avoid_for": [
+   "gaming",
+   "social"
+  ],
+  "strengths": [
+   "C# across mobile, Windows and macOS",
+   "Natural fit for .NET shops and Entra ID"
+  ],
+  "limits": [
+   "Smaller community and fewer third-party controls",
+   "Xamarin migration path only"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": ".NET MAUI documentation",
+    "url": "https://learn.microsoft.com/en-us/dotnet/maui/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "tauri",
+  "name": "Tauri",
+  "layer": "frontend",
+  "sub_layer": "desktop",
+  "status": "active",
+  "languages": [
+   "rust",
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "desktop"
+  ],
+  "capabilities": [
+   "native_perf",
+   "small_bundle",
+   "offline_store"
+  ],
+  "runs_on": [
+   "desktop"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT or Apache-2.0",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 3,
+   "learning_curve": 2,
+   "performance": 5,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 5,
+   "resource_efficiency": 5
+  },
+  "good_for": [
+   "internal_tools",
+   "productivity"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Small installers and low RAM use compared with Electron",
+   "Rust core with a web UI"
+  ],
+  "limits": [
+   "Rust skill needed for native parts",
+   "WebView differences between operating systems"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Tauri documentation",
+    "url": "https://tauri.app/start/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "electron",
+  "name": "Electron",
+  "layer": "frontend",
+  "sub_layer": "desktop",
+  "status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "platforms": [
+   "desktop"
+  ],
+  "capabilities": [
+   "offline_store",
+   "spa"
+  ],
+  "runs_on": [
+   "desktop"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 5,
+   "learning_curve": 4,
+   "performance": 2,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 3,
+   "resource_efficiency": 1
+  },
+  "good_for": [
+   "internal_tools",
+   "productivity",
+   "realtime_collab"
+  ],
+  "avoid_for": [],
+  "strengths": [
+   "Pure web skills ship a desktop app",
+   "Mature ecosystem (VS Code, Slack style apps)"
+  ],
+  "limits": [
+   "High memory and disk use",
+   "You ship and patch Chromium"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Electron documentation",
+    "url": "https://www.electronjs.org/docs/latest/"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "unity",
+  "name": "Unity",
+  "layer": "frontend",
+  "sub_layer": "game_engine",
+  "status": "active",
+  "languages": [
+   "csharp"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "desktop"
+  ],
+  "capabilities": [
+   "native_perf",
+   "custom_ui",
+   "offline_store"
+  ],
+  "runs_on": [
+   "mobile",
+   "desktop"
+  ],
+  "self_hostable": true,
+  "open_source": false,
+  "license": "Proprietary; Unity Personal for revenue and funds raised under $200K USD in the last 12 months, paid plans above that",
+  "lock_in": 3,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 3,
+   "performance": 5,
+   "scalability": 4,
+   "ops_burden": 2,
+   "maturity": 5,
+   "ecosystem": 5,
+   "security": 3,
+   "resource_efficiency": 2
+  },
+  "good_for": [
+   "gaming"
+  ],
+  "avoid_for": [
+   "saas_b2b",
+   "internal_tool",
+   "ecommerce",
+   "fintech",
+   "healthtech",
+   "web_app"
+  ],
+  "strengths": [
+   "Real-time rendering, physics and input loop for 2D and 3D games on Android, iOS, desktop and consoles",
+   "C# scripting and the largest engine ecosystem, with multiplayer networking packages and an asset store"
+  ],
+  "limits": [
+   "Not a UI toolkit for ordinary business apps",
+   "Unity Personal is limited to under $200K USD of revenue and funds raised in the last 12 months; larger teams need a paid plan"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Unity Personal",
+    "url": "https://unity.com/products/unity-personal"
+   },
+   {
+    "title": "Unity pricing updates",
+    "url": "https://unity.com/products/pricing-updates"
+   },
+   {
+    "title": "Unity Manual",
+    "url": "https://docs.unity3d.com/Manual/index.html"
+   },
+   {
+    "title": "Stack Overflow Developer Survey 2025",
+    "url": "https://survey.stackoverflow.co/2025/technology"
+   }
+  ]
+ },
+ {
+  "id": "godot",
+  "name": "Godot",
+  "layer": "frontend",
+  "sub_layer": "game_engine",
+  "status": "active",
+  "languages": [
+   "csharp",
+   "cpp"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "desktop"
+  ],
+  "capabilities": [
+   "native_perf",
+   "custom_ui",
+   "offline_store"
+  ],
+  "runs_on": [
+   "mobile",
+   "desktop"
+  ],
+  "self_hostable": true,
+  "open_source": true,
+  "license": "MIT",
+  "lock_in": 1,
+  "ratings": {
+   "dev_speed": 4,
+   "learning_curve": 4,
+   "performance": 4,
+   "scalability": 3,
+   "ops_burden": 2,
+   "maturity": 4,
+   "ecosystem": 3,
+   "security": 3,
+   "resource_efficiency": 4
+  },
+  "good_for": [
+   "gaming"
+  ],
+  "avoid_for": [
+   "saas_b2b",
+   "internal_tool",
+   "ecommerce",
+   "fintech",
+   "healthtech",
+   "web_app"
+  ],
+  "strengths": [
+   "Free MIT-licensed engine with no revenue threshold and no royalties",
+   "Light editor and runtime for 2D and 3D games; scripting in GDScript, C# or C++"
+  ],
+  "limits": [
+   "Smaller asset and multiplayer tooling ecosystem than Unity",
+   "Not a UI toolkit for ordinary business apps"
+  ],
+  "offerings": [],
+  "sources": [
+   {
+    "title": "Godot license",
+    "url": "https://godotengine.org/license/"
+   },
+   {
+    "title": "Godot documentation",
+    "url": "https://docs.godotengine.org/en/stable/"
+   },
+   {
+    "title": "Godot features",
+    "url": "https://godotengine.org/features/"
+   }
+  ]
+ }
+]

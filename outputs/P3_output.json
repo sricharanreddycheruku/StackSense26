@@ -1,0 +1,803 @@
+{
+  "scenario_id": "P3",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "Service oriented architecture: React + Vite SPA with Go net/http with chi and Cloud SQL for PostgreSQL on Google Cloud Run in europe-west1. Driven mainly by project.type and requirements.realtime; about $300-910/month.",
+  "architecture_style": "service_oriented",
+  "architecture": {
+    "justification": "A devops engineer and a team of 5 can run a separate service for realtime with 5,000 concurrent users, which scales differently from the main API.",
+    "driven_by": [
+      "requirements.realtime",
+      "scale.peak_concurrent_users",
+      "team.has_devops",
+      "team.size"
+    ],
+    "alternatives": [
+      {
+        "choice": "microservices",
+        "why_not": "Needs 12+ people, a devops engineer, 1,000,000+ users and scalability priority 4+; here team.size is 5, scale.users_12_months is 50,000."
+      }
+    ]
+  },
+  "region": {
+    "zone": "eu",
+    "primary": "europe-west1",
+    "dr": null
+  },
+  "stack": {
+    "frontend": {
+      "choice": "React + Vite SPA",
+      "justification": "React + Vite SPA: largest ecosystem of canvas and shared-editor libraries for a collaborative app; the screens sit behind sign-in and need no search indexing, so a client-rendered app served as static files is enough and there is no rendering server to run; suited to project.type realtime_collab; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Largest ecosystem and talent pool.",
+      "driven_by": [
+        "priorities.maintainability",
+        "priorities.scalability",
+        "project.type",
+        "requirements.auth",
+        "requirements.realtime",
+        "requirements.seo_critical",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Next.js",
+          "why_not": "React + Vite SPA is preferred because the screens sit behind sign-in and need no search indexing, so a client-rendered app served as static files is enough and there is no rendering server to run."
+        },
+        {
+          "choice": "SvelteKit",
+          "why_not": "React + Vite SPA is preferred because it has the largest ecosystem of canvas and shared-editor libraries for a collaborative app."
+        }
+      ],
+      "tradeoffs": [
+        "Client-side rendering hurts SEO and first load",
+        "Routing and data fetching are your choice"
+      ],
+      "sources": [
+        "https://vite.dev/guide/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 99.07,
+      "margin": 2.8,
+      "confidence": "medium"
+    },
+    "backend": {
+      "choice": "Go net/http with chi",
+      "justification": "Go net/http with chi: has built-in real-time support; meets the 100 ms p95 target; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak). Compiled single binary with tiny memory footprint.",
+      "driven_by": [
+        "priorities.performance",
+        "priorities.scalability",
+        "project.platforms",
+        "project.type",
+        "requirements.realtime"
+      ],
+      "alternatives": [
+        {
+          "choice": "Fastify (Node.js)",
+          "why_not": "Fastify (Node.js) scores lower on performance (3.0 against 5.0, priorities.performance is 5), worth 9.1 weighted points, more than its 2.8-point overall deficit (it gains some back on maintainability)."
+        },
+        {
+          "choice": "Supabase Cloud",
+          "why_not": "Supabase Cloud scores lower on performance (1.0 against 5.0, priorities.performance is 5), worth 18.2 weighted points, more than its 8.5-point overall deficit (it gains some back on time to market)."
+        },
+        {
+          "choice": "Next.js route handlers",
+          "why_not": "Excluded: its API routes need Next.js as the web frontend."
+        }
+      ],
+      "tradeoffs": [
+        "You build auth, ORM and admin yourself",
+        "Fewer batteries than Django or Rails"
+      ],
+      "sources": [
+        "https://go-chi.io/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": null,
+      "score": 95.42,
+      "margin": 2.8,
+      "confidence": "medium",
+      "sub_layer": "framework"
+    },
+    "database": {
+      "choice": "Cloud SQL for PostgreSQL",
+      "justification": "Cloud SQL for PostgreSQL: a relational database suits the data: requirements.consistency is strong; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. ACID transactions, JSONB, full-text search, PostGIS and pgvector in one engine. Deployed in europe-west1.",
+      "driven_by": [
+        "priorities.maintainability",
+        "priorities.scalability",
+        "project.type",
+        "requirements.consistency",
+        "scale.peak_rps",
+        "scale.users_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Cloud SQL for MySQL",
+          "why_not": "Cloud SQL for MySQL scores lower on security (4.0 against 5.0, priorities.security is 3), worth 2.7 weighted points, more than its 2.6-point overall deficit (it gains some back on time to market)."
+        },
+        {
+          "choice": "Azure SQL Database",
+          "why_not": "Azure SQL Database scores lower on maintainability (4.4 against 4.7, priorities.maintainability is 4), which accounts for 1.1 of the 1.3-point gap."
+        },
+        {
+          "choice": "SQLite / libSQL",
+          "why_not": "Excluded: a single-writer file database cannot take 1,500 requests per second (about 100 is its limit with writes queued behind one writer)."
+        }
+      ],
+      "tradeoffs": [
+        "Vertical scaling first; sharding needs extra tooling",
+        "Self-managed HA and backups take skill"
+      ],
+      "sources": [
+        "https://cloud.google.com/sql/pricing",
+        "https://www.postgresql.org/docs/",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "europe-west1",
+      "score": 89.62,
+      "margin": 2.6,
+      "confidence": "medium",
+      "sub_layer": "relational"
+    },
+    "hosting": {
+      "choice": "Google Cloud Run",
+      "justification": "Google Cloud Run: handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Any container, scales to zero, and bills per request. Deployed in europe-west1. The built React + Vite SPA web app is served from the same host as the Go net/http with chi API, so there is one deployment target.",
+      "driven_by": [
+        "infrastructure.deployment_model",
+        "priorities.maintainability",
+        "priorities.scalability",
+        "team.has_devops",
+        "team.size"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure Container Apps",
+          "why_not": "Azure Container Apps scores lower on maintainability (3.7 against 4.5, priorities.maintainability is 4), which accounts for 3.1 of the 4.0-point gap."
+        },
+        {
+          "choice": "Amazon ECS on AWS Fargate with ALB",
+          "why_not": "Amazon ECS on AWS Fargate with ALB scores lower on cost (3.2 against 5.0, priorities.cost is 2), which accounts for 3.4 of the 3.9-point gap."
+        }
+      ],
+      "tradeoffs": [
+        "Websocket sessions are time limited",
+        "Cold starts on idle services"
+      ],
+      "sources": [
+        "https://cloud.google.com/run/pricing",
+        "https://cloud.google.com/run/docs",
+        "https://survey.stackoverflow.co/2025/technology"
+      ],
+      "region": "europe-west1",
+      "score": 88.1,
+      "margin": 3.9,
+      "confidence": "medium",
+      "sub_layer": "container"
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Firebase Authentication",
+        "justification": "Firebase Authentication: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Phone OTP, social and email sign-in with mobile SDKs. Deployed in us.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.scalability",
+          "requirements.auth",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Keycloak self-hosted",
+            "why_not": "Keycloak self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "Auth0",
+            "why_not": "Firebase Authentication is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Microsoft Entra ID (workforce SSO)",
+            "why_not": "Excluded: does not provide social sign-in."
+          }
+        ],
+        "tradeoffs": [
+          "User data is processed in the US, so it fails India and EU residency",
+          "Proprietary",
+          "Free tier limits apply: Free tier: 50,000 MAU on Identity Platform; phone SMS billed separately."
+        ],
+        "sources": [
+          "https://firebase.google.com/pricing",
+          "https://firebase.google.com/docs/auth",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "us",
+        "score": 74.83,
+        "margin": 15.7,
+        "confidence": "high",
+        "sub_layer": "social"
+      },
+      {
+        "layer": "payments",
+        "choice": "Stripe",
+        "justification": "Stripe: handles recurring per-seat subscriptions; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak). Best-in-class API, Connect for marketplaces and Billing for subscriptions. Deployed in eu.",
+        "driven_by": [
+          "compliance",
+          "priorities.performance",
+          "priorities.scalability",
+          "project.type"
+        ],
+        "alternatives": [
+          {
+            "choice": "Paddle",
+            "why_not": "Paddle scores lower on performance (1.0 against 3.0, priorities.performance is 5), worth 9.1 weighted points, more than its 7.0-point overall deficit."
+          },
+          {
+            "choice": "Adyen",
+            "why_not": "Adyen scores lower on performance (1.0 against 3.0, priorities.performance is 5), which accounts for 9.1 of the 13.2-point gap."
+          },
+          {
+            "choice": "Cashfree Payments",
+            "why_not": "Excluded: Cashfree Payments does not list gdpr_dpa in the knowledge base (required by the compliance setting)."
+          }
+        ],
+        "tradeoffs": [
+          "New Indian businesses can only join by invitation",
+          "Data is not stored in India, so RBI localisation fails"
+        ],
+        "sources": [
+          "https://docs.stripe.com/",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "eu",
+        "score": 87.45,
+        "margin": 7.0,
+        "confidence": "medium"
+      },
+      {
+        "layer": "realtime",
+        "choice": "Hocuspocus self-hosted",
+        "justification": "Hocuspocus self-hosted: built for shared documents with live cursors (CRDT); runs as one more container on the chosen host and stores documents in the stack's own database, so no extra vendor holds user content; suited to project.type realtime_collab; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Open-source CRDT collaboration with a self-hosted websocket server. Self-hosted although the deployment is managed_cloud: team.has_devops is true, so the team can run it. Deployed in europe-west1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.scalability",
+          "project.type",
+          "requirements.realtime",
+          "team.has_devops",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare Durable Objects",
+            "why_not": "Hocuspocus self-hosted is preferred because it is built for shared documents with live cursors (CRDT)."
+          },
+          {
+            "choice": "Cloud Firestore listeners",
+            "why_not": "Hocuspocus self-hosted is preferred because it is built for shared documents with live cursors (CRDT)."
+          },
+          {
+            "choice": "Phoenix Channels",
+            "why_not": "Excluded: needs a library for the chosen backend language."
+          }
+        ],
+        "tradeoffs": [
+          "You run and scale it",
+          "Needs team skill"
+        ],
+        "sources": [
+          "https://tiptap.dev/docs/hocuspocus/introduction",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "europe-west1",
+        "score": 82.21,
+        "margin": 0.9,
+        "confidence": "low"
+      },
+      {
+        "layer": "storage",
+        "choice": "Google Cloud Storage",
+        "justification": "Google Cloud Storage: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Regional, dual-region and multi-region buckets. Deployed in europe-west1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.scalability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare R2",
+            "why_not": "Google Cloud Storage is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "DigitalOcean Spaces",
+            "why_not": "Google Cloud Storage is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Supabase Storage",
+            "why_not": "Excluded: is bundled with supabase, which is not the chosen backend."
+          }
+        ],
+        "tradeoffs": [
+          "Egress charges",
+          "GCP only"
+        ],
+        "sources": [
+          "https://cloud.google.com/storage/pricing",
+          "https://cloud.google.com/storage/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "europe-west1",
+        "score": 85.71,
+        "margin": 11.4,
+        "confidence": "high"
+      },
+      {
+        "layer": "cache",
+        "choice": "Memorystore",
+        "justification": "Memorystore: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Managed Valkey or Redis in your Google Cloud region. Deployed in europe-west1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.scalability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Upstash Redis (pay as you go)",
+            "why_not": "Memorystore is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Redis Open Source self-hosted",
+            "why_not": "Redis Open Source self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only",
+          "No free tier"
+        ],
+        "sources": [
+          "https://cloud.google.com/memorystore/docs/valkey/pricing",
+          "https://cloud.google.com/memorystore/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "europe-west1",
+        "score": 70.83,
+        "margin": 7.4,
+        "confidence": "medium"
+      },
+      {
+        "layer": "queue",
+        "choice": "Google Pub/Sub and Cloud Tasks",
+        "justification": "Google Pub/Sub and Cloud Tasks: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Global messaging and managed task dispatch. Deployed in europe-west1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.scalability",
+          "team.languages"
+        ],
+        "alternatives": [
+          {
+            "choice": "NATS JetStream self-hosted",
+            "why_not": "NATS JetStream self-hosted: self-hosted, so the devops engineer must patch, scale and back it up when a managed option exists."
+          },
+          {
+            "choice": "CloudAMQP",
+            "why_not": "CloudAMQP scores lower on cost (0.0 against 5.0, priorities.cost is 2), which accounts for 9.1 of the 25.4-point gap."
+          },
+          {
+            "choice": "Postgres-backed job queue (pg-boss / Procrastinate / Solid Queue)",
+            "why_not": "Excluded: needs a library for the chosen backend language."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only"
+        ],
+        "sources": [
+          "https://cloud.google.com/pubsub/pricing",
+          "https://cloud.google.com/pubsub/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "europe-west1",
+        "score": 79.74,
+        "margin": 19.5,
+        "confidence": "high"
+      },
+      {
+        "layer": "cdn",
+        "choice": "Google Cloud CDN",
+        "justification": "Google Cloud CDN: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Uses Google edge with the global load balancer.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.maintainability",
+          "priorities.scalability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Bunny CDN",
+            "why_not": "Google Cloud CDN is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Google Cloud CDN is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "AWS Amplify Hosting (CDN included with host)",
+            "why_not": "Excluded: is only available with its own hosting platform."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only"
+        ],
+        "sources": [
+          "https://cloud.google.com/cdn/pricing",
+          "https://cloud.google.com/cdn/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 83.37,
+        "margin": 10.0,
+        "confidence": "high"
+      },
+      {
+        "layer": "other",
+        "choice": "Resend",
+        "justification": "Resend: handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); quick to build with for a 12-week MVP. Developer-friendly email API with React Email templates. Deployed in eu-west-1.",
+        "driven_by": [
+          "compliance",
+          "infrastructure.existing_licences",
+          "priorities.scalability",
+          "priorities.time_to_market"
+        ],
+        "alternatives": [
+          {
+            "choice": "Twilio SendGrid",
+            "why_not": "Twilio SendGrid and Resend are about equal on the weighted score; Resend is chosen on its free-tier terms (Free plan: 3,000 emails per month, 100 per day); Twilio SendGrid has no free tier."
+          },
+          {
+            "choice": "Postmark",
+            "why_not": "Postmark: adds another vendor (Postmark) to sign up with, secure and pay."
+          },
+          {
+            "choice": "Microsoft Graph mail and Teams",
+            "why_not": "Excluded: needs a Microsoft 365 licence."
+          }
+        ],
+        "tradeoffs": [
+          "Young product",
+          "No India region verified",
+          "Adds another vendor (Resend) to sign up with, secure and pay."
+        ],
+        "sources": [
+          "https://resend.com/pricing",
+          "https://resend.com/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "eu-west-1",
+        "score": 67.9,
+        "margin": 0.0,
+        "confidence": "low",
+        "sub_layer": "notifications"
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "GitHub Actions",
+        "justification": "GitHub Actions: widely used, with free minutes for small teams; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); mature and well documented for a team of 5 with a devops engineer. Pipelines next to the code with a huge marketplace of actions.",
+        "driven_by": [
+          "priorities.maintainability",
+          "priorities.scalability",
+          "team.languages",
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "GitHub Actions is preferred because widely used, with free minutes for small teams."
+          },
+          {
+            "choice": "GitLab.com",
+            "why_not": "GitLab.com scores lower on cost (2.9 against 5.0, priorities.cost is 2), which accounts for 3.9 of the 10.7-point gap."
+          },
+          {
+            "choice": "Host git integration (Vercel, Netlify, Cloudflare Pages)",
+            "why_not": "Excluded: needs a host with its own build-from-git pipeline."
+          }
+        ],
+        "tradeoffs": [
+          "Hosted runners are US based; self-hosted runners fix that"
+        ],
+        "sources": [
+          "https://docs.github.com/en/billing/managing-billing-for-your-products/managing-billing-for-github-actions/about-billing-for-github-actions",
+          "https://docs.github.com/en/actions",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": null,
+        "score": 79.36,
+        "margin": 4.3,
+        "confidence": "medium"
+      },
+      {
+        "layer": "observability",
+        "choice": "Google Cloud Observability",
+        "justification": "Google Cloud Observability: same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic; handles the 50,000 users expected in 12 months (about 5,000 concurrent at peak); strong security defaults for gdpr. Native logs, metrics and tracing in your GCP region. Deployed in europe-west1.",
+        "driven_by": [
+          "infrastructure.cloud_preference",
+          "priorities.scalability",
+          "priorities.security"
+        ],
+        "alternatives": [
+          {
+            "choice": "Sentry",
+            "why_not": "Google Cloud Observability is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          },
+          {
+            "choice": "Grafana Cloud",
+            "why_not": "Google Cloud Observability is preferred because same cloud (Google Cloud) as the core stack, so one account and no cross-vendor traffic."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only"
+        ],
+        "sources": [
+          "https://cloud.google.com/products/observability/pricing",
+          "https://cloud.google.com/stackdriver/docs",
+          "https://survey.stackoverflow.co/2025/technology"
+        ],
+        "region": "europe-west1",
+        "score": 78.19,
+        "margin": 10.2,
+        "confidence": "high"
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 300.0,
+    "max": 910.0,
+    "assumptions": [
+      "Priced for 50,000 monthly active users (the larger of users_at_launch and users_12_months), interpolated between list-price anchors in the knowledge base.",
+      "Prices are list prices of the cheapest region inside the chosen residency zone; taxes are excluded.",
+      "Database storage is priced for 200 GB (scale.data_volume_gb_12_months).",
+      "The upper bound includes a x1.25 allowance for spiky traffic (not stacked on the staging allowance).",
+      "A staging environment is added for a team of 3 or more (x1.1 to x1.3 on core services).",
+      "The upper bound is limited to 3 times the lower bound: the components do not all peak in the same month, so the band stays within one order of magnitude.",
+      "Firebase Authentication: free tier used at the low end (Free tier: 50,000 MAU on Identity Platform; phone SMS billed separately)",
+      "Payment gateway fees (about 2% per transaction), one-time costs, domain names and developer seats are not infrastructure and are excluded."
+    ],
+    "breakdown": [
+      {
+        "layer": "frontend",
+        "component": "React + Vite SPA",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "backend",
+        "component": "Go net/http with chi",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "database",
+        "component": "Cloud SQL for PostgreSQL",
+        "min": 94.51,
+        "max": 345.42
+      },
+      {
+        "layer": "database",
+        "component": "Cloud SQL for PostgreSQL (storage)",
+        "min": 37.4,
+        "max": 44.2
+      },
+      {
+        "layer": "hosting",
+        "component": "Google Cloud Run",
+        "min": 20.22,
+        "max": 116.87
+      },
+      {
+        "layer": "auth",
+        "component": "Firebase Authentication",
+        "min": 0.0,
+        "max": 281.09
+      },
+      {
+        "layer": "payments",
+        "component": "Stripe",
+        "min": 0.0,
+        "max": 0.0
+      },
+      {
+        "layer": "realtime",
+        "component": "Hocuspocus self-hosted",
+        "min": 30.97,
+        "max": 116.89
+      },
+      {
+        "layer": "storage",
+        "component": "Google Cloud Storage",
+        "min": 3.8,
+        "max": 44.95
+      },
+      {
+        "layer": "cache",
+        "component": "Memorystore",
+        "min": 65.41,
+        "max": 235.13
+      },
+      {
+        "layer": "queue",
+        "component": "Google Pub/Sub and Cloud Tasks",
+        "min": 1.4,
+        "max": 15.18
+      },
+      {
+        "layer": "cdn",
+        "component": "Google Cloud CDN",
+        "min": 7.59,
+        "max": 74.41
+      },
+      {
+        "layer": "other",
+        "component": "Resend",
+        "min": 13.98,
+        "max": 68.93
+      },
+      {
+        "layer": "ci_cd",
+        "component": "GitHub Actions",
+        "min": 3.49,
+        "max": 27.96
+      },
+      {
+        "layer": "observability",
+        "component": "Google Cloud Observability",
+        "min": 21.87,
+        "max": 148.82
+      }
+    ]
+  },
+  "capacity": {
+    "peak_users": 50000,
+    "peak_concurrent_users": 5000,
+    "peak_rps": 1500.0,
+    "api_instances_at_peak": 6,
+    "data_volume_gb_12_months": 200,
+    "basis": [
+      "peak_concurrent_users: given in scale.peak_concurrent_users",
+      "peak_rps: 0.2 requests per second per concurrent user, x1.5 for spiky traffic, derived",
+      "api_instances_at_peak: peak_rps / 250 requests per second per instance, rounded up",
+      "the cost band prices hosting by monthly users; per-instance sizing is added to it only when scale.peak_rps is given"
+    ]
+  },
+  "warnings": [
+    {
+      "code": "COMPLIANCE_GDPR",
+      "severity": "info",
+      "message": "EU GDPR: Data processing agreement and SCCs for transfers; DPIA for high-risk processing. The stack keeps data in europe-west1.",
+      "fields": [
+        "compliance"
+      ]
+    },
+    {
+      "code": "FREE_TIER_LIMITS",
+      "severity": "info",
+      "message": "The low end of the estimate relies on free tiers: Firebase Authentication (Free tier: 50,000 MAU on Identity Platform; phone SMS billed separately). Check them against the expected traffic.",
+      "fields": [
+        "budget.monthly_infra_usd",
+        "scale.traffic_pattern"
+      ]
+    },
+    {
+      "code": "PAYMENT_IDEMPOTENCY",
+      "severity": "info",
+      "message": "Make every Stripe charge and refund call idempotent (one idempotency key or order id per attempt) and store processed webhook event ids, so a retry or a repeated webhook never charges or refunds twice.",
+      "fields": [
+        "requirements.payments"
+      ]
+    },
+    {
+      "code": "PCI_SCOPE",
+      "severity": "info",
+      "message": "Card data still falls under PCI DSS even though compliance does not list pci_dss. Use the payment provider's hosted checkout or redirect so card numbers never touch these servers; the merchant then files the short Self-Assessment Questionnaire A instead of a full assessment.",
+      "fields": [
+        "requirements.payments",
+        "compliance"
+      ]
+    }
+  ],
+  "assumptions": [
+    "scale.peak_rps not provided; derived as 1500.0 (0.2 requests per second per concurrent user, x1.5 when spiky)",
+    "scale.user_geography not provided; derived as [eu] (implied by compliance gdpr)",
+    "requirements.data_sensitivity not provided; derived as personal (compliance covers personal data)",
+    "requirements.consistency not provided; derived as strong (payments or a transactional project type)",
+    "requirements.notifications not provided; derived as [email] (email sign-in, SSO or payments)",
+    "requirements.background_jobs not provided; derived as true (payments, notifications, file uploads)",
+    "requirements.connectivity not provided; derived as reliable (no connectivity hint in the description)",
+    "requirements.min_device_ram_gb not provided; derived as null (no device hint; no memory penalty applied)",
+    "requirements.rpo_minutes not provided; derived as 60 (availability target 99.9)",
+    "team.size_in_12_months not provided; derived as 5 (same as team.size)",
+    "infrastructure.vendor_lock_in_tolerance not provided; derived as medium (neutral default)",
+    "infrastructure.existing_licences not provided; derived as [] (none declared)"
+  ],
+  "validation_errors": [],
+  "description_signals": [
+    {
+      "keyword": "cursors",
+      "field": "derived.collab",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'cursors', which suggests several people editing the same state"
+    },
+    {
+      "keyword": "multiplayer",
+      "field": "derived.collab",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'multiplayer', which suggests several people editing the same state"
+    },
+    {
+      "keyword": "whiteboard",
+      "field": "derived.collab",
+      "value": true,
+      "applied": true,
+      "reason": "description mentions 'whiteboard', which suggests several people editing the same state"
+    },
+    {
+      "keyword": "per seat",
+      "field": "requirements.multi_tenant",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'per seat', which suggests several customer organisations"
+    },
+    {
+      "keyword": "teams pay",
+      "field": "requirements.multi_tenant",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'teams pay', which suggests several customer organisations"
+    },
+    {
+      "keyword": "pay",
+      "field": "requirements.payments",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'pay', which suggests taking or sending money"
+    },
+    {
+      "keyword": "per seat",
+      "field": "requirements.payments",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'per seat', which suggests taking or sending money"
+    },
+    {
+      "keyword": "cursors",
+      "field": "requirements.realtime",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'cursors', which suggests live updates"
+    },
+    {
+      "keyword": "live",
+      "field": "requirements.realtime",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'live', which suggests live updates"
+    },
+    {
+      "keyword": "multiplayer",
+      "field": "requirements.realtime",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'multiplayer', which suggests live updates"
+    },
+    {
+      "keyword": "whiteboard",
+      "field": "requirements.realtime",
+      "value": true,
+      "applied": false,
+      "reason": "description mentions 'whiteboard', which suggests live updates"
+    }
+  ],
+  "llm": {
+    "enabled": false,
+    "note": "No language model is used; the stack is chosen by deterministic rules and the knowledge base."
+  },
+  "kb_as_of": "2026-11-10"
+}

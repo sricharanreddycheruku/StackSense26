@@ -1,0 +1,64 @@
+{
+  "project": {
+    "name": "Next Big Social",
+    "type": "social",
+    "description": "A social network for the whole country with feeds, chat and video uploads.",
+    "platforms": [
+      "web",
+      "android",
+      "ios"
+    ]
+  },
+  "scale": {
+    "traffic_pattern": "spiky",
+    "workload": "balanced",
+    "users_at_launch": 500000,
+    "users_12_months": 20000000,
+    "peak_concurrent_users": 400000,
+    "data_volume_gb_12_months": 200000
+  },
+  "team": {
+    "has_devops": false,
+    "size": 3,
+    "experience": "intermediate",
+    "languages": [
+      "typescript",
+      "python"
+    ]
+  },
+  "budget": {
+    "monthly_infra_usd": 0
+  },
+  "timeline": {
+    "mvp_weeks": 10
+  },
+  "infrastructure": {
+    "cloud_preference": "any",
+    "deployment_model": "managed_cloud",
+    "data_residency": "none",
+    "existing_systems": []
+  },
+  "requirements": {
+    "realtime": true,
+    "offline_support": false,
+    "full_text_search": false,
+    "file_media_storage": true,
+    "payments": false,
+    "auth": "social",
+    "multi_tenant": false,
+    "ml_features": "none",
+    "seo_critical": false,
+    "availability": "99.95",
+    "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+    "cost": 3,
+    "time_to_market": 3,
+    "scalability": 3,
+    "performance": 3,
+    "maintainability": 3,
+    "security": 3
+  },
+  "scenario_id": "E05"
+}

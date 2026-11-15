@@ -1,0 +1,99 @@
+{
+ "n": 10000,
+ "seed": 26,
+ "inputs": {
+  "valid": 4000,
+  "mutation": 4000,
+  "garbage": 2000
+ },
+ "statuses": {
+  "infeasible": 814,
+  "invalid_input": 1867,
+  "ok": 1893,
+  "ok_with_warnings": 5426
+ },
+ "invariants": {
+  "I1": {
+   "description": "never raises, JSON-serialisable, no internal error",
+   "checked": 30000,
+   "failed": 0
+  },
+  "I2": {
+   "description": "output matches the spec section 4 shape",
+   "checked": 10000,
+   "failed": 0
+  },
+  "I3": {
+   "description": "deterministic (rerun and shuffled key order)",
+   "checked": 6614,
+   "failed": 0
+  },
+  "I4": {
+   "description": "hard constraints honoured or critical warning; cloud coherence",
+   "checked": 14638,
+   "failed": 0
+  },
+  "I5": {
+   "description": "cost band vs budget carries a BUDGET_* warning",
+   "checked": 14638,
+   "failed": 0
+  },
+  "I6": {
+   "description": "0 <= min <= max, finite",
+   "checked": 7319,
+   "failed": 0
+  },
+  "I7": {
+   "description": "status coherence",
+   "checked": 10000,
+   "failed": 0
+  },
+  "I8": {
+   "description": "no microservices / k8s outside their gates",
+   "checked": 7319,
+   "failed": 0
+  },
+  "I9": {
+   "description": "static architecture has no backend or database",
+   "checked": 619,
+   "failed": 0
+  },
+  "I10": {
+   "description": "name/id/punctuation change nothing",
+   "checked": 5520,
+   "failed": 0
+  },
+  "I10b": {
+   "description": "priority +-1 changes at most 1 core layer (rate >= 95%)",
+   "checked": 1803,
+   "failed": 0
+  },
+  "I11": {
+   "description": "each run under 1 s",
+   "checked": 10000,
+   "failed": 0
+  },
+  "I12": {
+   "description": "each absent optional field has an assumption",
+   "checked": 7319,
+   "failed": 0
+  },
+  "I13": {
+   "description": "halving the budget does not raise the cost band minimum (rate >= 97%)",
+   "checked": 1527,
+   "failed": 0
+  }
+ },
+ "priority_stability": {
+  "pairs": 1803,
+  "le1_layer": 0.9933,
+  "le2_layers": 0.9978
+ },
+ "budget_halving": {
+  "pairs": 1527,
+  "min_not_raised": 0.9849,
+  "largest_rise": 18.4
+ },
+ "ms_per_input": 66.4,
+ "result": "PASS"
+}
